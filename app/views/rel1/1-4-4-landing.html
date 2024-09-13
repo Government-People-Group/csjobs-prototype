@@ -28,7 +28,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 </style>
 
 <div class="govuk-grid-row">
-  <h2 class="govuk-heading-l">1.4.2: Marketing the advert (VH)
+  <h2 class="govuk-heading-l">1.4.4: Create a vacancy
   </h2>
   <br><br>
 
@@ -43,10 +43,18 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       </thead>
       <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Jobs boards</a><br>
+        <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Create a vacancy journey</a><br>
           <div class="govuk-form-group">
            <div id="event-name-hint" class="govuk-hint">
-             FR-109: campaign removed from job boards after closing date / time<br>
+             FR-007: VH can define essential info about the job<br>
+             FR-137: standard dept info is prepopulated<br>
+             FR-143: prepopulated info is editable<br>
+             FR-150: candidate-visible fields are highlighted to VH<br>
+             FR-151: select one or more locations from existing list<br>
+             FR-153: date and time of publishing can be set by VH<br>
+             FR-157: VH can preview job ad before publishing<br>
+             FR-160: more than one location can be set for a vacancy<br>
+             FR-161: specify closing date
            </div>
          </div>
          </td>
@@ -57,26 +65,12 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
          </td>
          <td class="govuk-table__cell filterDiv candidates show"></td>
        </tr>
-       <tr class="govuk-table__row">
-         <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Advert only job ad</a><br>
-           <div class="govuk-form-group">
-            <div id="event-name-hint" class="govuk-hint">
-              FR-115: 'Apply' takes candidate to dept's application process<br>
-            </div>
-          </div>
-          </td>
-          <td class="govuk-table__cell filterDiv candidates show">
-            <strong class="govuk-tag govuk-tag--red">
-
-            </strong>
-          </td>
-          <td class="govuk-table__cell filterDiv candidates show"></td>
-        </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Currency input page</a><br>
+          <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Task list</a><br>
             <div class="govuk-form-group">
              <div id="event-name-hint" class="govuk-hint">
-               FR-120: VH can select non-sterling currency for overseas roles<br>
+               FR-145: VH can see what tasks are outstanding<br>
+               FR-149: ability to save and return during vacancy creation
              </div>
            </div>
            </td>
@@ -88,10 +82,10 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
            <td class="govuk-table__cell filterDiv candidates show"></td>
          </tr>
          <tr class="govuk-table__row">
-           <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Links page</a><br>
+           <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Advert only journey</a><br>
              <div class="govuk-form-group">
               <div id="event-name-hint" class="govuk-hint">
-                FR-121: VH can add candidate info web links to job ad
+                FR-146: only advert-only fields displayed to VH
               </div>
             </div>
             </td>
@@ -102,6 +96,23 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
             </td>
             <td class="govuk-table__cell filterDiv candidates show"></td>
           </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell filterDiv vh show filterDiv vh show" style="font-size:1.2em">Vacancy is published<br>
+              <div class="govuk-form-group">
+               <div id="event-name-hint" class="govuk-hint">
+                 FR-153: vacancy is quickly published on CS Jobs and 3rd party boards<br>
+                 FR-156: job appears on 3rd party boards
+               </div>
+             </div>
+             </td>
+             <td class="govuk-table__cell filterDiv candidates show">
+               <strong class="govuk-tag govuk-tag--red">
+
+               </strong>
+             </td>
+             <td class="govuk-table__cell filterDiv candidates show"></td>
+           </tr>
+
      </table>
     </div>
   </div>
