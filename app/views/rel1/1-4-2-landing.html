@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+}) }}<br><br>
+
+<style>
+  .govuk-width-container {
+    max-width:1200px;
+  }
+
+  .column-width-40 {
+    width:40% !important;
+  }
+
+  :target{
+    background-color:#e5f5f0;
+  }
+
+</style>
+
+<div class="govuk-grid-row">
+  <h2 class="govuk-heading-l">1.4.2: Marketing the advert (VH)
+  </h2>
+  <br><br>
+
+  <div class="container">
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header column-width-40">Page</th>
+        <th scope="col" class="govuk-table__header" style="width:15%">Status</th>
+        <th scope="col" class="govuk-table__header" style="width:35%">Notes</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Jobs boards</a><br>
+          <div class="govuk-form-group">
+           <div id="event-name-hint" class="govuk-hint">
+             FR-109: campaign removed from job boards after closing date / time<br>
+           </div>
+         </div>
+         </td>
+         <td class="govuk-table__cell filterDiv candidates show">
+           <strong class="govuk-tag govuk-tag--red">
+
+           </strong>
+         </td>
+         <td class="govuk-table__cell filterDiv candidates show"></td>
+       </tr>
+       <tr class="govuk-table__row">
+         <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Advert only job ad</a><br>
+           <div class="govuk-form-group">
+            <div id="event-name-hint" class="govuk-hint">
+              FR-115: 'Apply' takes candidate to dept's application process<br>
+            </div>
+          </div>
+          </td>
+          <td class="govuk-table__cell filterDiv candidates show">
+            <strong class="govuk-tag govuk-tag--red">
+
+            </strong>
+          </td>
+          <td class="govuk-table__cell filterDiv candidates show"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Currency input page</a><br>
+            <div class="govuk-form-group">
+             <div id="event-name-hint" class="govuk-hint">
+               FR-120: VH can select non-sterling currency for overseas roles<br>
+             </div>
+           </div>
+           </td>
+           <td class="govuk-table__cell filterDiv candidates show">
+             <strong class="govuk-tag govuk-tag--red">
+
+             </strong>
+           </td>
+           <td class="govuk-table__cell filterDiv candidates show"></td>
+         </tr>
+         <tr class="govuk-table__row">
+           <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Links page</a><br>
+             <div class="govuk-form-group">
+              <div id="event-name-hint" class="govuk-hint">
+                FR-121: VH can add candidate info web links to job ad<br>
+              </div>
+            </div>
+            </td>
+            <td class="govuk-table__cell filterDiv candidates show">
+              <strong class="govuk-tag govuk-tag--red">
+
+              </strong>
+            </td>
+            <td class="govuk-table__cell filterDiv candidates show"></td>
+          </tr>
+     </table>
+    </div>
+  </div>
+
+{% endblock %}
