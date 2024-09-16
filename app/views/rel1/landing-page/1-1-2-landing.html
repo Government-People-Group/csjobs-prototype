@@ -43,7 +43,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       </thead>
       <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Sign in / register</a><br>
+        <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="/../accounts/sign-in-apply?cookies=no" target="_blank" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Sign in / register</a><br>
           <div class="govuk-form-group">
            <div id="event-name-hint" class="govuk-hint">
              FR-008: enter email<br>
@@ -54,14 +54,14 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
          </td>
 
          <td class="govuk-table__cell filterDiv candidates show">
-           <strong class="govuk-tag govuk-tag--red">
-
-           </strong>
+          <strong class="govuk-tag govuk-tag--yellow">
+            More design / testing needed
+          </strong>
          </td>
-         <td class="govuk-table__cell filterDiv candidates show"></td>
+         <td class="govuk-table__cell filterDiv candidates show">Change url to <strong>cookies=yes</strong> to show same page if it detects a login cookie (so knows an account exists)</td>
        </tr>
        <tr class="govuk-table__row">
-         <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="?" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Candidate dashboard</a><br>
+         <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="/../accounts/candidate-dashboard" target="_blank" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Candidate dashboard</a><br>
            <div class="govuk-form-group">
             <div id="event-name-hint" class="govuk-hint">
               FR-014: amend personal details<br>
@@ -74,11 +74,12 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
           </td>
           
           <td class="govuk-table__cell filterDiv candidates show">
-            <strong class="govuk-tag govuk-tag--red">
-
+            <strong class="govuk-tag govuk-tag--yellow">
+              More design / testing needed
             </strong>
           </td>
-          <td class="govuk-table__cell filterDiv candidates show"></td>
+          <td class="govuk-table__cell filterDiv candidates show">
+            None of the elements needed for these ACs have been designed / tested, except for displaying the 'personal details' mentioned in FR-014</td>
         </tr>
 
        </table>
