@@ -1,0 +1,275 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../includes/header.html' %}
+{% endblock %}
+{% block pageTitle %}
+Create a job advert – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div  style="width:100%;background:#1d70b8;height:45px;border-bottom:0.5px solid #1d70b8;float:left">
+
+  <!-- <div class="govuk-!-margin-top-3" style="float:left;width:40%;margin-left:30px;"><span class="govuk-body-m" style="background:white;border:1px solid #1d70b8;border-radius:5px;padding:7px"><a class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" style="color:#1d70b8" href="job-library"><strong>Create a new vacancy</strong></a></span>
+</div> -->
+<span style="float:left;padding-left:10px;color:white;font-weight:bold" class="govuk-caption-l">Advert set up</span>
+
+<div class="" style="position:relative;float:right;margin-right:20px;margin-top:5px;">
+
+
+  <span class="govuk-body-m" style="background:white;border:1px solid #1d70b8;border-radius:5px;padding:7px"><a class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" style="color:#1d70b8;padding-left:8px;padding-right:8px" href="/csu71/task-list-exp-co?banner=noshow"><strong>Return to task list</strong></a></span>
+
+</div>
+
+</div>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<form class="form" action="/csu71/new-campaign-set-up/summary-section-3" method="post">
+
+
+  <!-- <p class="govuk-body-m">This information will be visible on the advert for candidates to see.</p>
+
+
+
+  <p class="govuk-body-m">For example, you may want to share the link to a campaign portal or social media profile page, such as https://twitter.com/cabinetofficejobs</p>
+
+
+  <div class="govuk-form-group">
+  <h2 class="govuk-label-wrapper">
+  <label class="govuk-label govuk-label--s" for="sinfo1">
+  Supporting link 1
+</label>
+</h2>
+<input style="width:600px" class="govuk-input" id="sinfo1" name="sinfo1" value="{{ data['video1']}}" type="text">
+</div>
+<a onClick="doit('ytv1')" href="#">Preview</a>
+
+
+
+<iframe id="ytv1" style="display:none" width="560" height="315" src="https://www.youtube.com/embed/7b39NgbfAGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+<div class="govuk-form-group">
+<h2 class="govuk-label-wrapper">
+<label class="govuk-label govuk-label--s" for="sinfo2">
+Supporting link 2
+</label>
+</h2>
+<input class="govuk-input" id="sinfo2" name="sinfo2" type="text">
+<p id="cta3" class="govuk-body-m govuk-!-margin-top-6"><a style="color:#1d70b8" onclick="doit('link3','cta3')"><strong>Add another link</strong></a></p>
+
+</div>
+
+
+<div id="link3" style="display:none" class="govuk-form-group">
+<h2 class="govuk-label-wrapper">
+<label class="govuk-label govuk-label--s" for="sinfo3">
+Supporting link 3
+</label>
+</h2>
+<input class="govuk-input" id="sinfo3" name="sinfo3" type="text">
+<p id="cta4" class="govuk-body-m govuk-!-margin-top-6"><a style="color:#1d70b8" onclick="doit('link4','cta4')"><strong>Add another link</strong></a></p>
+
+</div>
+
+<div id="link4" style="display:none" class="govuk-form-group">
+<h2 class="govuk-label-wrapper">
+<label class="govuk-label govuk-label--s" for="sinfo4">
+Supporting link 4
+</label>
+</h2>
+<input class="govuk-input" id="sinfo4" name="sinfo4" type="text">
+
+</div>
+
+<div id="link5" style="display:none" class="govuk-form-group">
+<h2 class="govuk-label-wrapper">
+<label class="govuk-label govuk-label--s" for="sinfo5">
+Supporting link 5
+</label>
+</h2>
+<input class="govuk-input" id="sinfo5" name="sinfo5" type="text">
+
+</div>
+
+
+
+<button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+
+
+</form>
+</div>
+</div> -->
+
+
+<div class="govuk-grid-row govuk-!-margin-top-3">
+  <div class="govuk-grid-column-full">
+
+
+
+
+    <div class="govuk-grid-row">
+
+
+      <div class="govuk-grid-column-three-quarters" >
+<h1 class="govuk-heading-xl">Add supporting links</h1>
+<p class="govuk-body-m">This information will be visible on the advert for candidates to see.</p><br>
+<p class="govuk-body">
+  <a href="#" class="govuk-link">Guidance on using supporting links</a>
+</p>
+        <div class="govuk-form-group">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="sinfo1">
+              Supporting link 1
+            </label>
+          </h2>
+          <input style="width:600px" class="govuk-input" id="sinfo1" name="sinfo1" value="https://www.youtube.com/watch?v=ZjvFInGlcIg&t=1s" type="text">
+        </div>
+
+
+
+
+
+
+
+<iframe width="600" height="338" src="https://www.youtube.com/embed/ZjvFInGlcIg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+
+<div class="govuk-form-group  govuk-!-margin-top-6">
+  <h2 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--s" for="sinfo2">
+      Supporting link 2
+    </label>
+  </h2>
+  <input style="width:600px" class="govuk-input" id="sinfo2" name="sinfo2" value="{{ data['sinfo2']}}" type="text">
+</div>
+
+<div class="govuk-form-group  govuk-!-margin-top-6">
+  <h2 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--s" for="sinfo3">
+      Supporting link 3
+    </label>
+  </h2>
+  <input style="width:600px" class="govuk-input" id="sinfo3" name="sinfo3" value="{{ data['sinfo3']}}" type="text">
+</div>
+
+      </div>
+
+
+
+
+
+      <div class="govuk-grid-column-one-quarter" style="border-left:1px solid black;height:750px">
+
+        <h3 class="govuk-heading-m govuk-!-margin-top-3">{{ data['dept-copy-input-autocomplete'] | default("Cabinet Office") }} YouTube links</h3>
+
+        <ul class=" govuk-list govuk-list--bullet- ">
+          <li style="float:right;font-size:18px;padding-bottom:10px"><a onclick="cannedSearch('https://www.youtube.com/watch?v=7b39NgbfAGw')" style="line-height:1.4;;" href="#">
+            Digital, Data and Technology in Government
+
+              </a></li>
+          <li style="font-size:18px;padding-bottom:0px"><a onclick="cannedSearch('https://www.youtube.com/watch?v=--nkB6rFM6s')" style="line-height:1.4;;" href="#">East Midlands - Career opportunities closer to home</a></li>
+
+        </ul>
+
+        <h3 class="govuk-heading-m govuk-!-margin-top-1">Profession links</h3>
+        <ul class=" govuk-list govuk-list--bullet- ">
+
+          <li style="padding-bottom:5px"><a onclick="focusSearch('https://www.youtube.com/watch?v=ZjvFInGlcIg')" style="line-height:1.4;;" href="#">About this profession</a></li>
+        </ul>
+
+
+
+        <div id="reveal" style="display:none">
+          <h3 class="govuk-heading-m govuk-!-margin-top-1">My lists</h3>
+          <ul class=" govuk-list govuk-list--bullet- ">
+
+            <a href="#" onclick="loadList()"><li id="listadded" style="font-size:18px;padding-bottom:10px"></li></a>
+          </ul>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+    {{ govukButton({
+      text: "Continue",
+      classes: "govuk-button govuk-!-margin-top-6"
+    }) }}
+
+    {{ govukButton({
+      text: "Preview advert",
+      classes: "govuk-button--secondary govuk-!-margin-top-6",
+      href: "preview-advert"
+    }) }}
+  </div>
+
+</div>
+
+{% include '../includes/footerarea.html' %}
+
+<script>
+
+  function doit(item1){
+
+    const asset = document.getElementById(item1);
+console.log(asset)
+    // asset.src = "https://www.youtube.com/watch?v=ZjvFInGlcIg"
+
+
+
+    showDiv(item1)
+
+  }
+
+  function hideDiv(div1) {
+    document.getElementById(div1).style.display = 'none';
+
+  }
+
+  function showDiv(div1) {
+    document.getElementById(div1).style.display = 'block';
+
+  }
+
+
+
+
+
+  const bullet = "\u29BF";
+  const bulletWithSpace = `${bullet} `;
+  const enter = 13;
+
+
+  const handleInput = (event) => {
+    const { keyCode, target } = event;
+    const { selectionStart, value } = target;
+
+    if (keyCode === enter) {
+      console.log('a');
+      target.value = [...value]
+      .map((c, i) => i === selectionStart - 1
+      ? `\n${bulletWithSpace}`
+      : c
+      )
+      .join('');
+      console.log(target.value);
+
+      target.selectionStart = selectionStart+bulletWithSpace.length;
+      target.selectionEnd = selectionStart+bulletWithSpace.length;
+    }
+
+    if (value[0] !== bullet) {
+      target.value = `${bulletWithSpace}${value}`;
+    }
+  }
+</script>
+{% endblock %}

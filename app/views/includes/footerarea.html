@@ -1,0 +1,23 @@
+<div class="govuk-grid-row govuk-!-margin-top-9">
+<div class="govuk-grid-column-full">
+
+<div style="position:relative;">
+{% if data['org'] == "ddat" %}
+<div style="height:80px;width:95px;border-radius:5px;padding:8px;background:black;position:absolute;right:20px;bottom:0px;;">
+<a href="/csu71/template-csofficial"><img src="/public/images/ddatfu.png" style="width:90px"></a>
+<p style="position:absolute;right:10px;font-size:12px" class="govuk-body-xs"><a style="color:white; font-weight:bold" href="/csu71/template-csofficial">Change template</a></p>
+</div>
+{% elif data['org'] == "co" %}
+<div style="height:60px;width:95px;border-radius:5px;padding:8px;background:#1d70b8;position:absolute;right:20px;bottom:-10px;;">
+<a href="/csu71/template-csofficial"> <img src="/public/images/cab.png" style="width:100px"</a>
+<p style="position:absolute;right:10px;font-size:12px" class="govuk-body-xs"><a style="color:white; font-weight:bold" href="/csu71/template-csofficial">Change template</a></p>
+</div>
+{% elif data['org'] == "ho" %}
+<div style="border:1px solid black;height:60px;width:95px;border-radius:5px;padding:8px;background:white;position:absolute;right:20px;bottom:-10px;">
+<a href="/csu71/template-csofficial"><img src="/public/images/ho-logo.png" style="width:80px"></a>
+<p style="position:absolute;right:10px;font-size:12px" class="govuk-body-xs"><a style="color:black; font-weight:bold" href="/csu71/template-csofficial">Change template</a></p>
+</div>
+{% endif %}
+</div>
+</div>
+</div>
