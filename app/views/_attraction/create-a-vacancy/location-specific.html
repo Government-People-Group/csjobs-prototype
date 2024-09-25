@@ -1,0 +1,682 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+{% endblock %}
+
+{% block pageTitle %}
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content%}
+<div class="govuk-grid-row govuk-!-margin-top-3">
+  <div class="govuk-grid-column-full">
+
+
+
+
+<!-- <div style="float:right;border-radius:2px;border:1px solid #1d70b8;padding:5px">
+  <h2 class="govuk-heading-m">Role location pattern</h2>
+    {% if data['uk'] == "Hybrid: remote and onsite" %}
+    <span class="govuk-caption-m">{{ data['uk']}}</span>
+
+
+
+
+{% endif %}
+</div> -->
+
+
+
+
+
+
+    <h1 style="border-bottom:1px solid #1d70b8;padding-bottom:20px" class="govuk-heading-l">Add locations for this role</h1>
+    <form class="form" action="contract-details" method="post">
+
+
+
+
+            <div class="govuk-grid-column-three-quarters" >
+
+
+              <div class="govuk-width-container">
+
+
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-three-quarters-from-desktop" style="width:95%">
+
+                      <h2 class="govuk-heading-m">Uploaded locations <span class="govuk-caption-m">from DWP_north_east_locations.xls</span></h2>
+                      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                        <div class="govuk-summary-list__row">
+                          <dd class="govuk-summary-list__value" style="width:50%">
+                            Newcastle
+                          </dd>
+                          <dd class="govuk-summary-list__actions" style="width:50%">
+                            <details class="govuk-details">
+                              <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                  Add a location-specific requirement
+                                </span>
+                              </summary>
+                              <div class="govuk-form-group"><br>
+                              <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                              <div id="more-detail-hint" class="govuk-hint">
+                                The requirement you enter here will be shown on the job advert under an 'Additional requirements' section.
+                              </div>
+                            </div>
+                            </details>
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dd class="govuk-summary-list__value" style="width:50%">
+                            Washington
+                          </dd>
+                          <dd class="govuk-summary-list__actions" style="width:50%">
+                            <details class="govuk-details">
+                              <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                  Add a location-specific requirement
+                                </span>
+                              </summary>
+                              <div class="govuk-form-group"><br>
+                              <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                              <div id="more-detail-hint" class="govuk-hint">
+                                The requirement you enter here will be shown on the job advert under an 'Additional requirements' section.
+                              </div>
+                            </div>
+                            </details>
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dd class="govuk-summary-list__value" style="width:50%">
+                            Ashington
+                          </dd>
+                          <dd class="govuk-summary-list__actions" style="width:50%">
+                            <details class="govuk-details">
+                              <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                  Add a location-specific requirement
+                                </span>
+                              </summary>
+                              <div class="govuk-form-group"><br>
+                              <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                              <div id="more-detail-hint" class="govuk-hint">
+                                The requirement you enter here will be shown on the job advert under an 'Additional requirements' section.
+                              </div>
+                            </div>
+                            </details>
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dd class="govuk-summary-list__value" style="width:50%">
+                            Darlington
+                          </dd>
+                          <dd class="govuk-summary-list__actions" style="width:50%">
+                            <details class="govuk-details">
+                              <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                  Add a location-specific requirement
+                                </span>
+                              </summary>
+                              <div class="govuk-form-group"><br>
+                              <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                              <div id="more-detail-hint" class="govuk-hint">
+                                The requirement you enter here will be shown on the job advert under an 'Additional requirements' section.
+                              </div>
+                            </div>
+                            </details>
+                          </dd>
+                        </div>
+                      </dl>
+
+
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+
+
+
+
+
+            <div class="govuk-grid-column-one-quarter" style="border-left:1px solid black">
+
+              <h3 class="govuk-heading-m govuk-!-margin-top-3">{{ data['dept-copy-input-autocomplete'] | default("DWP") }} locations</h3>
+
+              <ul class=" govuk-list govuk-list--bullet- ">
+                <li style="padding-bottom:0px"><a onclick="cannedSearch('Bristol, Glasgow, York')" style="line-height:1.4;;" href="#">Bristol, Glasgow, York</a></li>
+              </ul>
+
+              <h3 class="govuk-heading-m govuk-!-margin-top-1">Frequent searches</h3>
+              <ul class=" govuk-list govuk-list--bullet- ">
+
+                <li style="padding-bottom:5px"><a onclick="focusSearch('Benton Park')" style="line-height:1.4;;" href="#">Benton Park</a></li>
+                <li style="padding-bottom:5px"><a onclick="focusSearch('Quarry House')" href="#">Quarry House</a></li>
+                <li style="padding-bottom:5px"><a onclick="focusSearch('Bristol')" href="#">Bristol</a></li>
+              </ul>
+
+              <h3 class="govuk-heading-m govuk-!-margin-top-1">Overseas searches</h3>
+              <ul class=" govuk-list govuk-list--bullet- ">
+
+                <li style="padding-bottom:5px"><a onclick="focusSearch('British Embassy')" style="line-height:1.4;;" href="#">British Embassy</a></li>
+              </ul>
+
+              <div id="reveal" style="display:none">
+                <h3 class="govuk-heading-m govuk-!-margin-top-1">My lists</h3>
+                <ul class=" govuk-list govuk-list--bullet- ">
+
+                  <a href="#" onclick="loadList()"><li id="listadded" style="font-size:18px;padding-bottom:10px"></li></a>
+                </ul>
+              </div>
+
+            </div>
+
+
+          </div>
+          <div id="bulk" style="display:none;">
+
+
+            {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+            {{ govukCheckboxes({
+              name: "organisation",
+              classes: "govuk-checkboxes--small",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              items: [
+              {
+                id: "savelist",
+                value: "yes",
+                text: "Save this list for your next vacancy set-up?"
+              }
+              ]
+            }) }}
+
+          </div>
+          <div id="buttons" style="display:none">
+            {{ govukButton({
+              text: "Continue",
+              classes: "govuk-button govuk-!-margin-top-6"
+            }) }}
+
+            {{ govukButton({
+              text: "Preview advert",
+              classes: "govuk-button--secondary govuk-!-margin-top-6",
+              href: "preview-advert"
+            }) }}
+          </div>
+        </div>
+
+
+        <button class="govuk-button govuk-!-margin-top-9" data-module="govuk-button">Continue</button>
+      
+      </form>
+    </div>
+  </div>
+
+
+
+  <script src="/public/javascripts/temp-copyloc.js"></script>
+  <script src="/public/javascripts/locations.js"></script>
+
+
+
+
+
+
+  <script>
+
+
+    function loadList(){
+
+      var loadListArray = JSON.parse(window.sessionStorage.getItem("locations"));
+      console.log(loadListArray)
+      showDiv('head');
+      showDiv('buttons');
+      for (var tt=0;tt<loadListArray.length;tt++){
+        var contentItem = document.createElement("p");
+        var linkItem = document.createElement("p");
+
+        contentItem.innerHTML = loadListArray[tt];
+
+        if (contentItem.innerHTML.length > 45){
+          contentItem.style.cssText = "margin-top:10px;height:60px;font-size:20px;width:100%";
+          linkItem.style.cssText = "margin-top:10px;;height:60px;;font-size:20px;font-weight:bold";
+
+        } else {
+          contentItem.style.cssText = "margin-top:10px;height:20px;font-size:20px;width:100%";
+          linkItem.style.cssText = "margin-top:10px;;height:20px;;font-size:20px;font-weight:bold";
+
+        }
+
+
+
+        console.log(contentItem.innerHTML.length)
+
+        // linkItem.setAttribute("id","delete"+tt);
+        linkItem.innerHTML = "<a class='govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state' id='1' onclick='kill(this.id)' href='#'> Delete</a>";
+        loc.appendChild(contentItem);
+        link.appendChild(linkItem);
+      }
+
+
+
+    }
+
+
+
+
+
+
+
+    var bulk = document.getElementById("bulk");
+    var loc = document.getElementById('list1');
+    var link = document.getElementById('list2');
+
+
+    var locArray = [];
+    function cannedSearch(searchTerm){
+
+      if (searchTerm == "Bristol, Glasgow, York") {
+
+        var dloccontent1 = document.createElement("p");
+        var dloccontent2 = document.createElement("p");
+        var dloccontent3 = document.createElement("p");
+        var dlinkconten1 = document.createElement("p");
+        var dlinkconten2 = document.createElement("p");
+        var dlinkconten3 = document.createElement("p");
+
+        dloccontent1.style.cssText = "margin-top:10px;height:20px;font-size:20px;";
+        dloccontent2.style.cssText = "margin-top:10px;height:20px;font-size:20px;";
+        dloccontent3.style.cssText = "margin-top:10px;height:20px;font-size:20px;";
+        dloccontent1.innerHTML = "Bristol";
+        dloccontent2.innerHTML = "Glasgow";
+        dloccontent3.innerHTML = "York";
+        dlinkconten1.style.cssText = "margin-top:10px;;height:20px;;font-size:20px;font-weight:bold";
+        dlinkconten2.style.cssText = "margin-top:10px;;height:20px;;font-size:20px;font-weight:bold";
+        dlinkconten3.style.cssText = "margin-top:10px;;height:20px;;font-size:20px;font-weight:bold";
+        dlinkconten1.innerHTML = "<a class='govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state' id='1' onclick='kill(this.id)' href='#'> Delete</a>";
+        dlinkconten2.innerHTML = "<a class='govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state' id='2' onclick='kill(this.id)' href='#'> Delete</a>";
+        dlinkconten3.innerHTML = "<a class='govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state' id='3' onclick='kill(this.id)' href='#'> Delete</a>";
+
+        showDiv('head');
+        showDiv('buttons');
+        loc.appendChild(dloccontent1);
+        link.appendChild(dlinkconten1);
+        // locArray.push("Bristol")
+
+        loc.appendChild(dloccontent2);
+        link.appendChild(dlinkconten2);
+        // locArray.push("Glasgow")
+        loc.appendChild(dloccontent3);
+        link.appendChild(dlinkconten3);
+
+        // locArray.push("York")
+        // window.sessionStorage.setItem("locations", JSON.stringify(locArray));
+      }
+    }
+
+    function focusSearch(place){
+      showDiv('head');
+      showDiv('buttons');
+      var searchBox = document.getElementById("autocomplete-default");
+      searchBox.value = place;
+      const pointer = document.getElementById("autocomplete-default");
+      pointer.addEventListener('blur', (event) => {
+        var thing = event.target.value;
+        var ploccontent = document.createElement("p");
+        var plinkconten = document.createElement("p");
+        ploccontent.innerHTML = thing;
+
+
+        if (ploccontent.innerHTML.length > 45){
+          ploccontent.style.cssText = "margin-top:10px;height:60px;font-size:20px;width:100%";
+          plinkconten.style.cssText = "margin-top:10px;;height:60px;;font-size:20px;font-weight:bold";
+
+        } else {
+          ploccontent.style.cssText = "margin-top:10px;height:20px;font-size:20px;width:100%";
+          plinkconten.style.cssText = "margin-top:10px;;height:20px;;font-size:20px;font-weight:bold";
+        }
+
+        plinkconten.innerHTML = "<a class='govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state' id='1' onclick='kill(this.id)' href='#'> Delete</a>";
+        loc.appendChild(ploccontent);
+        link.appendChild(plinkconten);
+        // locArray.push(thing)
+        // console.log(thing)
+        // window.sessionStorage.setItem("locations", JSON.stringify(locArray));
+      }, { once: true });
+
+    }
+
+
+
+
+
+
+
+    function hideDiv(div1) {
+      document.getElementById(div1).style.display = 'none';
+
+    }
+
+
+
+
+
+    try {
+      reloaded(); // may throw three types of exceptions
+    } catch (e) {
+      if (e instanceof TypeError) {
+        // statements to handle TypeError exceptions
+      } else if (e instanceof RangeError) {
+        // statements to handle RangeError exceptions
+      } else if (e instanceof EvalError) {
+        // statements to handle EvalError exceptions
+      } else {
+        // statements to handle any unspecified exceptions
+        logMyErrors(e); // pass exception object to error handler
+      }
+    }
+
+
+
+
+    const entry = document.getElementById("autocomplete-default");
+    var count = 0;
+
+
+    function reloaded() {
+
+      locArray = JSON.parse(window.sessionStorage.getItem("locations"));
+
+      if (locArray !=""){
+        console.log(locArray)
+        for (var j=0;j<locArray.length;j++){
+          count = count+1;
+          showDiv('head');
+          showDiv('buttons');
+          var PREloccontent = document.createElement("p");
+          var PRElinkcontent = document.createElement("p");
+
+          PREloccontent.innerHTML =  locArray[j];
+          if (PREloccontent.innerHTML.length > 45){
+            PREloccontent.style.cssText = "margin-top:10px;height:60px;font-size:20px;width:100%";
+            PRElinkcontent.style.cssText = "margin-top:10px;;height:60px;;font-size:20px;font-weight:bold";
+
+          } else {
+            PREloccontent.style.cssText = "margin-top:10px;height:20px;font-size:20px;width:100%";
+            PRElinkcontent.style.cssText = "margin-top:10px;;height:20px;;font-size:20px;font-weight:bold";
+          }
+
+
+          PRElinkcontent.innerHTML = "<a class='govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state' id='"+count+"' onclick='kill(this.id)' href='#'> Delete</a>";
+          loc.appendChild(PREloccontent);
+          link.appendChild(PRElinkcontent);
+        }
+      }
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+    entry.addEventListener('change', (event) => {
+
+      var location = event.target.value;
+
+      var loccontent = document.createElement("p");
+      var linkcontent = document.createElement("p");
+      console.log(location.length)
+      // showDiv('default');
+      // numcontent.innerHTML = location;
+      count = count+1;
+
+      loccontent.innerHTML = location;
+      if (loccontent.innerHTML.length > 45){
+        loccontent.style.cssText = "margin-top:10px;height:60px;font-size:20px;width:100%";
+        linkcontent.style.cssText = "margin-top:10px;;height:60px;;font-size:20px;font-weight:bold";
+
+      } else {
+        loccontent.style.cssText = "margin-top:10px;height:20px;font-size:20px;width:100%";
+        linkcontent.style.cssText = "margin-top:10px;;height:20px;;font-size:20px;font-weight:bold";
+      }
+
+
+
+      linkcontent.innerHTML = "<a class='govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state' id='"+count+"' onclick='kill(this.id)' href='#'> Delete</a>";
+
+      loc.appendChild(loccontent);
+      link.appendChild(linkcontent);
+      showDiv('head');
+      showDiv('buttons');
+
+      // content.innerHTML = "<span style='font-weight:regular;font-size:18px;line-height:1.5;'>"+location+"</span>"+""+"<a id='del"+item+"' onclick='' href='#'> delete</a>";
+      // item.appendChild(content);
+
+
+      try {
+        saveList(); // may throw three types of exceptions
+      } catch (e) {
+        if (e instanceof TypeError) {
+          // statements to handle TypeError exceptions
+        } else if (e instanceof RangeError) {
+          // statements to handle RangeError exceptions
+        } else if (e instanceof EvalError) {
+          // statements to handle EvalError exceptions
+        } else {
+          // statements to handle any unspecified exceptions
+          logMyErrors(e); // pass exception object to error handler
+        }
+      }
+
+
+
+function saveList(){
+
+  // locArray.push(location)
+  // var longish = locArray.length;
+  // console.log(longish+"longish")
+  //
+  //
+  //
+  // // console.log(locArray)
+  // window.sessionStorage.setItem("locations", JSON.stringify(locArray));
+  //
+  // if (longish>10){
+  //   console.log("longer than 10")
+  //   showDiv('bulk');
+  // }
+
+}
+
+
+
+
+    });
+
+
+    function showDiv(div1) {
+      console.log(div1)
+      document.getElementById(div1).style.display = 'block';
+
+    }
+
+
+    // const checker = document.getElementById('savelist');
+    //
+    //
+    // checker.addEventListener("change", showDiv('reveal'));
+
+
+
+    const saved = document.getElementById('listadded');
+
+    const dateField = document.getElementById('bulk');
+    var stamp = new Date();
+    var localStamp = stamp.toLocaleDateString('en-us', { day:"numeric", month:"short", year:"numeric", hour:"numeric",minute:"numeric" }) ;
+    saved.innerHTML = "list-"+localStamp;
+
+
+    // console.log(locArray)
+
+    function kill(index){
+      count = 0;
+
+      console.log(index)
+      locArray.splice(index-1, 1);
+      document.getElementById('list1').innerHTML="";
+      document.getElementById('list2').innerHTML="";
+
+      // document.getElementById('list2').innerHTML=locArray;
+      console.log(locArray)
+      // locArray = JSON.parse(window.sessionStorage.getItem("locations"));
+
+      for (var j=0;j<locArray.length;j++){
+
+        var PREloccontent = document.createElement("p");
+        var PRElinkcontent = document.createElement("p");
+
+
+        PREloccontent.innerHTML =  locArray[j];
+        if (PREloccontent.innerHTML.length > 50){
+          PREloccontent.style.cssText = "margin-top:10px;height:60px;font-size:20px;width:100%";
+          PRElinkcontent.style.cssText = "margin-top:10px;;height:60px;;font-size:20px;font-weight:bold";
+
+        } else {
+          PREloccontent.style.cssText = "margin-top:10px;height:20px;font-size:20px;width:100%";
+          PRElinkcontent.style.cssText = "margin-top:10px;;height:20px;;font-size:20px;font-weight:bold";
+        }
+
+
+        PRElinkcontent.innerHTML = "<a class='govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state' id='"+count+"' onclick='kill(this.value)' href='#'> delete</a>";
+        loc.appendChild(PREloccontent);
+        link.appendChild(PRElinkcontent);
+        count++;
+      }
+
+
+
+    }
+
+
+
+
+
+      try {
+        var approval = JSON.parse(window.sessionStorage.getItem("approval-proof"));
+        console.log(approval)
+
+        if (approval[0] == "Yes") {
+          console.log("Yes")
+
+          var lm = document.getElementById('appro');
+          lm.style.cssText = "font-size:20px;font-weight:bold";
+          lm.innerText = "Approval: "+ approval[1] +" "+ approval[2];
+
+
+
+        }
+      } catch (error) {
+        console.error(error);
+      }
+
+      // var approval = JSON.parse(window.sessionStorage.getItem("approval-proof"));
+      // console.log(approval)
+      //
+      // if (approval[0] == "Yes") {
+      //   console.log("Yes")
+      //
+      //   var lm = document.getElementById('appro');
+      //   lm.style.cssText = "font-size:20px;font-weight:bold";
+      //   lm.innerText = "Approval: "+ approval[1] +" "+ approval[2];
+      //
+      //
+      //
+      // }
+
+      var appArray = [];
+      const approved = document.getElementById('approved');
+      const notapproved = document.getElementById('notapproved');
+      var divv = document.getElementById('upload').style.display;
+      approved.addEventListener('change', (event) => {
+        if (approved.checked) {
+          showDiv("upload");
+          appArray.push("Yes");
+          // window.sessionStorage.setItem("approved", JSON.stringify("Yes"));
+
+        }
+
+      });
+
+
+      const fileUpload = document.getElementById('file-upload-1');
+      var stamp = new Date();
+      var localStamp = stamp.toLocaleDateString('en-us', { day:"numeric", month:"short", year:"numeric" }) ;
+
+      fileUpload.addEventListener('change', (event) => {
+        const files = event.target.files;
+        for (const file of files) {
+          const name = file.name;
+          const lastModified = file.lastModified;
+          const lmElement = document.getElementById('lastMod');
+
+          var fileName = `${name}`;
+          var lastM = `uploaded on ${new Date(lastModified).toLocaleDateString('en-uk')}`;
+          lmElement.innerHTML = fileName+": "+lastM;
+          appArray.push(fileName,lastM)
+          window.sessionStorage.setItem("approval-proof", JSON.stringify(appArray));
+        }
+      });
+
+      notapproved.addEventListener('change', (event) => {
+        if (notapproved.checked) {
+          hideDiv("upload");
+        }
+
+      });
+
+
+
+
+      function hideDiv(div1) {
+        document.getElementById(div1).style.display = 'none';
+
+      }
+
+      function showDiv(div1) {
+        document.getElementById(div1).style.display = 'block';
+
+      }
+
+
+
+    </script>
+
+  {% endblock %}

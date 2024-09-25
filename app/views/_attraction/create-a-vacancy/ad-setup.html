@@ -1,0 +1,443 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+{% endblock %}
+{% block pageTitle %}
+Create a job advert – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+<style>
+  #another, #team-mailbox {
+    display:none;
+}
+
+.govuk-details__text {
+  border-left:5px solid #fd0;
+}
+
+</style>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<form class="form" action="task-list-ad-only" method="post">
+
+<div class="govuk-grid-row  govuk-!-margin-top-3">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-xl">Advert setup</h1>
+
+
+
+
+<h2 class="govuk-heading-m">Preferred launch date</h2>
+
+      {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+      {{ govukDateInput({
+      id: "launch",
+      namePrefix: "",
+      items: [
+      {
+        classes: "govuk-input--width-2",
+        name: "launch-day",
+        label: "Day",
+        value: data['launch-day']
+      },
+      {
+        classes: "govuk-input--width-2",
+        name: "launch-month",
+        label: "Month",
+        value: data['launch-month']
+      },
+      {
+        classes: "govuk-input--width-4",
+        name: "launch-year",
+        label:"Year",
+        value: data['launch-year']
+      }
+    ]
+  }) }}
+
+      <br>
+
+      <h2 class="govuk-heading-m">Campaign end date</h2>
+
+            {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+            {{ govukDateInput({
+            id: "launch",
+            namePrefix: "",
+            items: [
+            {
+              classes: "govuk-input--width-2",
+              name: "end-day",
+              label: "Day",
+              value: data['end-day']
+            },
+            {
+              classes: "govuk-input--width-2",
+              name: "end-month",
+              label: "Month",
+              value: data['end-month']
+            },
+            {
+              classes: "govuk-input--width-4",
+              name: "end-year",
+              label:"Year",
+              value: data['end-year']
+            }
+          ]
+        }) }}<details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with your campaign dates
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+          </div>
+        </details><br><br>
+
+
+
+        <h1 class="govuk-heading-m">Link where candidate can apply</h1>
+                <div class="govuk-form-group">
+
+                  <input style="width:600px" class="govuk-input" id="sinfo1" name="sinfo1" type="text">
+                </div><details class="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Help with this field
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+                  </div>
+                </details><br><br>
+
+
+
+
+        <h1 class="govuk-heading-m">Main contact for this vacancy</h1>
+
+
+
+                  {{ govukSelect({
+                    id: "contact",
+                    name: "contact",
+                    hint: {
+                      text: "For those responsible, this will mean receiving and responding to queries from candidates and others involved in the campaign."
+                    },
+                    items: [
+                      {
+                        value: "choose",
+                        text: "Select the main contact for this vacancy",
+                        disabled: true,
+                        selected: true
+                      },
+                      {
+                        value: "me",
+                        text: "Me"
+                      },
+                      {
+                        value: "someone-else",
+                        text: "Someone else"
+                      },
+                      {
+                        value: "me-and-someone-else",
+                        text: "Me and another person share this responsibility"
+                      },
+                      {
+                        value: "team-mailbox",
+                        text: "We use a team mailbox"
+                      }
+                    ]
+                  }) }}
+
+
+                  <div id="another">
+
+                    {{ govukInput({
+                      label: {
+                        text: "What is the other person's name?",
+                        classes: "govuk-label--s",
+                        isPageHeading: false
+                      },
+                      classes: "govuk-input--width-20",
+                      id: "another-name",
+                      name: "another-name",
+                      value: data['another-name']
+                    }) }}
+
+                    {{ govukInput({
+                      label: {
+                        text: "What is the other person's email address?",
+                        classes: "govuk-label--s",
+                        isPageHeading: false
+                      },
+                      classes: "govuk-input--width-20",
+                      id: "another-email",
+                      name: "another-email",
+                      value: data['another-email']
+                    }) }}
+                </div>
+
+                <div id="team-mailbox">
+                {{ govukInput({
+                  label: {
+                    text: "What is the team mailbox's email address?",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                  },
+                  classes: "govuk-input--width-20",
+                  id: "team-email",
+                  name: "team-email",
+                  value: data['team-email']
+                }) }}
+                </div><details class="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Choosing the main contact for your campaign
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+                  </div>
+                </details><br><br>
+
+
+                <h1 class="govuk-heading-m">Who can apply</h1>
+
+
+
+                          {{ govukSelect({
+                            id: "apply",
+                            name: "apply",
+                            items: [
+                              {
+                                value: "choose",
+                                text: "Select who can apply for this vacancy",
+                                disabled: true,
+                                selected: true
+                              },
+                              {
+                                value: "everyone",
+                                text: "Everyone"
+                              },
+                              {
+                                value: "civil-servants",
+                                text: "Only existing civil servants / central government department employees"
+                              },
+                              {
+                                value: "department",
+                                text: "Only employees in your departmental group"
+                              },
+                              {
+                                value: "managed-move",
+                                text: "Managed move only e.g. redeployment"
+                              }
+                            ]
+                          }) }}<details class="govuk-details">
+                            <summary class="govuk-details__summary">
+                              <span class="govuk-details__summary-text">
+                                Choosing who can apply for your vacancy
+                              </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                              For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+                            </div>
+                          </details><br><br>
+
+
+
+                              <h1 class="govuk-heading-m">About the role</h1>
+                              <div id="location-hint" class="govuk-hint">
+                              This information will be shown on the advert.
+                            </div>
+                              {{ govukCharacterCount({
+                            name: "about-role",
+                            id: "about-role",
+                            maxwords: 350,
+                            rows:10,
+                            value: data['about-role']
+                          }) }}<details class="govuk-details">
+                            <summary class="govuk-details__summary">
+                              <span class="govuk-details__summary-text">
+                                Help with writing this section
+                              </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                              For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+                            </div>
+                          </details><br>
+
+
+
+
+
+
+                              <h1 class="govuk-heading-m">What you're looking for in a candidate</h1>
+                              <div id="location-hint" class="govuk-hint">
+                              This information will be shown on the advert.
+                            </div>
+                              {{ govukCharacterCount({
+                            name: "person-spec",
+                            id: "person-spec",
+                            maxwords: 350,
+                            rows:10,
+                            value: data['person-spec']
+                          }) }}<details class="govuk-details">
+                            <summary class="govuk-details__summary">
+                              <span class="govuk-details__summary-text">
+                                Help with writing this section
+                              </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                              For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+                            </div>
+                          </details><br><br>
+
+                          <h1 class="govuk-heading-m">Add supporting links <span style="font-size:0.98rem">(optional)</span></h1>
+                            <div class="govuk-form-group">
+
+                              <input style="width:600px" class="govuk-input" id="sinfo1" name="sinfo1" type="text">
+                            </div>
+                            <details class="govuk-details">
+                              <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                  Adding supporting links to your advert
+                                </span>
+                              </summary>
+                              <div class="govuk-details__text">
+                                For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+                              </div>
+                            </details>
+
+
+                            <p class="govuk-body">
+                              <a href="#" class="govuk-link govuk-link--no-visited-state">Add another supporting link</a>
+                            </p><br><br>
+
+
+                            <h1 class="govuk-heading-m">Advertise the vacancy</h1>
+                            <form class="form" action="reserve-list" method="post">
+
+
+                              {% set otherHTML %}
+                              {{ govukTextarea({
+                                name: "other",
+                                id: "other",
+                                value: data['other'],
+                                label: {
+                                  text: "Tell us where else you'd like to advertise the role",
+                                  classes: "govuk-label--s",
+                                  isPageHeading: false
+                                },
+                                hint: {
+                                  text: "You may be contacted to provide more details, including approval."
+                                }
+                              }) }}
+                              {% endset %}
+                        <div>
+                              {{ govukCheckboxes({
+                                idPrefix: "attraction",
+                                name: "attraction",
+                                fieldset: {
+                                  legend: {
+                                    text: "",
+                                    isPageHeading: false,
+                                    classes: "govuk-fieldset__legend--l"
+                                  }
+                                },
+                                hint: {
+                                  text: "Select all the external sites you'd like your vacancy to appear on."
+                                },
+                                items: [
+                                {
+                                  value: "Civil Service Jobs",
+                                  text: "Civil Service Jobs",
+                                  checked: checked("attraction","Civil Service Jobs")
+                                },
+                                {
+                                  value: "LinkedIn",
+                                  text: "LinkedIn",
+                                  checked: checked("attraction","LinkedIn")
+                                },
+                                {
+                                  value: "Indeed",
+                                  text: "Indeed",
+                                  checked: checked("attraction","Indeed")
+                                },
+                                {
+                                  value: "Monster Jobs",
+                                  text: "Monster Jobs",
+                                  checked: checked("attraction","Monster Jobs")
+                                },
+                                {
+                                  value: "Other",
+                                  text: "Other",
+                                  checked: checked("attraction","Other"),
+                                  conditional: {
+                                    html: otherHTML
+                                  }
+                                }
+                                ]
+                              }) }}
+
+                              <details class="govuk-details">
+                                <summary class="govuk-details__summary">
+                                  <span class="govuk-details__summary-text">
+                                    Help with these options
+                                  </span>
+                                </summary>
+                                <div class="govuk-details__text">
+                                  For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+                                </div>
+                              </details>
+
+
+
+
+
+      <button class="govuk-button govuk-!-margin-top-9" data-module="govuk-button">Save and return to tasklist</button>
+      <input type="hidden" name="ad-setup-complete" value="true">
+
+    </form>
+
+
+
+
+<script>
+  var elem = document.getElementById("contact");
+  elem.onchange = function(){
+    if (this.value == "someone-else" || this.value == "me-and-someone-else"){
+      var hiddenDiv = document.getElementById("another");
+      hiddenDiv.style.display = "block";
+      var hiddenDiv2 = document.getElementById("team-mailbox");
+      hiddenDiv2.style.display = "none";
+    }
+    else if (this.value == "team-mailbox") {
+      var hiddenDiv = document.getElementById("team-mailbox");
+      hiddenDiv.style.display = "block";
+      var hiddenDiv2 = document.getElementById("another");
+      hiddenDiv2.style.display = "none";
+    }
+    else {
+      var hiddenDiv = document.getElementById("another");
+      hiddenDiv.style.display = "none";
+      var hiddenDiv2 = document.getElementById("team-mailbox");
+      hiddenDiv2.style.display = "none";
+    }
+  };
+</script>
+
+{% endblock %}

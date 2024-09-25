@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+  {% endblock %}
+  {% block beforeContent %}
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:window.history.back()"
+    }) }}
+
+    {% endblock %}
+
+
+{% block pageTitle %}
+Create a job advert – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+
+  select {
+width:400px;
+
+
+
+  }
+</style>
+
+<form class="form" action="review-about-the-vacancy" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          Does your advert adhere to Civil Service Commission Recruitment Principles?
+        </h1>
+      </legend>
+      <div id="changedName-hint" class="govuk-hint">
+        The <a href="">Recruitment Principles</a> explain the legal requirement that selection for appointment to the Civil Service must be on:<br>
+        <ul class="govuk-list govuk-list--bullet" style="color:#505a5f;padding-top:10px">
+          <li>merit</li>
+          <li>the basis of fair and open competition</li>
+        </ul><br>
+        They also set out and describe the:<br>
+        <ul class="govuk-list govuk-list--bullet" style="color:#505a5f;padding-top:10px">
+          <li>circumstances in which you can make appointments as exceptions</li>
+          <li>responsibilities of departments and agencies to meet this need</li>
+        </ul>
+        Departments and agencies are free to develop their own approaches to recruitment. As long as they are consistent with the Recruitment Principles.
+      </div><br>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="ad-only" name="cs-principles" type="radio" value="Yes">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="ad-only-2" name="cs-principles" type="radio" value="No">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+
+  <button class="govuk-button" data-module="govuk-button">Continue</button>
+  </div>
+
+
+  </form>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+    {% endblock %}

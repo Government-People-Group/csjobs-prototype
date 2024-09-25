@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+  {% endblock %}
+
+{% block pageTitle %}
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">Summary</span>
+      <h1 class="govuk-heading-xl">About the vacancy</h1>
+
+      <h2 class="govuk-heading-m">Basic details</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Job title</dt>
+          <dd class="govuk-summary-list__value">Strategy Administrator</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        {% if data['subtitle']%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Subtitle</dt>
+          <dd class="govuk-summary-list__value">{{ data['subtitle'] }}</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> subtitle</span></a></dd>
+        </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Grade</dt>
+          <dd class="govuk-summary-list__value">Senior Executive Officer (SEO)</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Profession</dt>
+          <dd class="govuk-summary-list__value">{{ data['proff']}}</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details">Change<span class="govuk-visually-hidden"> cabinet office role?</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Department</dt>
+          <dd class="govuk-summary-list__value">Department for Work and Pensions (DWP) </dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> department</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Reserved status</dt>
+          <dd class="govuk-summary-list__value">{{ data['reserved-status']|default("No, this vacancy is not reserved")}}</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> number of posts availables</span></a></dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Number of posts available</dt>
+          <dd class="govuk-summary-list__value">{{ data['num-posts']|default("1") }}</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> number of posts availables</span></a></dd>
+        </div>
+
+
+  {% if data['external-ad-link']%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Is an advert for this job already published on another website?</dt>
+          <dd class="govuk-summary-list__value">Yes - {{ data['external-ad-link']}}</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> number of posts availables</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Use existing add contents?</dt>
+          <dd class="govuk-summary-list__value">{{ data['ad-only-parse']| capitalize}}</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> number of posts availables</span></a></dd>
+        </div>
+ {% else %}
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">Is an advert for this job already published on another website?</dt>
+           <dd class="govuk-summary-list__value">No</dd>
+           <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> number of posts availables</span></a></dd>
+         </div>
+  {% endif %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Advert follows the Civil Service Commission Recruitment Principles</dt>
+    <dd class="govuk-summary-list__value">{{ data['cs-principles'] | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> number of posts availables</span></a></dd>
+  </div>
+      </dl><br><br>
+
+
+
+
+
+      <form action="task-list-ad-only" method="post" novalidate>
+      <input type="hidden" name="about-vacancy-complete" value="true">
+      <input type="hidden" name="show-banner" value="true">
+
+      {% if data['r-a-t-v-edit'] != 'yes' %}
+       <button type="submit" class="govuk-button" 
+     data-module="govuk-button">Save and continue</button>
+      {% else %}
+       <button type="submit" class="govuk-button" 
+      data-module="govuk-button">Return to task list</button>
+      {% endif %}
+    </form>
+    {% endblock %}

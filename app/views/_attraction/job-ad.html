@@ -19,6 +19,16 @@
   }) }}
 {% endblock %}
 
+{% block beforeContent %}
+
+{% if data['preview'] =='yes' %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endif %}
+{% endblock %}
+
 
 {% block content %}
 

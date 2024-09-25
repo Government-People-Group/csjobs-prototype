@@ -22,36 +22,8 @@ Create a job advert – Civil service jobs – GOV.UK Prototype Kit
 
 <style>
 
-  select {
+select {
 width:400px;
-  }
-
-.govuk-details__summary-text{
-  font-size:1.1rem;
-}
-
-.govuk-details__summary {
-  padding-left:15px;
-}
-
-.govuk-details__summary::before {
-  border-width:4px 0 7px 10px;
-}
-
-.govuk-details[open] > .govuk-details__summary::before {
-  border-width:8px 6px 5px 5px;
-}
-
-.govuk-details__text {
-  border-left:5px solid #fd0;
-}
-
-.govuk-input--width-30{
-  margin-bottom:10px;
-}
-
-.govuk-form-group{
-  margin-bottom:10px;
 }
 
 .autocomplete__wrapper {
@@ -195,113 +167,29 @@ width:400px;
     line-height: 1.31579;
   }
 }
+
+
 </style>
 
-
-
-<form class="form" action="line-manager" method="post" novalidate>
+<form class="form" action="vacancy-setup-options" method="post" novalidate>
   <div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-three-quarters">
 
-
-      <h1 class="govuk-heading-xl">About the vacancy</h1>
+      <h1 class="govuk-heading-xl">Create a new vacancy</h1>
       <div class="govuk-!-margin-bottom-6">
-      <div class="govuk-form-group govuk-input--width-30">
-        <label for="autocomplete-default" class="govuk-label govuk-label--s">Job title</label>
+      <div style="width:400px" class="govuk-form-group govuk-input--width-30 ">
+        <label for="autocomplete-default" class="govuk-label govuk-label--s">What is the job title?</label>
         <div id="jobtitle" class="autocomplete-wrapper"></div>
       </div>
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Help with this field
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">Job titles should be meaningful and tell readers what the role is.</p>
-
-<p class="govuk-body">Capitalise specific job titles. For example, Content Designer or Policy Officer. </p>
-
-<p class="govuk-body">Do not capitalise civil servant or civil servants (not job titles) or general titles like director (unless its a specific job title, for example Deputy Director).</p>
-
-<p class="govuk-body">Seniority sometimes features in job titles. This should be capitalised if it's part of the job title, like Senior User Researcher.</p>
-
-<p class="govuk-body">Job titles do not include:</p>
-
-<ul class="govuk-list govuk-list--bullet">
-<li>department</li>
-<li>grade</li>
-<li>salary or benefits</li>
-<li>full stops</li>
-<li>special characters such as **</li>
-</ul>
-
-<p class="govuk-body">For example, HEO - Performance and improvement lead. Performance and Improvement Lead is the job title. HEO is the grade, which is a different thing.</p>
-
-        </div>
-      </details>
 </div>
-
-{{ govukInput({
-label: {
-text: "Subtitle (optional)",
-classes: "govuk-label--s",
-isPageHeading: false
-},
-classes: "govuk-input--width-20",
-id: "subtitle",
-name: "subtitle"
-}) }}<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Help with this option
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    Use this to help a candidate see which business area the job is in. For example, 'Immigration and Borders'.
-  </div>
-</details><br><br>
-
 
 
 <div class="govuk-!-margin-bottom-6">
-        {{ govukSelect({
-          id: "dept",
-          name: "dept",
-          label: {
-            text: "Department",
-            classes: "govuk-label--s"
-          },
-          items: [
-      {
-      value: "dfe",
-      text: "Department for Education (DfE)",
-      selected: true
-      },
-      {
-      value: "other-dept",
-      text: "Choose another department..."
-      }
-      ]
-      }) }}
-
-
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Help with this option
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          The department should be pre-populated with the department you work for. If correct, you do not need to change anything.<br><br>
-          If you need to choose another department, select the 'Choose another department' option.
-        </div>
-      </details>
-
       {{ govukSelect({
                 id: "grade",
                 name: "grade",
                 label: {
-                  text: "Grade",
+                  text: "What grade is the job role?",
                   classes: "govuk-label--s"
                 },
                 items: [
@@ -349,18 +237,6 @@ name: "subtitle"
                 }
                 ]
               }) }}
-
-              <details class="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Choosing the right grade
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
-                </div>
-              </details>
-
               </div>
 
 <div class="govuk-!-margin-bottom-6">
@@ -369,7 +245,7 @@ name: "subtitle"
                 id: "proff",
                 name: "proff",
                 label: {
-                  text: "Profession",
+                  text: "What profession is the job role part of?",
                   classes: "govuk-label--s"
                 },
                 items: [
@@ -516,178 +392,38 @@ name: "subtitle"
                 }
                 ]
               }) }}
-
-              <details class="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Choosing a profession
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
-                </div>
-              </details>
-
-
-              <a class="govuk-link govuk-link--no-visited-state govuk-!-margin-bottom-3" href="#" style="font-size:1.1rem">Add a second profession</a>
+              <a class="govuk-link govuk-link--no-visited-state"  href="#">Add another profession</a>
 
 
               </div>
+              <div style="width:400px" class="govuk-form-group govuk-input--width-30">
+                <label for="autocomplete-default" class="govuk-label govuk-label--s">Which department?</label>
+                <div id="department" class="autocomplete-wrapper"></div>
+              </div>
+              <div class="govuk-!-margin-bottom-9">
 
-              <div><br><br>
+</div>
 
-
-                {{ govukSelect({
-                  id: "uk-nat",
-                  name: "uk-nat",
-                  label: {
-                    text: "Reserved for UK nationals only",
-                    classes: "govuk-label--s"
-                  },
-                  items: [
-                  {
-                    value: "none",
-                    selected: "true",
-                    disabled: "true",
-                    text: "Select whether reserved or not"
-                  },
-                    {
-                    value: "no",
-                    text: "No"
-                    },
-                    {
-                    value: "yes",
-                    text: "Yes"
-                    }
-                    ]
-                    }) }}
-
-                    <details class="govuk-details">
-                      <summary class="govuk-details__summary">
-                        <span class="govuk-details__summary-text">
-                          About reserved posts
-                        </span>
-                      </summary>
-                      <div class="govuk-details__text">
-                        We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
-                      </div>
-                    </details><br><br>
-
-
-
-
-
-
-
-                    <label class="govuk-label govuk-label--s" for="event-name" >
-                      Number of posts for this vacancy
-                    </label>
-
-                    <div class="govuk-form-group govuk-input--width-5">
-
-                  <input class="govuk-input" id="event-name" name="eventName" type="text">
-                  </div>
-
-                  <p class="govuk-body" style="margin-bottom:0px">or</p>
-
-                  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset">
-
-      <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
-          <label class="govuk-label govuk-checkboxes__label" for="organisation">
-            There is no set number of posts
-          </label>
-
-        </div>
-
-      </div><br><br>
-
-    </fieldset>
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Help with these options
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
-      </div>
-    </details>
-  </div>
-
-{{ govukSelect({
-  id: "location",
-  name: "location",
-  label: {
-    classes: "govuk-label--s",
-    text: "Hide number of posts on job ad"
-  },
-  items: [
-    {
-      value: "choose",
-      text: "Select whether to hide number of posts",
-      disabled: true,
-      selected: true
-    },
-    {
-      value: "no",
-      text: "No"
-    },
-    {
-      value: "yes",
-      text: "Yes"
-    }
-  ]
-}) }}
-
-<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Why would I hide the number of posts?
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
-  </div>
-</details>
-
-</div><br><br><br>
-
-
+<div>
       <button class="govuk-button" data-module="govuk-button">Continue</button>
-        <input type="hidden" name="show-banner" value="true">
-        <input type="hidden" name="basic-details-complete" value="true">
-      </div></div>
-
-
+      </div>
       <script src="/public/javascripts/accessible-autocomplete.js"></script>
       <script src="/public/javascripts/jobtitle.js"></script>
 
       <script src="/public/javascripts/dept.js"></script>
 
+      <input type="hidden" name="createVacancy" value="true">
+
+
+    </FORM>
+
+
+<script>
 
 
 
-    </form>
 
-    <script>
-    function myFunction(currentID) {
-      var currentID = document.getElementById(currentID);
-      if (currentID.style.display === "none") {
-        currentID.style.display = "block";
-      } else {
-        currentID.style.display = "none";
-      }
-    }
+</script>
 
-    function closeHelp(currentID) {
-      var currentID = document.getElementById(currentID);
-
-        currentID.style.display = "none";
-        event.preventDefault();
-    }
-    </script>
 
     {% endblock %}

@@ -1,0 +1,226 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+  {% endblock %}
+
+{% block pageTitle %}
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+
+      {{ govukButton({
+        text: "Preview your job advert",
+        classes: "govuk-button--secondary",
+        href: "../job-ad?preview=yes"
+      }) }}
+
+      <h2 class="govuk-heading-m">About the vacancy</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Job title</dt>
+          <dd class="govuk-summary-list__value">Strategy Administrator</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Subtitle</dt>
+          <dd class="govuk-summary-list__value">None</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> subtitle</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Department</dt>
+          <dd class="govuk-summary-list__value">Department for Education</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> department</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Grade</dt>
+          <dd class="govuk-summary-list__value">Senior Executive Officer (SEO)</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Profession</dt>
+          <dd class="govuk-summary-list__value">Policy</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details">Change<span class="govuk-visually-hidden"> cabinet office role?</span></a></dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Reserved status</dt>
+          <dd class="govuk-summary-list__value">No, this vacancy is not reserved</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> number of posts availables</span></a></dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Number of posts available</dt>
+          <dd class="govuk-summary-list__value">1</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> number of posts availables</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Hide number of posts</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> number of posts availables</span></a></dd>
+        </div>
+      </dl><br><br>
+
+      <h2 class="govuk-heading-m">Location and contract details</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Location type</dt>
+          <dd class="govuk-summary-list__value">Onsite at a government-managed location</dd>
+          <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Vacancy locations</dt>
+          <dd class="govuk-summary-list__value">East Midlands (England), East of England, London (region), North East England, North West England, Scotland, South East England</dd>
+          <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Location variations</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Contract type</dt>
+          <dd class="govuk-summary-list__value">Permanent</dd>
+          <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Working pattern</dt>
+          <dd class="govuk-summary-list__value">Full time</dd>
+          <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Minimum salary</dt>
+          <dd class="govuk-summary-list__value">£38,995</dd>
+          <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Maximum salary</dt>
+          <dd class="govuk-summary-list__value">£43,965</dd>
+          <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Additional allowances</dt>
+          <dd class="govuk-summary-list__value">None</dd>
+          <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Benefits</dt>
+          <dd class="govuk-summary-list__value">- Learning and development tailored to your role<br>An environment with flexible working options<br>- A culture encouraging inclusion and diversity<br>- A Civil Service pension with an average employer contribution of 27%<br>- Entitlement to a minimum start of 23 days annual leave</dd>
+          <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Security clearance</dt>
+          <dd class="govuk-summary-list__value">Baseline Personnel Security Standard (BPSS)</dd>
+          <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        </div>
+      </dl><br><br>
+
+      <h1 class="govuk-heading-m">Advert setup</h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Campaign dates</dt>
+          <dd class="govuk-summary-list__value">23 July 2024 to 22 August 2024</dd>
+          <dd class="govuk-summary-list__actions"><a href="about-the-role?edit9=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Link where candidate can apply</dt>
+          <dd class="govuk-summary-list__value"><a href="">http://your-dept-ats.com/126776326</a></dd>
+          <dd class="govuk-summary-list__actions"><a href="about-the-role?edit9=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Main contact for vacancy</dt>
+          <dd class="govuk-summary-list__value">Me</dd>
+          <dd class="govuk-summary-list__actions"><a href="about-the-role?edit9=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Who can apply</dt>
+          <dd class="govuk-summary-list__value">Everyone</dd>
+          <dd class="govuk-summary-list__actions"><a href="about-the-role?edit9=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">About the role</dt>
+          <dd class="govuk-summary-list__value"><span style="padding-bottom:10px">This is a permanent role, working 37.5 hours per week.<br><br>You will be part of the Emergency Education Strategy team, supporting the Lead Strategy Advisors. Their focus is planning education strategies which might be implemented in times of national emergency.
+
+<br><br>Your line manager will be the Lead Strategy Advisor you are assigned to.
+
+
+<br><br>You will have key responsibilities to carry out on a day-to-day basis, like:
+<ul class="govuk-list govuk-list--bullet">
+<li>provide administrative support to the team</li>
+<li>ensure projects focus on outcomes and deliver on time</li>
+<li>assisting in the development of proposals for funding including drafting up content, editing and checking accuracy</li>
+<li>drafting and providing content for progress reports on projects including <li>extracting and collating information</li>
+<li>assisting the team in delivering key milestones and evidencing action logs</li>
+<li>setting up and supporting key stakeholder meetings and track progress on agreed actions</li></ul></dd>
+          <dd class="govuk-summary-list__actions"><a href="about-the-role?edit9=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What you're looking for in a candidate</dt>
+          <dd class="govuk-summary-list__value">Desirable criteria<br>
+For this role, you should be able to:
+
+<ul class="govuk-list govuk-list--bullet"><li>deal with wide ranging enquiries and follow through to resolution</li>
+<li>work on your own initiative as well as collaboratively as part of a team</li>
+<li>quickly develop working relationships</li>
+<li>develop solutions to address problems</li>
+<li>work flexibly to meet ever changing priorities</li>
+<li>utilise excellent communications skills, both oral and written</li></ul></dd>
+          <dd class="govuk-summary-list__actions"><a href="about-the-role?edit9=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Supporting links</dt>
+          <dd class="govuk-summary-list__value">None</dd>
+          <dd class="govuk-summary-list__actions"><a href="about-the-role?edit9=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Advertise the vacancy</dt>
+          <dd class="govuk-summary-list__value">Civil Service Jobs, LinkedIn, Indeed</dd>
+          <dd class="govuk-summary-list__actions"><a href="about-the-role?edit9=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+      </dl>
+<br>
+
+
+
+
+
+      <form action="use-jao" method="post" novalidate>
+      <input type="hidden" name="about-vacancy-complete" value="true">
+
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+        {{ govukButton({
+          text: "Preview your job advert",
+          classes: "govuk-button--secondary",
+          href: "../job-ad?preview=yes"
+        }) }}
+      </div>
+
+
+
+    </form>
+    {% endblock %}

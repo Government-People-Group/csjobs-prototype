@@ -26,7 +26,6 @@
 
 {% set counter = [] %}
 
-<h1 class="govuk-heading-xl">Create a new vacancy</h1>
 
 
 <style>
@@ -37,26 +36,27 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
+  classes: "govuk-radios--inline",
   name: "templatePicked",
   fieldset: {
     legend: {
-      text: "How would you like to set-up your vacancy?",
+      text: "Will the new role have line management responsibility?",
       isPageHeading: false,
-      classes: "govuk-fieldset__legend--m"
+      classes: "govuk-fieldset__legend--l"
     }
   },
   items: [
     
     {
-      value: "duplicate~copy-ad",
-      text: "I want to copy a previous vacancy",
+      value: "yes~cs-commission",
+      text: "Yes",
       hint: {
         text: ""
       }
     },
     {
-      value: "commando~basic-details",
-      text: "I want to create a new vacancy",
+      value: "no~cs-commission",
+      text: "No",
       hint: {
         text: ""
       }

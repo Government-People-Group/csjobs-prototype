@@ -1,0 +1,474 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+  {% endblock %}
+
+{% block pageTitle %}
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<style>
+  .headerHide{
+    visibility:hidden;
+  }
+
+  #allowances-description{
+    display:none;
+}
+
+.security-panel {
+  background-color:#034f91;
+}
+
+.govuk-details__text {
+  border-left:5px solid #fd0;
+}
+
+.govuk-panel__title {
+    font-size: 2rem;
+    line-height: 1.0416666667;
+}
+
+.govuk-panel {
+        font-size: 1.6rem;
+        line-height: 1.1111111111;
+        padding:20px;
+    }
+</style>
+
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+  {% block content %}
+
+  {% set ftaHTML %}
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+  {{ govukInput({
+    label: {
+      text: "How long is the contract for, in months?"
+    },
+    classes: "govuk-input--width-5",
+    value: data['contract-length'],
+    id: "contract-length",
+    name: "contract-length",
+    suffix: {
+      text: "months"
+    },
+    spellcheck: false
+  }) }}
+  {% endset %}
+
+
+<div class="govuk-grid-row govuk-!-margin-top-3">
+  <div class="govuk-grid-column-one-half">
+    <h1 class="govuk-heading-xl">Contract details</h1>
+
+<form class="form" action="task-list-ad-only" method="post">
+    {{ govukCheckboxes({
+    id: "contract",
+    name: "contract",
+    fieldset: {
+      legend: {
+        text: "Contract type",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "Select all that apply."
+    },
+    items: [
+      {
+        value: "Apprenticeship",
+        text: "Apprenticeship",
+        checked: checked("contract", "Apprenticeship")
+      },
+      {
+        value: "Assisted transfer",
+        text: "Assisted transfer",
+        checked: checked("contract", "Assisted")
+      },
+      {
+        value: "Fixed term",
+        text: "Fixed term",
+        checked: checked("contract", "fixed"),
+        conditional: {
+          html: ftaHTML
+        }
+      },
+      {
+        value: "Internship",
+        text: "Internship",
+        checked: checked("contract", "Internship")
+      }
+    ]
+  }) }}
+
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Help with these options
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+    </div>
+  </details>
+
+  <br><br>
+  {{ govukCheckboxes({
+  id: "working-pattern",
+  name: "working-pattern",
+  fieldset: {
+    legend: {
+      text: "Working pattern",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "Annualised",
+      text: "Annualised hours",
+      checked: checked("working-pattern", "Annualised")
+    },
+    {
+      value: "Compressed",
+      text: "Compressed hours",
+      checked: checked("working-pattern", "Compressed")
+    },
+    {
+      value: "Flexible-working",
+      text: "Flexible working",
+      checked: checked("working-pattern", "Flexible-working")
+    },
+    {
+      value: "Fulltime",
+      text: "Full-time",
+      checked: checked("working-pattern", "Fulltime")
+    }
+  ]
+  }) }}
+
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Help with these options
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+    </div>
+  </details>
+
+</div>
+<div class="govuk-grid-column-one-half">
+  <h1 class="govuk-heading-xl" style="visibility:hidden">Contract details</h1>
+
+
+  {{ govukCheckboxes({
+  id: "contract",
+  name: "contract",
+  fieldset: {
+    legend: {
+      text: "Contract type",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m headerHide"
+    }
+  },
+  hint: {
+    text: "Select all that apply.",
+    classes:"headerHide"
+  },
+  items: [
+
+    {
+      value: "Loan",
+      text: "Loan",
+      checked: checked("contract", "Loan")
+    },
+    {
+      value: "Permanent",
+      text: "Permanent",
+      checked: checked("contract", "Permanent")
+    },
+    {
+      value: "Temporary",
+      text: "Temporary",
+      checked: checked("contract", "Temporary")
+    },
+    {
+      value: "Overseas",
+      text: "Overseas",
+      classes: "headerHide",
+      checked: checked("contract", "Overseas")
+    }
+  ]
+}) }}<br><br>
+{{ govukCheckboxes({
+id: "working-pattern",
+name: "working-pattern",
+fieldset: {
+  legend: {
+    text: "Working pattern",
+    isPageHeading: false,
+    classes: "govuk-fieldset__legend--m headerHide"
+  }
+},
+hint: {
+  text: "Select all that apply.",
+  classes:"headerHide"
+},
+items: [
+
+  {
+    value: "Homeworking",
+    text: "Homeworking",
+    checked: checked("working-pattern", "Homeworking")
+  },
+  {
+    value: "Jobshare",
+    text: "Job share",
+    checked: checked("working-pattern", "Jobshare")
+  },
+  {
+    value: "Part-time",
+    text: "Part-time",
+    checked: checked("working-pattern", "Part-time")
+  }
+]
+}) }}
+
+
+
+
+
+</div>
+
+
+<div class="govuk-grid-column-two-thirds"><br><br>
+<h1 class="govuk-heading-m">Salary and allowances</h1>
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+  {{ govukInput({
+    id: "cost",
+    name: "cost",
+    label: {
+      text: "Minimum salary",
+      classes: "govuk-label--s",
+      isPageHeading: false
+    },
+    prefix: {
+      text: "£"
+    },
+    classes: "govuk-input--width-5",
+    spellcheck: false,
+    value: data['cost']
+  }) }}
+
+
+  {{ govukInput({
+    id: "costmax",
+    name: "costmax",
+    label: {
+      text: "Maximum salary",
+      classes: "govuk-label--s",
+      isPageHeading: false
+    },
+    prefix: {
+      text: "£"
+    },
+    classes: "govuk-input--width-5",
+    spellcheck: false,
+    value: data['costmax']
+  }) }}
+
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Why should I provide a maximum salary?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      If you have both a minimum and maximum salary approved for the role, it's a good idea to show both because some (good) candidates might sift themselves out if there's only a minimum salary provided.
+    </div>
+  </details>
+
+
+  {{ govukSelect({
+    id: "allowances",
+    name: "allowances",
+    label: {
+      classes: "govuk-label--s",
+      text: "Additional allowances"
+    },
+    items: [
+      {
+        value: "choose",
+        text: "Select whether there are additional allowances for this role",
+        disabled: true,
+        selected: true
+      },
+      {
+        value: "no",
+        text: "No"
+      },
+      {
+        value: "yes",
+        text: "Yes"
+      }
+    ]
+  }) }}
+
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Help with this option
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+    </div>
+  </details>
+
+
+  <div class="govuk-grid-row" id="allowances-description">
+
+    <div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--s" for="more-detail">
+      Tell us about the additional allowances
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    You may be contacted to provide more details, including approval.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+  </div>
+
+<h2 class="govuk-heading-m govuk-!-padding-top-6">Benefits</h2>
+
+  {% set changeHtml %}
+  <a href="">Change</a>
+  {% endset %}
+  {{ govukTable({
+    rows: [
+      [
+        {
+          text: "Learning and development tailored to your role"
+        },
+        {
+          html: changeHtml
+        }
+      ],
+      [
+        {
+          text: "An environment with flexible working options"
+        },
+        {
+          html: changeHtml
+        }
+      ],
+      [
+        {
+          text: " A culture encouraging inclusion and diversity"
+        },
+        {
+          html: changeHtml
+        }
+      ],
+      [
+        {
+          text: "A Civil Service pension"
+        },
+        {
+          html: changeHtml
+        }
+      ]
+    ]
+  }) }}
+
+<p><a href="add-allowance">Add another benefit</a></p><br><br><br>
+
+
+
+
+      <h1 class="govuk-heading-m">Security clearance needed</h1>
+
+
+                {% from "govuk/components/panel/macro.njk" import govukPanel %}
+                {{ govukPanel({
+                  titleText: "Developed Vetting (DV)",
+                  classes: "govuk-panel security-panel",
+                  html: "is your departmental default"
+                }) }}<br><br>
+
+                {{ govukSelect({
+                  id: "sec-clearance",
+                  name: "sec-clearance",
+                  items: [
+                    {
+                      value: "choose",
+                      text: "Select whether you accept this security clearance for this role",
+                      disabled: true,
+                      selected: true
+                    },
+                    {
+                      value: "yes",
+                      text: "Yes"
+                    },
+                    {
+                      value: "no",
+                      text: "No - I need to choose a different security clearance"
+                    }
+                  ]
+                }) }}
+
+                <details class="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Choosing the right security clearance for your vacancy
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    For example, if you are running a rolling campaign which has a closing date rather than a number of posts. You can enter the closing date on the next screen.
+                  </div>
+                </details>
+  </div></div><br><br>
+
+
+
+      <button class="govuk-button" data-module="govuk-button">Save and return to tasklist</button>
+        <input type="hidden" name="contract-details-complete" value="true">
+        <input type="hidden" name="show-banner" value="false">
+
+
+
+<script>
+  var elem = document.getElementById("allowances");
+  elem.onchange = function(){
+    if (this.value == "yes"){
+      var hiddenDiv = document.getElementById("allowances-description");
+      hiddenDiv.style.display = "block";
+    }
+    else {
+      var hiddenDiv = document.getElementById("allowances-description");
+      hiddenDiv.style.display = "none";
+    }
+  };
+</script>
+
+
+{% endblock %}
