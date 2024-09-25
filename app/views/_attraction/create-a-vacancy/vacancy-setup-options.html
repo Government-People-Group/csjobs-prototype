@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+  {% endblock %}
+
+{% block pageTitle %}
+  Create a job advert – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+  {% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <form class="form" action="" method="post">
+
+{% set counter = [] %}
+
+<h1 class="govuk-heading-xl">Create a new vacancy</h1>
+
+
+<style>
+
+</style>
+
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "templatePicked",
+  fieldset: {
+    legend: {
+      text: "How would you like to set-up your vacancy?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "csofficial~choose-template",
+      text: "I want to use a Civil Service template",
+      hint: {
+        text: "The Civil Service has created an approved list of job adverts that were successful"
+      }
+    },
+    {
+      value: "duplicate~copy-ad",
+      text: "I want to copy a previous vacancy",
+      hint: {
+        text: ""
+      }
+    },
+    {
+      value: "commando~",
+      text: "I want to create a new vacancy",
+      hint: {
+        text: ""
+      }
+    }
+  ]
+}) }}
+
+
+
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+</form>
+</div>
+</div>
+
+
+{% endblock %}

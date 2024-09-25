@@ -1,0 +1,175 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+  {% endblock %}
+
+{% block pageTitle %}
+  Create a job advert – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+  {% endblock %}
+
+{% block content %}
+
+
+
+
+
+<!-- <table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date</th>
+      <th scope="col" class="govuk-table__header">Amount</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">First 6 weeks</th>
+      <td class="govuk-table__cell">£109.80 per week</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Next 33 weeks</th>
+      <td class="govuk-table__cell">£109.80 per week</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Total estimated pay</th>
+      <td class="govuk-table__cell">£4,282.20</td>
+    </tr>
+  </tbody>
+</table> -->
+
+
+
+
+
+
+{% set vhHTML %}
+{{govukTag({
+  text: "in progress",
+  classes: "govuk-tag--blue"
+})}}
+{% endset %}
+
+
+{% set leadHTML %}
+{{govukTag({
+  text: "Lead to complete",
+  classes: "govuk-tag--blue"
+})}}
+{% endset %}
+{% set panelHTML %}
+{{govukTag({
+  text: "Panel to complete",
+  classes: "govuk-tag--grey"
+})}}
+{% endset %}
+{% set recruiterHTML %}
+{{govukTag({
+  text: "Recruiter to complete",
+  classes: "govuk-tag--yellow"
+})}}
+
+
+
+
+{% endset %}
+
+
+<div class="govuk-grid-row">
+   <div class="govuk-grid-column-full">
+
+
+
+<h1 class="govuk-heading-xl">Select a job advert to copy</h1>
+<p class="govuk-body-m">You can copy details from another job advert:</p>
+<ul class="govuk-list govuk-list--bullet govuk-list">
+  <li>Assessment methods</li>
+ <li>Grade</li>
+  <li>Job title</li>
+</ul>
+     <table class="govuk-table govuk-!-margin-top-6">
+
+       <thead class="govuk-table__head">
+         <tr class="govuk-table__row" style="background:#F4FAFF;border-bottom:0.5px solid #1d70b8">
+           <th scope="col" class="govuk-table__header" style="width:20%;;color:#1d70b8;">Closed on</th>
+           <th style="padding-left:10px;;color:#1d70b8;width:20%;" scope="col" class="govuk-table__header">Job title</th>
+           <th scope="col" class="govuk-table__header" style="width:20%;;color:#1d70b8;">Grade</th>
+           <th style="padding-left:10px;;color:#1d70b8;width:20%;" scope="col" class="govuk-table__header">Ref.</th>
+
+
+           <th scope="col" class="govuk-table__header" style="width:20%;;color:#1d70b8;">Selection</th>
+         </tr>
+       </thead>
+
+
+
+       <tbody class="govuk-table__body">
+
+
+     <tr class="govuk-table__row" style="background:#f3f2f1;padding-top:5px;border-bottom:1px solid #1d70b8;height:60px">
+       <td class="govuk-table__cell" style="background: white;">Still active</td>
+       <td class="govuk-table__cell" style="padding-left:10px;background: white;font-weight:bold;"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="preview-copy-newadvert?title=Policy Adviser&grade=SEO">Policy Adviser</a></td>
+       <td class="govuk-table__cell" style="width:20%;background: white;;">SEO</td>
+
+       <td class="govuk-table__cell" style="padding-left:10px;background: white;;"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="preview-copy-newadvert?title=Policy Adviser&grade=SEO">1001136</a></td>
+
+       <td class="govuk-table__cell" style="background: white;">
+         <a class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" style="padding:8px;border-radius:7px;font-size:18px;background:#1d70b8;color:white" href="task-list-copy"><strong>Copy this advert</strong></a>
+
+       </td>
+     </tr>
+     <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:0.5px solid #1d70b8;height:70px">
+       <td class="govuk-table__cell" style="background: white;;">Still active</td>
+       <td class="govuk-table__cell" style="padding-left:10px;background: white;font-weight:bold;"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="">Data Analyst</a></td>
+       <td class="govuk-table__cell" style="width:20%;background: white;;">SEO</td>
+
+       <td class="govuk-table__cell" style="padding-left:10px;background: white;;"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="">1000089</a></td>
+
+       <td class="govuk-table__cell" style="background: white;">
+         <a class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" style="padding:8px;border-radius:7px;font-size:18px;background:#1d70b8;color:white" href=""><strong>Copy this advert</strong></a>
+
+
+         <!-- {{ govukButton({
+           text: "Copy advert",
+           classes: "govuk-button--secondary",
+           href: "task-list-exp-copy-ad?adCopy=true"
+         }) }} -->
+       </td>
+     </tr>
+     <tr class="govuk-table__row" style="border-bottom:0.5px solid #1d70b8;height:70px">
+       <td class="govuk-table__cell" style="background: white;;">14 Apr 2023</td>
+       <td class="govuk-table__cell" style="padding-left:10px;background: white;font-weight:bold;"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/csu71/preview-copy-newadvert?title=Product Manager&grade=G7">Product Manager</a></td>
+       <td class="govuk-table__cell" style="width:20%;background: white;;">G7</td>
+
+       <td class="govuk-table__cell" style="padding-left:10px;background: white;;"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/csu71/preview-copy-newadvert">1000010</a></td>
+
+       <td class="govuk-table__cell" style="background: white;">
+         <a class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" style="padding:8px;border-radius:7px;font-size:18px;background:#1d70b8;color:white" href="/csu71/task-list-exp-copy-ad?firstNot=seen&title=Product Manager&grade=G7&ref=1000010"><strong>Copy this advert</strong></a>
+
+
+         <!-- {{ govukButton({
+           text: "Copy advert",
+           classes: "govuk-button--secondary",
+           href: "task-list-exp-copy-ad?adCopy=true"
+         }) }} -->
+       </td>
+     </tr>
+</tbody>
+</table>
+
+
+
+
+</div>
+</div>
+
+
+{% endblock %}

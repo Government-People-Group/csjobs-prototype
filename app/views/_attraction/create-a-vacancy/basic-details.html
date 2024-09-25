@@ -1,0 +1,429 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+  {% endblock %}
+  {% block beforeContent %}
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:window.history.back()"
+    }) }}
+
+    {% endblock %}
+
+
+{% block pageTitle %}
+Create a job advert – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+
+select {
+width:400px;
+}
+
+.autocomplete__wrapper {
+  position: relative;
+}
+
+.autocomplete__hint,
+.autocomplete__input {
+  -webkit-appearance: none;
+  border: 2px solid #0b0c0c;
+  border-radius: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.autocomplete__input {
+  background-color: transparent;
+  position: relative;
+}
+
+.autocomplete__hint {
+  color: #b1b4b6;
+  position: absolute;
+}
+
+.autocomplete__input--default {
+  padding: 5px;
+}
+
+.autocomplete__input--focused {
+  outline: 3px solid #fd0;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px;
+}
+
+.autocomplete__input--show-all-values {
+  padding: 5px 34px 5px 5px;
+  cursor: pointer;
+}
+
+.autocomplete__dropdown-arrow-down {
+  z-index: -1;
+  display: inline-block;
+  position: absolute;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  top: 10px;
+}
+
+.autocomplete__menu {
+  background-color: #fff;
+  border: 2px solid #0b0c0c;
+  border-top: 0;
+  color: #0b0c0c;
+  margin: 0;
+  max-height: 342px;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+  width: calc(100% - 4px);
+}
+
+.autocomplete__menu--visible {
+  display: block;
+}
+
+.autocomplete__menu--hidden {
+  display: none;
+}
+
+.autocomplete__menu--overlay {
+  box-shadow: rgba(0,0,0,.256863) 0 2px 6px;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+}
+
+.autocomplete__menu--inline {
+  position: relative;
+}
+
+.autocomplete__option {
+  border-bottom: solid #b1b4b6;
+  border-width: 1px 0;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.autocomplete__option > * {
+  pointer-events: none;
+}
+
+.autocomplete__option:first-of-type {
+  border-top-width: 0;
+}
+
+.autocomplete__option:last-of-type {
+  border-bottom-width: 0;
+}
+
+.autocomplete__option--odd {
+  background-color: #fafafa;
+}
+
+.autocomplete__option--focused,
+.autocomplete__option:hover {
+  background-color: #1d70b8;
+  border-color: #1d70b8;
+  color: #fff;
+  outline: 0;
+}
+
+.autocomplete__option--no-results {
+  background-color: #fafafa;
+  color: #646b6f;
+  cursor: not-allowed;
+}
+
+.autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.autocomplete__hint,
+.autocomplete__option {
+  padding: 5px;
+}
+@media (min-width:641px) {
+  .autocomplete__hint,
+  .autocomplete__input,
+  .autocomplete__option {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
+}
+
+
+</style>
+
+<form class="form" action="vacancy-setup-options" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">Create a new vacancy</h1>
+      <div class="govuk-!-margin-bottom-6">
+      <div style="width:400px" class="govuk-form-group govuk-input--width-30 ">
+        <label for="autocomplete-default" class="govuk-label govuk-label--s">What is the job title?</label>
+        <div id="jobtitle" class="autocomplete-wrapper"></div>
+      </div>
+</div>
+
+
+<div class="govuk-!-margin-bottom-6">
+      {{ govukSelect({
+                id: "grade",
+                name: "grade",
+                label: {
+                  text: "What grade is the job role?",
+                  classes: "govuk-label--s"
+                },
+                items: [
+                {
+                  value: "none",
+                  selected: "true",
+                  disabled: "true",
+                  text: "Select grade"
+                },
+
+                {
+                  value: "Administrative Assistant",
+                  text: "Administrative Assistant",
+                  selected: checked("grade","Administrative Assistant")
+                },
+                {
+                  value: "Administrative Officer",
+                  text: "Administrative Officer",
+                  selected: checked("grade","Administrative Officer")
+                },
+                {
+                  value: "Executive Officer",
+                  text: "Executive Officer",
+                  selected: checked("grade","Executive Officer")
+                },
+                {
+                  value: "Higher Executive Officer",
+                  text: "Higher Executive Officer",
+                  selected: checked("grade","Higher Executive Officer")
+                },
+                {
+                  value: "Senior Executive Officer",
+                  text: "Senior Executive Officer",
+                  selected: checked("grade","Senior Executive Officer")
+                },
+                {
+                  value: "Grade 7",
+                  text: "Grade 7",
+                  selected: checked("grade","Grade 7")
+                },
+                {
+                  value: "Grade 6",
+                  text: "Grade 6",
+                  selected: checked("grade","Grade 6")
+                }
+                ]
+              }) }}
+              </div>
+
+<div class="govuk-!-margin-bottom-6">
+
+              {{ govukSelect({
+                id: "proff",
+                name: "proff",
+                label: {
+                  text: "What profession is the job role part of?",
+                  classes: "govuk-label--s"
+                },
+                items: [
+                {
+                  value: "none",
+                  selected: "true",
+                  disabled: "true",
+                  text: "Select profession"
+                },
+                {
+                  value: "Analysis",
+                  text: "Analysis",
+                  selected: checked("proff","Analysis")
+                },
+                {
+                  value: "Commercial and Procurement",
+                  text: "Commercial and Procurement",
+                  selected: checked("proff","Commercial and Procurement")
+                },
+                {
+                  value: "Corporate Finance",
+                  text: "Corporate Finance",
+                  selected: checked("proff","Corporate Finance")
+                },
+                {
+                  value: "Communications",
+                  text: "Communications",
+                  selected: checked("proff","Communications")
+                },
+                {
+                  value: "Counter Fraud",
+                  text: "Counter Fraud",
+                  selected: checked("proff","Counter Fraud")
+                },
+                {
+                  value: "Digital, Data and Technology",
+                  text: "Digital, Data and Technology",
+                  selected: checked("proff","Digital, Data and Technology")
+                },
+                {
+                  value: "Government Economic Service",
+                  text: "Government Economic Service",
+                  selected: checked("proff","Government Economic Service")
+                },
+                {
+                  value: "Government Social Research",
+                  text: "Government Social Research",
+                  selected: checked("proff","Government Social Research")
+                },
+                {
+                  value: "Finance",
+                  text: "Finance",
+                  selected: checked("proff","Finance")
+                },
+                {
+                  value: "Human Resources",
+                  text: "Human Resources",
+                  selected: checked("proff","Human Resources")
+                },
+                {
+                  value: "Intelligence Analysis",
+                  text: "Intelligence Analysis",
+                  selected: checked("proff","Intelligence Analysis")
+                },
+                {
+                  value: "Internal Audit",
+                  text: "Internal Audit",
+                  selected: checked("proff","Internal Audit")
+                },
+                {
+                  value: "International Trade and Negotiation",
+                  text: "International Trade and Negotiation",
+                  selected: checked("proff","International Trade and Negotiation")
+                },
+                {
+                  value: "Knowledge and Information Management",
+                  text: "Knowledge and Information Management",
+                  selected: checked("proff","Knowledge and Information Management")
+                },
+                {
+                  value: "Legal",
+                  text: "Legal",
+                  selected: checked("proff","Legal")
+                },
+                {
+                  value: "Medical",
+                  text: "Medical",
+                  selected: checked("proff","Medical")
+                },
+                {
+                  value: "Occupational Psychology",
+                  text: "Occupational Psychology",
+                  selected: checked("proff","Occupational Psychology")
+                },
+                {
+                  value: "Operational Delivery",
+                  text: "Operational Delivery",
+                  selected: checked("proff","Operational Delivery")
+                },
+                {
+                  value: "Operational Research",
+                  text: "Operational Research",
+                  selected: checked("proff","Operational Research")
+                },
+                {
+                  value: "Policy",
+                  text: "Policy",
+                  selected: checked("proff","Policy")
+                },
+                {
+                  value: "Project Management and Delivery",
+                  text: "Project Management and Delivery",
+                  selected: checked("proff","Project Management and Delivery")
+                },
+                {
+                  value: "Property",
+                  text: "Property",
+                  selected: checked("proff","Property")
+                },
+                {
+                  value: "Science and Engineering",
+                  text: "Science and Engineering",
+                  selected: checked("proff","Science and Engineering")
+                },
+                {
+                  value: "Security",
+                  text: "Security",
+                  selected: checked("proff","Security")
+                },
+                {
+                  value: "Tax",
+                  text: "Tax",
+                  selected: checked("proff","Tax")
+                },
+                {
+                  value: "Veterinary",
+                  text: "Veterinary",
+                  selected: checked("proff","Veterinary")
+                },
+                {
+                  value: "Other",
+                  text: "Other",
+                  selected: checked("proff","Other")
+                }
+                ]
+              }) }}
+              <a class="govuk-link govuk-link--no-visited-state"  href="#">Add another profession</a>
+
+
+              </div>
+              <div style="width:400px" class="govuk-form-group govuk-input--width-30">
+                <label for="autocomplete-default" class="govuk-label govuk-label--s">Which department?</label>
+                <div id="department" class="autocomplete-wrapper"></div>
+              </div>
+              <div class="govuk-!-margin-bottom-9">
+
+</div>
+
+<div>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </div>
+      <script src="/public/javascripts/accessible-autocomplete.js"></script>
+      <script src="/public/javascripts/jobtitle.js"></script>
+
+      <script src="/public/javascripts/dept.js"></script>
+
+      <input type="hidden" name="createVacancy" value="true">
+
+
+    </FORM>
+
+
+<script>
+
+
+
+
+</script>
+
+
+    {% endblock %}

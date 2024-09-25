@@ -9,6 +9,7 @@
     "@govuk-prototype-kit/step-by-step": "2.2.3",
     "govuk-frontend": "5.6.0",
     "govuk-prototype-kit": "13.16.2",
-    "jquery": "3.7.1"
+    "jquery": "3.7.1",
+    "radio-button-redirect": "^1.2.0"
   }
 }
