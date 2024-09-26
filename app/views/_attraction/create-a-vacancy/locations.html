@@ -29,6 +29,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
+
 <form class="form" action="location-specific" method="post">
 
 <div class="govuk-grid-row">
@@ -239,7 +240,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 
                         <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item" style="margin-left:20px">
-                            <input class="govuk-checkboxes__input" id="location-specific" name="location-specific" type="checkbox" value="yes" aria-describedby="nationality-item-hint">
+                            <input class="govuk-checkboxes__input" id="location-specific" name="location-specific" type="checkbox" value="yes" {{checked('location-specific', 'yes')}} aria-describedby="nationality-item-hint">
                             <label class="govuk-label govuk-checkboxes__label" for="nationality">
                               Some locations have specific requirements
                             </label>

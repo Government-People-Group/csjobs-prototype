@@ -199,7 +199,7 @@ width:400px;
 
 
 
-<form class="form" action="line-manager" method="post" novalidate>
+<form class="form" action="cs-commission" method="post" novalidate>
   <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
 
@@ -535,6 +535,43 @@ name: "subtitle"
               </div>
 
               <div><br><br>
+
+
+                {{ govukSelect({
+                  id: "line-mgr",
+                  name: "line-mgr",
+                  label: {
+                    text: "Role has line manager responsibilities",
+                    classes: "govuk-label--s"
+                  },
+                  items: [
+                  {
+                    value: "none",
+                    selected: "true",
+                    disabled: "true",
+                    text: "Select whether role has responsibilities or not"
+                  },
+                    {
+                    value: "No",
+                    text: "No"
+                    },
+                    {
+                    value: "Yes",
+                    text: "Yes"
+                    }
+                    ]
+                    }) }}
+
+                    <details class="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Help with this option
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        Blah blah
+                      </div>
+                    </details><br><br>
 
 
                 {{ govukSelect({

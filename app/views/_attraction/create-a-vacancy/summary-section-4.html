@@ -1,0 +1,146 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+  {% endblock %}
+
+{% block pageTitle %}
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span class="govuk-caption-xl">Summary</span>
+    <h1 class="govuk-heading-xl">Sifting and selection methods</h1>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">How do you want to provide assessment methods?</dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['assessment-method']=='type' %}
+          Type into textbox
+          {% else %}
+          Success profiles method
+          {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions"><a href="how-sift?edit13=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+
+  {% if data['assessment-method']=='type' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Describe how you will assess candidates</dt>
+          <dd class="govuk-summary-list__value">
+          {{data['typed-assessment']}}
+            </dd>
+            <dd class="govuk-summary-list__actions"><a href="how-sift?edit13=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+          </div>
+{% endif %}
+
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">Pre-qualifying questions</dt>
+  <dd class="govuk-summary-list__value">
+    1. Candidates that accept an interview invite will need to take and pass a compulsory drug test. If appointed, the role holder will be subject to random drug testing throughout their first year of employment.<br><br>
+    2. This role requires the highest security clearance known as Developed Vetting (or DV). Candidates should ensure they are familiar and comfortable with the vetting standard before they starting their application.
+    </dd>
+    <dd class="govuk-summary-list__actions"><a href="how-sift?edit13=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+  </div>
+
+    </dl>
+
+  {% if data['assessment-method']!='type' %}
+    <h2 class="govuk-heading-l">At sift</h2>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Elements to assess</dt>
+        <dd class="govuk-summary-list__value">
+          Behaviours: Seeing the big picture<br><br>
+          Behaviours: Changing and improving<br><br>
+          Experience: Using complex mathematical modelling tools to design and scale data science tools<br><br>
+          Experience: Building professional relationships with stakeholders across the organisation
+          </dd>
+          <dd class="govuk-summary-list__actions"><a href="how-sift?edit13=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Sift methods</dt>
+        <dd class="govuk-summary-list__value">
+          Personal statement<br><br>
+          CV
+          </dd>
+          <dd class="govuk-summary-list__actions"><a href="how-sift?edit13=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Initial sift?</dt>
+          <dd class="govuk-summary-list__value">
+          {{data['presift-needed']|capitalize}}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="experience?edit15=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Online tests</dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['tests']|length > 0 %}
+          {% for items in data['tests'] | slice(1) %}
+          <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+          {% else %}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="online-tests?edit17=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+      </div>
+    </dl>
+
+
+    <h2 class="govuk-heading-l">At interview</h2>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Elements to assess</dt>
+        <dd class="govuk-summary-list__value">
+          Behaviours: Seeing the big picture<br><br>
+          Behaviours: Changing and improving<br><br>
+          Experience: Using complex mathematical modelling tools to design and scale data science tools<br><br>
+          Experience: Building professional relationships with stakeholders across the organisation
+          </dd>
+        <dd class="govuk-summary-list__actions"><a href="interview-evidence?edit14=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Interview methods</dt>
+        <dd class="govuk-summary-list__value">
+          Interview questions
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="experience?edit15=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+
+
+    </dl>
+    {% endif %}
+  </div>
+</div>
+
+<form action="task-list-ad-only" method="post" novalidate>
+
+  <input type="hidden" name="assessment-complete" value="true">
+  <input type="hidden" name="ready-to-submit" value="true">
+
+  <button type="submit" class="govuk-button" data-module="govuk-button">Save and return to task list</button>
+
+</form>
+
+
+{% endblock %}

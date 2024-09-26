@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+  {% endblock %}
+
+  {% block beforeContent %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  {% endblock %}
+
+
+
+{% block pageTitle %}
+Create a job advert – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+
+  select {
+width:400px;
+
+
+
+  }
+</style>
+
+<form class="form" action="pre-sift-questions" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="more-detail">
+            Describe how you will assess candidates
+          </label>
+        </h1>
+        <div id="more-detail-hint" class="govuk-hint">
+          In this section you will need to explain how you will assess applications, for example:<br>
+          <ul class="govuk-list govuk-list--bullet" style="color:#505a5f;padding-top:10px">
+            <li>online tests</li>
+            <li>candidate’s personal statement</li>
+            <li>an initial sift on a lead behaviour</li>
+            <li>asking candidates to complete a task or presentation</li>
+          </ul>
+          You could look at your previous campaigns or at similar job adverts to see what’s been used.
+        </div>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            What you write in this section to describe the assessment methods will appear in your advert on Civil Service Jobs.
+          </strong>
+        </div>
+        <textarea class="govuk-textarea" id="more-detail" name="typed-assessment" rows="5" aria-describedby="more-detail-hint"></textarea>
+      </div>
+
+  <button class="govuk-button" data-module="govuk-button">Continue</button>
+  </div>
+
+
+  </form>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+    {% endblock %}

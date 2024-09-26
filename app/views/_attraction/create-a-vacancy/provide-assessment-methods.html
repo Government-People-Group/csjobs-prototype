@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+  {% endblock %}
+
+  {% block beforeContent %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  {% endblock %}
+
+{% block pageTitle %}
+Create a job advert – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+
+  select {
+width:400px;
+
+
+
+  }
+</style>
+
+<form class="form" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          How do you want to provide assessment methods?
+        </h1>
+      </legend>
+      <div id="signIn-hint" class="govuk-hint">
+        Choose a way to include details in your job advert of the assessment methods for this campaign.
+      </div><br>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="signIn" name="assessment-method" type="radio" value="type~type-assessment-methods" aria-describedby="signIn-item-hint">
+          <label class="govuk-label govuk-radios__label" for="signIn">
+            I will type them into a textbox
+          </label>
+          <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+            Type or copy and paste the assessment methods you will use into a textbox.
+          </div>
+        </div><br>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="signIn-2" name="assessment-method" type="radio" value="success-profiles~pick-criteria-type" aria-describedby="signIn-2-item-hint">
+          <label class="govuk-label govuk-radios__label" for="signIn-2">
+            I will use the success profiles method
+          </label>
+          <div id="signIn-2-item-hint" class="govuk-hint govuk-radios__hint">
+            Select the behaviours, experience, strengths and, or skills you will assess for this campaign.
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+
+  <button class="govuk-button" data-module="govuk-button">Continue</button>
+  </div>
+
+
+  </form>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+    {% endblock %}

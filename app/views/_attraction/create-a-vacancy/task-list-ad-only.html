@@ -136,7 +136,18 @@ Your vacancy has been created.
                 {% endif %}
               </li>
               <li class="app-task-list__item">
-                {% if data['ad-setup-complete'] !='true' %}
+                <span class="app-task-list__task-name">3.
+                  <a href="provide-assessment-methods" aria-hidden="list-convictions-status">
+                    Assessment methods
+                  </span>
+                  {% if data['assessment-complete'] == 'true' %}
+                  <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status" style="background-color:#ffffff">Completed</strong>
+                  {% else %}
+                  <strong class="govuk-tag app-task-list__tag" id="financial-evidence-status" style="background-color:#bbd4ea">Not yet started</strong>
+                  {% endif %}
+                </li>
+              <li class="app-task-list__item">
+                {% if data['assessment-complete'] !='true' %}
                 <span class="app-task-list__task-name" style="color:#000000;padding-right:2px">4.
                   <a href="summary" aria-hidden="list-convictions-status" style="text-decoration:none; color:#000000;" >
                      Check and submit
