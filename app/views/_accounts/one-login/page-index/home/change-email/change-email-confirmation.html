@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You’ve changed your email address - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-home-header.njk" %}
+{% include "/includes/govuk-primary-nav--your-security.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/page-index/home/security" method="post">
+
+
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        You’ve changed your email address
+      </h1>
+    </div>
+    <p class="govuk-body"></p>
+    <p class="govuk-body">Your email address has been changed to new.email@example.com</p>
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Back to security
+    </button>
+
+  </div>
+</div>
+</main>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <div class="govuk-!-padding-bottom-3"></div>
+
+<div class="govuk-notification-banner govuk-notification-banner--journey-options" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Journey options
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-body">You can:</p>
+    <p class="govuk-body">
+      <a href="/page-index/home/change-email/email-address-changed-email" class="govuk-link" rel="noreferrer noopener" target="_blank">view email address has changed confirmation email (opens in new tab)</a>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,97 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You’ve reported activity you do not recognise - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+
+{% include "/includes/govuk-one-login-home-header.njk" %}
+
+{% include "/includes/govuk-primary-nav--your-security.njk" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+<a href="/page-index/home/activity-history" class="govuk-back-link">Back to activity history</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      
+<div class="govuk-panel govuk-panel--confirmation">
+  <h1 class="govuk-panel__title">
+    You’ve reported activity you do not recognise
+  </h1>
+</div>
+
+
+<p class="govuk-body">Thanks for reporting this activity. A confirmation email with your report number has been sent to <b>your.name@example.com</b>.</p>
+
+<h1 class="govuk-heading-l">Change your password</h1>
+
+<p class="govuk-body"> <a href="/page-index/home/change-password/enter-current-password" class="govuk-link govuk-link--no-visited-state">Change your password</a> if you have not done this already.</p>
+
+<p class="govuk-body">Changing your password is the best way to keep your GOV.UK One Login secure.</p>
+
+<p class="govuk-body">We recommend that you:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>create a secure and memorable password, for example by using 3 random words</li>
+  <li>use a different password to the one you use to sign in to your email</li>
+</ul>
+
+<h1 class="govuk-heading-l">What happens next</h1>
+
+<p class="govuk-body">The GOV.UK One Login team will investigate your report.</p>
+
+<p class="govuk-body">We’ll only email you again if you need to do something to help protect your GOV.UK One Login.</p>
+
+<p class="govuk-body">We’ll always include your report number when we email you.</p>
+
+
+  </div>
+</div>
+</main>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/choose-journey" method="post">
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <div class="govuk-!-padding-bottom-3"></div>
+
+    <div class="govuk-notification-banner govuk-notification-banner--journey-options" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Next step
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          You've reached the end of this user journey
+        </p>
+        <button class="govuk-button govuk-button--transition" data-module="govuk-button">Choose another journey</button>
+        <p class="govuk-body">Or you can:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <p class="govuk-body">
+              <a href="/page-index/home/reporting-activity/report-activity-dbs-email" class="govuk-link" rel="noreferrer noopener" target="_blank">view reported activity confirmation email (opens in new tab)</a>
+            </p>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+<div class="govuk-!-padding-bottom-7"></div>
+
+</div>
+</div>
+
+
+{% endblock %}

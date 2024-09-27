@@ -1,0 +1,111 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Find another way to access the service - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/find-another-way-coi-answer" method="post">
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select what you would like to do",
+                    href: "#escape"
+                }
+            ]
+        }) }}
+        {% endif %}
+
+
+        <h1 class="govuk-heading-l">Find another way to access the service</h1>
+
+<p class="govuk-body">You were not able to update your details with the GOV.UK ID Check app.</p>
+
+
+
+
+      {% if showErrorSummary %}
+      {{ govukRadios({
+        name: "escape",
+        fieldset: {
+            legend: {
+                text: "What would you like to do?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+            }
+        },
+        items: [
+            {
+                value: "contact",
+                text: "Contact the GOV.UK One Login team",
+                hint: {
+                    text: "You may need to delete your GOV.UK One Login. Then you can create a new one and try to prove your identity again with your new details"
+                }
+            },
+            {
+                value: "another-way",
+                text: "Continue to the service you were trying to use to find out if there are other ways to access it",
+                hint: {
+                    text: ""
+                }
+            }
+        ],
+        errorMessage: {
+            text: "Select what you would like to do"
+        }
+    }) }}
+    {% else %}
+    {{ govukRadios({
+        name: "escape",
+        fieldset: {
+            legend: {
+                text: "What would you like to do?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+            }
+        },
+        items: [
+            {
+                value: "contact",
+                text: "Contact the GOV.UK One Login team",
+                hint: {
+                    text: "You may need to delete your GOV.UK One Login. Then you can create a new one and try to prove your identity again with your new details"
+                }
+            },
+            {
+                value: "another-way",
+                text: "Continue to the service you were trying to use to find out if there are other ways to access it",
+                hint: {
+                    text: ""
+                }
+            }
+        ]
+    }) }}
+    {% endif %}
+    
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

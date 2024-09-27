@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Choose a way to prove your identity - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+         
+      <form class="form" action="/url/of/next/page" method="post">
+
+
+      {{ govukRadios({
+        name: "choose-how-to-prove-identity",
+        fieldset: {
+          legend: {
+            text: "Choose a way to prove your identity",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Online",
+            text: "Online",
+            hint: {
+              text: "This is the quickest way to prove your identity"
+            }
+          },
+          {
+            value: "In person at a Post Office",
+            text: "In person at a Post Office",
+            hint: {
+              text: "You can take your photo ID to a Post Office to be checked in person. You'll need to fill in a form online before you can do this."
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

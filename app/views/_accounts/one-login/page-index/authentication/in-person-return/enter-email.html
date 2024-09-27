@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your email address to sign in to your GOV.UK One Login - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/page-index/authentication/in-person-return/enter-password" method="post">
+
+      {{ govukInput({
+        label: {
+          text: "Enter your email address to sign in to your GOV.UK One Login",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        id: "sign-in-email",
+        name: "sign-in-email"
+      }) }}
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+  
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+ Sorry, we cannot prove your identity - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+         
+      <form class="form" action="/url/of/next/page" method="post">
+
+      <h1 class="govuk-heading-l">
+      Sorry, we cannot prove your identity
+
+      </h1>
+
+      <p>This is because you did not answer some of the security questions correctly.</p>
+
+      <p>To keep your information safe, we cannot tell you what these questions were or what the answers should have been.</p>
+
+      <h2 class="govuk-heading-m">What you can do</h2>
+
+      <p>Continue to the service you were trying to use and look for other ways to prove your identity.</p>
+
+   
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        
+
+      </form>
+
+      <a href="#" class="govuk-link">Contact the GOV.UK account team (opens in a new tab)</a>
+
+    </div>
+  </div>
+
+{% endblock %}

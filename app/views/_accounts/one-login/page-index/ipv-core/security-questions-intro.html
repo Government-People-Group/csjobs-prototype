@@ -1,0 +1,158 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your details exactly as they appear on your UK passport - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/page-index/passport-cri/enter-passport-details" method="post">
+
+        <h1 class="govuk-heading-l">
+          Enter your details exactly as they appear on your UK passport
+  
+        </h1>
+        <p class="govuk-body">Your passport includes a lot of information that we can check to make sure that you are who you say you are.</p>
+        <p class="govuk-body">We'll check your details with the HM Passport Office to make sure your passport has not been cancelled or reported as lost or stolen.</p>
+
+        <div class="govuk-inset-text">
+          If you do not have a UK passport or you cannot remember your details, you can <a href="find-another-way-to-prove-id.html">prove your identity another way</a> instead.
+        </div>
+      
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="passport-number">
+            Passport number
+          </label>
+          <div id="event-name-hint" class="govuk-hint">
+            This is the 9 digit number in the top right hand corner of the photo page in your passport
+          </div>
+          <input class="govuk-input govuk-input--width-10" id="passport-number" name="passport-number" type="passport-number">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="full">
+            Surname
+          </label>
+          <input class="govuk-input govuk-!-width-full" id="full" name="full" type="text">
+        </div>
+
+
+        <p class="govuk-body">Given names</p>
+        <div class="govuk-inset-text">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="full">
+              First name
+            </label>
+            <input class="govuk-input govuk-!-width-full" id="full" name="full" type="text">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="full">
+              Middle names
+            </label>
+            <div id="event-name-hint" class="govuk-hint">
+              Leave this blank if you do not have any middle names
+            </div>
+            <input class="govuk-input govuk-!-width-full" id="full" name="full" type="text">
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend">
+              <h1 class="govuk-fieldset__heading">
+                Date of birth
+              </h1>
+            </legend>
+            <div id="date-of-birth-hint" class="govuk-hint">
+              For example, 5 9 1973
+            </div>
+            <div class="govuk-date-input" id="date-of-birth">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-of-birth-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-of-birth-day" name="date-of-birth-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-of-birth-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-of-birth-month" name="date-of-birth-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-of-birth-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-of-birth-year" name="date-of-birth-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-expiry-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend">
+              <h1 class="govuk-fieldset__heading">
+                Expiry date
+              </h1>
+            </legend>
+            <div id="passport-expiry-hint" class="govuk-hint">
+              For example, 27 5 2029
+            </div>
+            <div class="govuk-date-input" id="passport-expiry">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-expiry-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-expiry-day" name="passport-expiry-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-expiry-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-expiry-month" name="passport-expiry-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-expiry-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-expiry-year" name="passport-expiry-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+          
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

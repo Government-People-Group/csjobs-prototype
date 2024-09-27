@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Report activity you do not recognise - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+
+{% include "/includes/govuk-one-login-home-header.njk" %}
+
+{% include "/includes/govuk-primary-nav--your-security.njk" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/page-index/home/reporting-activity/report-activity-one-login-success" method="post">
+      
+<h1 class="govuk-heading-xl" id="header">Report activity you do not recognise</h1>
+
+<p class="govuk-body">You visited:</p>
+
+<div class="govuk-inset-text">
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Your GOV.UK One Login</h2>
+  <p class="govuk-body govuk-body your-services__card__last-used">This includes ‘Security’ and ‘Your services’</p>
+  <p class="govuk-body">10 April 2024 at 8:00am (UK time)</p>
+</div>
+
+<p class="govuk-body">If you do not recognise this activity, report it to the GOV.UK One Login team.</p>
+
+<p class="govuk-body">A confirmation email with your report number will be sent to <b>your.name@example.com</b>.</p>
+
+<button class="govuk-button" data-module="govuk-button">
+ Report this activity
+</button>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

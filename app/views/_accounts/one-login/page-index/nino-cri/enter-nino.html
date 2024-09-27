@@ -1,0 +1,113 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your National Insurance number - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/page-index/kbv-cri/hmrc/kbv-start" method="post">
+
+<h1 class="govuk-heading-l">Enter your National Insurance number</h1>
+<p class="govuk-body">We’ll check your National Insurance number with HM Revenue and Customs (HMRC) as part of proving your identity.</p>
+<p class="govuk-body">You can find your National Insurance number on your payslip, P60 or benefit letter.</p>
+
+        {{ govukInput({
+          label: {
+            text: "National Insurance number"
+          },
+          hint: {
+            text: "For example, ‘QQ 12 34 56 C’."
+          },
+          classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+          id: "national-insurance-number",
+          name: "nationalInsuranceNumber",
+          spellcheck: false
+        }) }}
+
+
+        <button id="button2" class="govuk-button govuk-visually-hidden" data-module="govuk-button">Continue</button>
+
+        <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button">Check and continue</button>
+
+        <p class="govuk-body">
+          <a href="/page-index/nino-cri/escape" class="govuk-link govuk-link--no-visited-state">I do not have my National Insurance number</a>
+          </p>
+  
+      </form>
+    </div>
+  </div>
+
+</main>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <div class="govuk-!-padding-bottom-3"></div>
+
+<div class="govuk-notification-banner govuk-notification-banner--journey-options" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Prototype options
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-body">View unhappy paths:</p>
+    <p class="govuk-body">
+      <a href="/page-index/nino-cri/1st-fail" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">User fails National Insurance number check for the first time (opens in new tab)</a>
+    </p>
+    <p class="govuk-body">
+      <a href="/page-index/kbv-cri/experian/kbv-start" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">User fails National Insurance number check for the second time (opens in new tab)</a>
+    </p>
+
+    <p class="govuk-body">
+      <a href="/page-index/kbv-cri/experian/kbv-start" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">User does not have enough HMRC security questions to continue (opens in new tab)</a>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+</div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  submitSpinner()
+
+  function buttonClicked(target) {
+    target.setAttribute('disabled', 'disabled')
+    target.className += ' button--save'
+    setTimeout(function () {
+      document.getElementById('button2').click()
+    }, 2000)
+  }
+
+  function submitSpinner() {
+    var selects = document.getElementById('button--save')
+    selects.addEventListener('click', function (event) {
+      event.preventDefault()
+      if (selects.getAttribute('disabled') === 'disabled') {
+        console.log('already clicked')
+      } else {
+        event.preventDefault()
+        console.log(selects.getAttribute('disabled'))
+        buttonClicked(selects)
+      }
+    })
+  }
+</script>
+{% endblock %}

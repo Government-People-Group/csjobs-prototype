@@ -1,0 +1,69 @@
+/* Index page *//////////////////////////////////////////////////////////////////////////////
+
+.govuk-iframe--container {
+  box-sizing: border-box;
+  max-width: 100%;
+  border: 2px solid #b1b4b6;
+  margin-bottom: 20px;
+  margin-top: 12px;
+  height: 200px; 
+  width: 400px; 
+  position: relative; 
+  overflow: hidden; 
+}
+
+.govuk-iframe {
+  box-sizing: border-box;
+  border: none; 
+  width: 250%; /* Adjust the width to fill the container while maintaining the scale */
+  height: 250%; /* Adjust the height to fill the container while maintaining the scale */
+  position: absolute; 
+  top: 0;
+  left: 0;
+  transform: scale(0.4);
+  transform-origin: top left;
+  pointer-events: none; /* Disable pointer events on the iframe */
+}
+
+.page-index__stage-header {
+  background-color: #F2F2F2;
+  padding: 5px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.page-title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; /* Hide the overflow */
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle; /* Adjust as needed */
+}
+
+.page-title:hover,
+.page-title:focus {
+  white-space: normal;
+  text-overflow: initial;
+  overflow: visible; /* Reveal the overflow on hover or focus */
+}
+
+
+.govuk-summary-card__content {
+  overflow: auto;
+}
+
+
+//anchor links
+
+.govuk-prototype-kit-common-templates-mainstream-guide-contents-list1 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+}
+@media (min-width: 40.0625em) {
+  .govuk-prototype-kit-common-templates-mainstream-guide-contents-list1 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

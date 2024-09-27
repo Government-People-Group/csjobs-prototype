@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter the amount of National Insurance you paid from a recent payslip - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+         
+      <form class="form" action="/page-index/ipv-core/proved-identity" method="post">
+
+      <h1 class="govuk-heading-l">
+        Enter the amount of National Insurance you paid from a recent payslip
+      </h1>
+
+      <div class="govuk-inset-text">
+        Use a payslip dated after 12 April 2023 to answer this question.
+      </div>
+
+      <p class="govuk-body">Tell us the amount of National Insurance you paid.</p>
+      <p class="govuk-body">You can usually find the amount next to any pensions or PAYE/Income Tax deductions on your payslip.  </p>
+      <p class="govuk-body">Enter the amount in pounds and pence, exactly as it appears on your payslip.</p>
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="cost">
+            Amount
+          </label>
+        </h1>
+        <div id="event-name-hint" class="govuk-hint">
+          For example, 123.86
+        </div>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+        </div>
+      </div>
+
+   
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <p class="govuk-body">
+          <a href="/hmrc-kbv-another-way-answer?previousPage=/page-index/kbv-cri/hmrc/payslip-questions/national-insurance-amount"
+          class="govuk-link govuk-link--no-visited-state">
+          I need to prove my identity another way
+       </a>
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

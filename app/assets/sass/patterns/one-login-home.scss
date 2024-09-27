@@ -1,0 +1,59 @@
+//
+// For guidance on how to add CSS and SCSS see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+//
+
+//activity card used in One Login Home pages
+
+.activity-card {
+  border: 1px solid #b1b4b6;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.activity-card-location {
+  color: #505A5F;
+  margin-bottom: 1em;
+}
+
+.activity-card-date {
+  color: #505A5F;
+  margin-bottom: 0px;
+}
+
+.activity-card--device {
+  margin-bottom: 20px;
+}
+
+.activity-card--device h3 {
+  padding-top: 1em;
+}
+
+
+//Adds bottom border to home primary nav to better reflect live service design
+.x-govuk-primary-navigation {
+  border-bottom: 1px solid #b1b4b6 !important;
+}
+
+
+//Small adjustments to better reflect One Login home live service header design 
+.govuk-header__container1 {
+  border-bottom: none !important; /* Override parent class border-bottom */ 
+}
+.govuk-header1 {
+  border-bottom: none !important; /* Override parent class border-bottom */
+  padding-bottom: 5px !important;
+}
+
+
+
+//Activity history page 
+
+.activity-history-card {
+  border-top: 1px solid #b1b4b6;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

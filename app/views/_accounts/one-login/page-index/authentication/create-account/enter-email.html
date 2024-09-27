@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your email address - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="check-email" method="post">
+
+      {{ govukInput({
+        label: {
+          text: "Enter your email address",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        id: "email",
+        name: "email"
+      }) }}
+
+      <h2 class="govuk-heading-s">Agree to the GOV.UK One Login terms of use</h2>
+      <p class="govuk-body">By continuing, you confirm that you agree to our:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/privacy-notice" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">privacy notice (opens in a new tab)</a>, which explains how we use your personal information</li>
+        <li><a href="/terms-and-conditions" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">terms and conditions (opens in a new tab)</a></li>
+      </ul>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+  
+      </form>
+    </div>
+  </div>
+{% endblock %}

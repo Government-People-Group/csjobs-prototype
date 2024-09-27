@@ -1,0 +1,126 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What smartphone are you using?
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-confirm-your-identity-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/on-a-smartphone/answer" method="post">
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select if you are on an iPhone, Android phone or neither of these phones",
+                    href: "#smartphone"
+                  }
+                  ]
+              }) }}
+              {% endif %}
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="smartphone-choice-hint">
+                  <legend class="govuk-fieldset__legend govuk-!-margin-bottom-3">    
+                <h1 class="govuk-heading-l govuk-!-margin-bottom-0" data-pw="select-smartphone-mobile-heading">Which smartphone are you using?</h1>    
+                  </legend>
+                  
+                  <div id="smartphone-choice-hint" class="govuk-hint govuk-!-margin-top-0 govuk-!-margin-bottom-3">
+                    
+                  <p class="govuk-hint">You need a smartphone with working front (selfie) and rear cameras for some ways of confirming your identity.</p>
+                  <p class="govuk-hint">Let us know which device you’re using right now.</p>
+                  
+                  </div>
+                
+                
+
+        {% if showErrorSummary %}
+        {{ govukRadios({
+          name: "smartphone",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "iPhone",
+              text: "iPhone"
+            },
+            {
+              value: "Android",
+              text: "Android phone (for example, Samsung, Google Pixel, OPPO)"
+            },
+            {
+              value: "Neither of these phones",
+              text: "Neither of these phones"
+            }
+            ],
+            errorMessage: {
+                text: "Select if you are on an iPhone, Android phone or neither of these phones"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "smartphone",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "iPhone",
+              text: "iPhone"
+            },
+            {
+              value: "Android",
+              text: "Android phone (for example, Samsung, Google Pixel, OPPO)"
+            },
+            {
+              value: "Neither of these phones",
+              text: "Neither of these phones"
+            }
+            ]
+        }) }}
+    {% endif %}
+  </fieldset>
+</div>
+
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+

@@ -1,0 +1,97 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Continue to prove your identity another way - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+         
+      <form class="form" action="/kbv-abandon-answer" method="post">
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "You must choose an option to continue",
+                    href: "#kbv-abandon"
+                }
+            ]
+        }) }}
+        {% endif %}
+
+      <h1 class="govuk-heading-l">
+        You must answer all security questions to prove your identity
+      </h1>
+
+      <p class="govuk-body">You cannot skip any questions.</p>
+
+      {% if showErrorSummary %}
+      {{ govukRadios({
+        name: "kbv-abandon",
+        fieldset: {
+          legend: {
+            text: "What would you like to do?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "continue",
+            text: "Continue answering the security questions"
+          },
+          {
+            value: "another way",
+            text: "Stop answering the security questions and prove your identity another way"
+          }
+          ],
+          errorMessage: {
+              text: "You must choose an option to continue"
+          }
+      }) }}
+      {% else %}
+      {{ govukRadios({
+        name: "kbv-abandon",
+        fieldset: {
+          legend: {
+            text: "What would you like to do?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "continue",
+            text: "Continue answering the security questions"
+          },
+          {
+            value: "another way",
+            text: "Stop answering the security questions and prove your identity another way"
+          }
+          ]
+      }) }}
+      {% endif %}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      <p class="govuk-body">
+      <a href="#" class="govuk-link">Contact the GOV.UK account team (opens in a new tab)</a>
+      </p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

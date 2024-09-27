@@ -1,0 +1,52 @@
+<header class="govuk-header govuk-header__container--no-border" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__logo">
+<a href="./" class="govuk-header__link govuk-header__link--homepage">
+  <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text"><b>GOV.UK One Login</b></span>
+        </span>
+        <span class="govuk-header__product-name">Design hub</span>
+</a>        
+</div>
+    <div class="govuk-header__content">
+      <button type="button" role="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation" aria-expanded="false">
+        Menu
+      </button>
+      <nav>
+        <ul id="navigation" class="govuk-header__navigation" aria-label="Top Level Navigation">
+            <li class="govuk-header__navigation-item govuk-header__navigation-item--active">
+              <a href="/one-login-prototypes" class="govuk-header__link">Prototype library</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+ {% block headerScripts %}
+  <script>
+    // JavaScript code for menu dropdown (new code)
+    function initMenuDropdown() {
+      var menuButton = document.querySelector('.govuk-header__menu-button');
+      var navigation = document.querySelector('.govuk-header__navigation');
+
+      if (menuButton && navigation) {
+        menuButton.addEventListener('click', function () {
+          if (navigation.style.display === 'block') {
+            navigation.style.display = ''; // Remove the inline style
+            menuButton.setAttribute('aria-expanded', 'false');
+          } else {
+            navigation.style.display = 'block';
+            menuButton.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
+    }
+
+    // Call the menu dropdown initialization function when the DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      initMenuDropdown();
+    });
+  </script>
+{% endblock %}

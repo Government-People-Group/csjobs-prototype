@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Choose a Post Office where you can prove your identity - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l page-heading">Choose a Post Office where you can prove your identity</h1>
+
+    <h2 class="govuk-heading-m page-heading">Postcode</h2>
+
+    <h2 class="govuk-heading-m page-heading">SW2 1AA <a href="/page-index/f2f-cri/find-post-office" class="govuk-link govuk-link--no-visited-state">Change</a>
+    </h2>
+ 
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="offline-doc-check-2-item-hint">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="signIn" name="signIn" type="radio" value="government-gateway" aria-describedby="signIn-item-hint">
+            <label class="govuk-label govuk-radios__label" for="signIn">
+              <b>Brixton Hill</b>
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+              106 Brixton Hill, London, SW2 1AH
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="signIn-2" name="signIn" type="radio" value="govuk-one-login" aria-describedby="signIn-2-item-hint">
+            <label class="govuk-label govuk-radios__label" for="signIn-2">
+              <b>Elm Park</b>
+            </label>
+            <div id="signIn-2-item-hint" class="govuk-hint govuk-radios__hint">
+              66 Elm Park, London, SW2 2UB
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="signIn" name="signIn" type="radio" value="government-gateway" aria-describedby="signIn-item-hint">
+            <label class="govuk-label govuk-radios__label" for="signIn">
+              <b>Herne Hill</b>
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+              31-39 Norwood Road, London, SE24 9QG
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="signIn" name="signIn" type="radio" value="government-gateway" aria-describedby="signIn-item-hint">
+            <label class="govuk-label govuk-radios__label" for="signIn">
+              <b>Clapham Common</b>
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+              161-163 Clapham High Street, London, SW4 7ST
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="signIn" name="signIn" type="radio" value="government-gateway" aria-describedby="signIn-item-hint">
+            <label class="govuk-label govuk-radios__label" for="signIn">
+              <b>Streatham Hill</b>
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+              102 Streatham Hill, London, SW2 4UQ
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+
+
+
+
+
+    
+
+
+      <a href="/page-index/f2f-cri/check-answers" type="submit" class="govuk-button" id="save-and-continue" role="button">Continue</a>
+
+      
+
+  </form>
+
+  <p class="govuk-body"><a href="/page-index/ipv-core/f2f-another-way" class="govuk-link govuk-link--no-visited-state">I want to prove my identity another way</a></p>
+
+
+
+
+
+
+
+</div>
+</div>
+
+{% endblock %}

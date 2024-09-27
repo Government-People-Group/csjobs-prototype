@@ -1,0 +1,53 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block footer %}
+{# output a different footer for admin pages #}
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+{% if adminPage == true %}
+{{ govukFooter({
+meta: {
+    items: [
+        {
+        href: "/accessibility-statement",
+        text: "Accessibility Statement for this prototype"
+        }
+    ]
+}
+}) }}
+{% else %}
+{# otherwise output the standard One Login footer #}
+{{ govukFooter({
+meta: {
+    items: [
+        {
+        href: "https://signin.account.gov.uk/accessibility-statement",
+        text: "Accessibility statement"
+        },
+        {
+        href: "https://signin.account.gov.uk/cookies",
+        text: "Cookies"
+        },
+        {
+        href: "https://signin.account.gov.uk/terms-and-conditions",
+        text: "Terms and conditions"
+        },
+        {
+        href: "https://signin.account.gov.uk/privacy-notice",
+        text: "Privacy notice"
+        },
+        {
+        href: "/journey-transition/leaving-prototype",
+        attributes: {target: "_blank", rel:"noreferrer noopener"},
+        text: "Support (opens in new tab)"
+        }
+    ]
+}
+}) }}
+
+{% endif %}
+{% endblock %}

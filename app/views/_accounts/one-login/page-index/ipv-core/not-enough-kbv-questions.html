@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+ You need to prove your identity another way - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+         
+      <form class="form" action="/url/of/next/page" method="post">
+
+      <h1 class="govuk-heading-l">
+        You need to prove your identity another way
+
+      </h1>
+
+      <p>Our security questions are based on information held by another organisation. The organisation does not have much information about you.</p>
+
+      <p>This means we cannot ask you enough questions to be sure that you are who you say you are.</p>
+
+      <h2 class="govuk-heading-m">What you can do</h2>
+
+      <p>You can prove your identity in person at a Post Office. You'll find out what you need to do when you continue.</p>
+
+   
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        
+
+      </form>
+
+      <a href="#" class="govuk-link">Contact the GOV.UK account team (opens in a new tab)</a>
+
+    </div>
+  </div>
+
+{% endblock %}

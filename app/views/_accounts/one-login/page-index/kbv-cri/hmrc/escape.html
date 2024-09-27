@@ -1,0 +1,117 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity another way - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/nino-escape-answer" method="post">
+
+        <h1 class="govuk-heading-l">
+           Prove your identity another way
+          </h1>
+
+          <p class="govuk-body">You may be able to prove your identity another way with GOV.UK One Login. Or you can go back to the service you need to use and check if there are other ways to access it.</p>
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select what you would like to do",
+                    href: "#escape"
+                }
+            ]
+        }) }}
+        {% endif %}
+
+      {% if showErrorSummary %}
+      {{ govukRadios({
+        name: "escape",
+        fieldset: {
+            legend: {
+                text: "What would you like to do?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+            }
+        },
+        items: [
+            {
+                value: "another way",
+                text: "Look for other ways to prove your identity or access the service",
+                hint: {
+                    text: ""
+                }
+            },
+            {
+                value: "try again",
+                text: "Go back and try answering security questions",
+                hint: {
+                    text: ""
+                }
+            }
+        ],
+        errorMessage: {
+            text: "Select what you would like to do"
+        }
+    }) }}
+    {% else %}
+    {{ govukRadios({
+        name: "escape",
+        fieldset: {
+            legend: {
+                text: "What would you like to do?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+            }
+        },
+        items: [
+            {
+                value: "another way",
+                text: "Look for other ways to prove your identity or access the service",
+                hint: {
+                    text: ""
+                }
+            },
+            {
+                value: "try again",
+                text: "Go back and try answering security questions",
+                hint: {
+                    text: ""
+                }
+            }
+        ]
+    }) }}
+    {% endif %}
+    
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          You cannot return to this screen if you look for another way to prove your identity.
+        </strong>
+      </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

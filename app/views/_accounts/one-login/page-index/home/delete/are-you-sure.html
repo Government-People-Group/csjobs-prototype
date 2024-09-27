@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Are you sure you want to delete your GOV.UK One Login - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+
+{% include "/includes/govuk-one-login-home-header.njk" %}
+{% include "/includes/govuk-primary-nav--your-security.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/page-index/home/delete/deleted-login-confirmation" method="post">
+
+
+        <h1 class="govuk-heading-l">Are you sure you want to delete your GOV.UK One Login?</h1>
+
+        <p class="govuk-body">This will permanently delete the sign in details for your GOV.UK One Login.</p>
+
+        <p class="govuk-body">You will no longer be able to sign in to use:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>[A personalised list of services you have used with your GOV.UK One Login]</li>
+        </ul>
+
+        <p class="govuk-body">It will not delete the personal information held by services you’ve used.</p>
+
+        <p class="govuk-body">If you need a GOV.UK One Login in the future, you’ll have to create a new one.</p>
+
+        <div class="govuk-inset-text">
+          Deleting your GOV.UK One Login will not affect any other government accounts you may have, such as Government Gateway or Universal Credit.
+        </div>
+
+
+        <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+          Delete your GOV.UK One Login
+        </button>
+
+        <p class="govuk-body govuk-link"><a href="/page-index/home/security" class="govuk-link--no-visited-state">Cancel and go back to security</a></p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

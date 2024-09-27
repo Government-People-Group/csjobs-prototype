@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Activity history - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+
+{% include "/includes/govuk-one-login-home-header.njk" %}
+
+{% include "/includes/govuk-primary-nav--your-security.njk" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      
+<h1 class="govuk-heading-xl" id="header">Activity history</h1>
+
+<p class="govuk-body">See what you’ve visited with your GOV.UK One Login.</p>
+
+<p class="govuk-body">If you see something you do not recognise, report it and <a href="/page-index/home/change-password/enter-current-password" class="govuk-link govuk-link--no-visited-state">change your password</a>.</p>
+
+<div class="activity-history-card">
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Your GOV.UK One Login</h2>
+  <p class="govuk-body govuk-body your-services__card__last-used">This includes ‘Security’ and ‘Your services’</p>
+  <p class="govuk-body">10 April 2024 at 8:00am (UK time)</p>
+  <p class="govuk-body govuk-!-margin-bottom-0"><a href="/page-index/home/reporting-activity/report-activity-one-login" class="govuk-link--no-visited-state">Report activity from 10 April 2024 at 8:00am</a></p>
+</div>
+
+<div class="activity-history-card">
+  <h2 class="govuk-heading-m">A service run by HM Revenue and Customs (HMRC)</h2>
+  <p class="govuk-body">26 March 2024 at 7:57am (UK time)</p>
+  <p class="govuk-body govuk-!-margin-bottom-0"><a href="/page-index/home/reporting-activity/already-reported-activity" class="govuk-link--no-visited-state">Activity reported on 10 April 2024</a></p>
+</div>
+
+<div class="activity-history-card">
+  <h2 class="govuk-heading-m">Request a basic DBS check</h2>
+  <p class="govuk-body">12 March 2024 at 7:50am (UK time)</p>
+  <p class="govuk-body govuk-!-margin-bottom-0"><a href="/page-index/home/reporting-activity/report-activity-dbs" class="govuk-link--no-visited-state">Report activity from 12 March 2024 at 7:50am</a></p>
+</div>
+
+
+
+<div class="activity-history-card">
+  <p class="govuk-body">GOV.UK One Login started recording activity history on 12 March 2024. </p>
+  <hr class="govuk-section-break govuk-section-break--visible">
+</div>
+  
+
+  
+
+
+  </div>
+</div>
+
+
+{% endblock %}

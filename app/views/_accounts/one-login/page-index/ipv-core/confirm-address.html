@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You need to confirm your address - GOV.UK One Login
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+<a href="/page-index/ipv-core/confirm-name-and-dob" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+         
+      <form class="form" action="/confirm-address-answer" method="post">
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select yes if this is your current home address",
+                    href: "#confirm-address"
+                }
+            ]
+        }) }}
+        {% endif %}
+
+      <h1 class="govuk-heading-l">
+        You need to confirm your address
+      </h1>
+
+      <p class="govuk-body">To keep your GOV.UK One Login secure, you need to confirm the address you gave us when you proved your identity.</p>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Current home address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            3 Glass Wharf<br>Bristol<br>BS2 0PS
+          </dd>
+        </div>
+      </dl>
+
+      {% if showErrorSummary %}
+      {{ govukRadios({
+        name: "confirm-address",
+        fieldset: {
+          legend: {
+            text: "Is this your current home address?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No - I need to update my address"
+          }
+          ],
+          errorMessage: {
+              text: "Select yes if this is your current home address"
+          }
+      }) }}
+      {% else %}
+      {{ govukRadios({
+        name: "confirm-address",
+        fieldset: {
+          legend: {
+            text: "Is this your current home address?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No - I need to update my address"
+          }
+          ]
+      }) }}
+      {% endif %}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

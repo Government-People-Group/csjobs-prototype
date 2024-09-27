@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+{% set adminPage = true %}
+
+{# accessibility statement specific #}
+{% set preparationDate = "31st January 2024" %}
+{% set lastReviewedDate = "31st January 2024" %}
+{% set accessibilityTeamEmail = "accessibility-team@digital.cabinet-office.gov.uk" %}
+{% set prototypeTeamEmail = "derren.wilson@digital.cabinet-office.gov.uk" %}
+
+
+{% block pageTitle %}
+Accessibility statement for GOV.UK One Login prototype
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-design-hub-header--home.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l govuk-!-margin-top-5 govuk-!-margin-bottom-3">Accessibility Statement for the GOV.UK
+            One Login Prototype </h1>
+
+
+        <p class="govuk-body">The prototype is intended for all people in central government service teams who want to
+            explore journeys within the <a href="https://www.sign-in.service.gov.uk/">GOV.UK One Login service</a>, so
+            you understand where and how it will form part of your user journey.</p>
+
+
+        <p class="govuk-body">GOV.UK One Login is committed to making this website accessible, in accordance with the
+            Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+        <p class="govuk-body">
+            This accessibility statement applies to the Prototype website and the prototype One Login pages it
+            hosts.</p>
+        <h2 class="govuk-heading-m govuk-!-margin-top-6 govuk-!-margin-bottom-1">Compliance status</h2>
+        <p class="govuk-body">This website is partially compliant with the Web Content Accessibility Guidelines
+            version 2.2 AA standard, due to the non-compliance(s) listed below.</p>
+        <h2 class="govuk-heading-m govuk-!-margin-top-6 govuk-!-margin-bottom-1">Non-accessible content</h2>
+        <p class="govuk-body"> The homepage and navigation page that allow users to jump to a specific page or view
+            common user journeys in the prototype have been fully audited against WCAG 2.2 and
+            should provide an accessible route into the prototype for users. </p>
+        <p class="govuk-body">However, the prototype attempts to reflect the user journeys of the One Login service
+            (currently in public beta) using the components available in the GOV.UK Prototype kit. In some cases where
+            the designs do not match the components available in the GDS Design System or prototype kit, custom code is
+            used. As a result, the source code and interactions created will not match the live, production-quality
+            code, or go through the same process of testing and validation as code released to the live service. </p>
+
+        <p class="govuk-body">Content entered into forms may not be validated in the same way as production code. In
+            some cases the prototype may respond differently to user input compared to the live service, as it does not
+            have access to the same third-party data sources or use the same hosting methods. </p>
+
+        <p class="govuk-body">Please contact the team using the details below in the feedback and contact information
+            section if you have questions about the accessibility of any part of the live service. </p>
+
+        <p class="govuk-body">The initial version of the prototype published in January 2024 has been tested to ensure
+            that the journey can be completed with keyboard only on a desktop and mobile device, and that all content is
+            rendered correctly by a screen reader. </p>
+        <p class="govuk-body">Any additions after that date may not have been tested. The prototype code will be
+            constantly updated to match the live service.</p>
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-6 govuk-!-margin-bottom-1">Preparation of this accessibility
+            statement</h2>
+        <p class="govuk-body">This statement was prepared on {{ preparationDate }}.</p>
+        <p class="govuk-body">A self-assessment by the One Login accessibility team was carried out on the website
+            content.</p>
+
+        <p class="govuk-body">The statement was last reviewed on {{ lastReviewedDate }}.</p>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-6 govuk-!-margin-bottom-1">Feedback and contact information</h2>
+        <p class="govuk-body">
+            If you discover an accessibility issue with the current prototype which stops you completing a journey,
+            please contact the One Login accessibility team at <a href="mailto:{{ accessibilityTeamEmail }}">{{
+            accessibilityTeamEmail }}</a> or for GDS staff on Slack at <a
+                href="https://gds.slack.com/archives/C068DM694DP"><span
+                aria-hidden="true">#</span>di-accessibility-ask<span class="govuk-visually-hidden"> slack channel</span></a>.
+        </p>
+        <!--        <p class="govuk-body">Errors or inconsistencies in the journey (for example, where the prototype journey does not match the live journey offered to users) should be reported to the Prototype team at <a href="mailto:{{ prototypeTeamEmail }}">{{ prototypeTeamEmail }}</a>.</p>-->
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-6 govuk-!-margin-bottom-1">Enforcement procedure</h2>
+        <p class="govuk-body">The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public
+            Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility
+            regulations’).</p>
+        <p class="govuk-body">If you’re not happy with how we respond to your complaint, contact the <a
+                href="https://www.equalityadvisoryservice.com/">Equality Advisory and Support Service (EASS)</a>.</p>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Create a GOV.UK One Login or sign in - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Create a GOV.UK One Login or sign in</h1>
+
+      <p class="govuk-body">You’ll need:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>an email address</li>
+  <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+</ul>
+
+     
+
+      <div class="govuk-inset-text">
+        GOV.UK One Login is also available <a href="#" class="govuk-link">in Welsh (Cymraeg)</a>.</div>
+
+
+      <form class="form" method="post">
+        <button value="create" name="optionSelected" class="govuk-button govuk-!-margin-right-3" data-module="govuk-button" id="create-account-link" formaction="/page-index/ipv-core/already-proved-identity">
+          Create a GOV.UK One Login
+        </button>
+      
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="sign-in-button" formaction="/page-index/ipv-core/already-proved-identity">
+          Sign in
+        </button>
+      </form>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            About GOV.UK One Login
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          
+      <p class="govuk-body">GOV.UK One Login is new. At the moment you can only use it with:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Apply for a vehicle operator licence</li>
+        <li>Apply to become a registered social worker in England</li>
+        <li>GOV.UK email subscriptions </li>
+        <li>LITE (Licensing for International Trade and Enterprise)</li>
+        <li>Modern slavery statement registry</li>
+        <li>Ofqual subject matter specialist account</li>
+        <li>Request a basic DBS check</li>
+        <li>Sign your mortgage deed</li>
+      </ul>
+      <p class="govuk-body">GOV.UK One Login does not work with all government accounts or services yet (for example Government Gateway or Universal Credit).</p>
+      <p class="govuk-body">In the future, you‘ll be able to use your GOV.UK One Login to access all services on GOV.UK.</p>
+      
+        </div>
+      </details>
+
+
+
+
+
+
+      
+      
+        </form>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

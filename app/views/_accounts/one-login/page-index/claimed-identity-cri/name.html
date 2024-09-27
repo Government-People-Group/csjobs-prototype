@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your name exactly as it appears on your photo ID - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/page-index/claimed-identity-cri/date-of-birth" method="post">
+      
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-three-quarters">
+  <h1 class="govuk-heading-l page-heading">Enter your name exactly as it appears on your photo ID</h1>
+</div>
+</div>
+
+<div class="govuk-form-group">
+<label class="govuk-label" id="surname-label" for="surname">
+Last name
+</label>
+
+<input class="govuk-input govuk-!-width-full" id="surname" name="surname" type="text">
+</div>
+
+<p> Given names</p>
+
+<div class="govuk-inset-text">
+
+<div class="govuk-form-group">
+<label class="govuk-label" id="firstName-label" for="firstName">
+First name
+</label>
+<input class="govuk-input govuk-!-width-three-quarters" id="firstName" name="firstName" type="text">
+</div>
+
+<div class="govuk-form-group">
+<label class="govuk-label" id="middleName-label" for="middleName">
+Middle name(s)
+</label>
+<div id="middleName-hint" class="govuk-hint">
+Leave this blank if you do not have any middle names
+</div>
+<input class="govuk-input govuk-!-width-three-quarters" id="middleName" name="middleName" type="text" aria-describedby="middleName-hint" aria-required="false">
+</div>
+</div>
+
+<details id="characterDetails" class="govuk-details govuk-!-margin-bottom-7" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Names and letters you cannot enter
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    
+<div>
+  <p>For technical reasons, we cannot accept:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li class="govuk-!-margin-left-3">single letter names</li>
+      <li class="govuk-!-margin-left-3">names with special characters or accent marks</li>
+    </ul>
+    <p>You can enter your name using letters without special characters.</p>
+    <p>Use a, e, o, u instead of á, é, ó, ú. For example, if your name is Renée, enter it as Renee.</p>
+    <p>You can include hyphens or apostrophes if your name has them.</p>
+    <p>If you’re having problems entering your name, you can also <a href="/journey-transition/leaving-prototype" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank"> contact the GOV.UK One Login team (opens in new tab).</a></p>
+</div>
+
+  </div>
+</details>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+  </div>
+</div>
+{% endblock %}

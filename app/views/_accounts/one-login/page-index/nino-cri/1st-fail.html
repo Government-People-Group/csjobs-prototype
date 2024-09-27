@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+We could not match your National Insurance number - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/nino-1st-fail-answer" method="post">
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select what you would like to do",
+                    href: "#1st-fail"
+                }
+            ]
+        }) }}
+        {% endif %}
+
+        <h1 class="govuk-heading-l">We could not match your National Insurance number</h1>
+
+<p class="govuk-body">We could not find a match for your National Insurance number when we checked with HMRC.</p>
+
+<p class="govuk-body">You can check your National Insurance number and try again. You’ll only be able to do this once.</p>
+
+        
+
+      {% if showErrorSummary %}
+      {{ govukRadios({
+        name: "1st-fail",
+        fieldset: {
+            legend: {
+                text: "What would you like to do?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+            }
+        },
+        items: [
+            {
+                value: "try again",
+                text: "Check your National Insurance number and try again"
+            },
+            {
+                value: "another way",
+                text: "Try another way to prove your identity ",
+                hint: {
+                    text: "You may be able to prove your identity another way with GOV.UK One Login."
+                }
+            }
+        ],
+        errorMessage: {
+            text: "Select what you would like to do"
+        }
+    }) }}
+    {% else %}
+    {{ govukRadios({
+        name: "1st-fail",
+        fieldset: {
+            legend: {
+                text: "What would you like to do?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+            }
+        },
+        items: [
+            {
+                value: "try again",
+                text: "Check your National Insurance number and try again"
+            },
+            {
+                value: "another way",
+                text: "Try another way to prove your identity ",
+                hint: {
+                    text: "You may be able to prove your identity another way with GOV.UK One Login."
+                }
+            }
+        ]
+    }) }}
+    {% endif %}
+    
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

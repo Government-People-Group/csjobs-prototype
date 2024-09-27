@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Sorry, we could not confirm your details - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+       
+    <form class="form" action="/repeat-fraud-check/fraud-check-fail-answer" method="post">
+
+      {% if showErrorSummary %}
+      {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+              {
+                  text: "Select what you would like to do",
+                  href: "#fraud-check-fail"
+              }
+          ]
+      }) }}
+      {% endif %}
+
+    <h1 class="govuk-heading-l">
+      Sorry, we could not confirm your details
+    </h1>
+
+    <p class="govuk-body">We could not find a match when we checked your details with another organisation.</p>
+
+    <p class="govuk-body">To keep your information safe, we cannot tell you which of your details we were unable to match.</p>
+
+
+    {% if showErrorSummary %}
+    {{ govukRadios({
+      name: "fraud-check-fail",
+      fieldset: {
+        legend: {
+          text: "What would you like to do?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "Contact us",
+          text: "Contact the GOV.UK One Login team",
+          hint: {
+            text: "You may need to delete your GOV.UK One Login. Then you can create a new one and try to prove your identity again with your new details."
+          }
+        },
+        {
+          value: "another way",
+          text: "Continue to the service you were trying to use to find out if there are other ways to access it "
+        }
+      ],
+      errorMessage: {
+        text: "Select what you would like to do"
+      }
+    }) }}
+{% else %}
+    {{ govukRadios({
+      name: "fraud-check-fail",
+      fieldset: {
+        legend: {
+          text: "What would you like to do?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "Contact us",
+          text: "Contact the GOV.UK One Login team",
+          hint: {
+            text: "You may need to delete your GOV.UK One Login. Then you can create a new one and try to prove your identity again with your new details."
+          }
+        },
+        {
+          value: "another way",
+          text: "Continue to the service you were trying to use to find out if there are other ways to access it "
+        }
+      ]
+    }) }}
+{% endif %}
+
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+ 

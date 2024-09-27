@@ -1,0 +1,166 @@
+{% extends "layouts/main.html" %}
+{% set adminPage = true %}
+
+{% block pageTitle %}
+GOV.UK One Login prototype
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-design-hub-header--home.njk" %}
+
+
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back to prototype home",
+  href: "/index"
+  }) }}
+
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/choose-journey/answer" method="post">
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Choose a journey to continue",
+                    href: "#choose-journey"
+                }
+            ]
+        }) }}
+
+        {{ govukRadios({
+          name: "choose-journey",
+          fieldset: {
+            legend: {
+              text: "Choose a journey",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "auth-only",
+              text: "Create or sign in to GOV.UK One Login",
+              hint: {
+                text: "Users create or sign in to their GOV.UK One Login using two-factor authentication. For services that need users to sign in only, or sign in as part of proving identity."
+              }
+            },
+            {
+              value: "prove-identity",
+              text: "Prove identity within a service",
+              hint: {
+                text: "Users prove their identity after creating or signing in to their GOV.UK One Login."
+              }
+            },
+            {
+              value: "identity-reuse",
+              text: "Use a service when identity has been proved",
+              hint: {
+                text: "Users who have proven their identity sign in to use a different GOV.UK service, without having to prove their identity again."
+              }
+            },
+            {
+              value: "address-fraud-check",
+              text: "Confirm details for 6 monthly fraud check
+              ",
+              hint: {
+                text: "Users who proved their identity over 6 months ago are asked to confirm name, date of birth and address when signing in."
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "one-login-home",
+              text: "Explore GOV.UK One Login home as a signed in user",
+              hint: {
+                text: "Users who have signed in view or change information in their GOV.UK One Login."
+              }
+            }
+            ],
+            errorMessage: {
+                text: "Choose a journey to continue"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "choose-journey",
+          fieldset: {
+            legend: {
+              text: "Choose a journey",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "auth-only",
+              text: "Create or sign in to GOV.UK One Login",
+              hint: {
+                text: "Users create or sign in to their GOV.UK One Login using two-factor authentication. For services that need users to sign in only, or sign in as part of proving identity."
+              }
+            },
+            {
+              value: "prove-identity",
+              text: "Prove identity within a service",
+              hint: {
+                text: "Users prove their identity after creating or signing in to their GOV.UK One Login."
+              }
+            },
+            {
+              value: "identity-reuse",
+              text: "Use a service when identity has been proved",
+              hint: {
+                text: "Users who have proven their identity sign in to use a different GOV.UK service, without having to prove their identity again.
+                "
+              }
+            },
+            {
+              value: "address-fraud-check",
+              text: "Confirm details for 6 monthly fraud check              ",
+              hint: {
+                text: "Users who proved their identity over 6 months ago are asked to confirm name, date of birth and address when signing in."
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "one-login-home",
+              text: "Explore GOV.UK One Login home as a signed in user",
+              hint: {
+                text: "Users who have signed in view or change information in their GOV.UK One Login."
+           }
+            }
+          ]
+        }) }}
+        {% endif %}
+
+
+      <button type="submit" class="govuk-button govuk-button--transition" data-module="govuk-button">
+       Continue
+      </button>
+
+          </div>
+          
+        </div>
+    
+
+{% endblock %}

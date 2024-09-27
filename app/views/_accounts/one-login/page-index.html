@@ -1,0 +1,1387 @@
+{% extends "layouts/main.html" %}
+{% set adminPage = true %}
+
+
+{% block pageTitle %}
+Page index - GOV.UK One Login prototype
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-design-hub-header--home.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="/" class="govuk-back-link">Back to prototype home</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Page index</h1>
+
+    <p class="govuk-body">Use these pages to jump to specific points in the GOV.UK One Login prototype.</p>
+    <p class="govuk-body">They're grouped by user task or service activity.</p>
+    <p class="govuk-body">Page links open in a new tab.</p>
+
+    <h2 class="govuk-heading-m">Sections</h2>
+    <ul class="govuk-list govuk-list--bullet">
+    <li><a class="govuk-link" href="#introduce-one-login">Introducing GOV.UK One Login</a></li>
+    <li><a class="govuk-link" href="#create-or-sign-in">Creating or signing in to a GOV.UK One Login</a></li>
+    <li><a class="govuk-link" href="#sorting-questions">Answering sorting questions</a></li>
+    <li><a class="govuk-link" href="#id-check-app">Using the GOV.UK ID Check app</a></li>
+    <li><a class="govuk-link" href="#document-details">Entering document details</a></li>
+    <li><a class="govuk-link" href="#post-office">Face to face at a Post Office</a></li>
+    <li><a class="govuk-link" href="#address-details">Entering address details</a></li>
+    <li><a class="govuk-link" href="#fraud-check">Going through a fraud check</a></li>
+    <li><a class="govuk-link" href="#nino">Entering National Insurance number</a></li>
+    <li><a class="govuk-link" href="#security-questions">Answering security questions</a></li>
+    <li><a class="govuk-link" href="#return-to-service-success">Completing ID check then returning to your service</a></li>
+    <li><a class="govuk-link" href="#return-to-service-faliure">Returning to your service for other ways to prove identity</a></li>
+    <li><a class="govuk-link" href="#one-login-home">GOV.UK One Login home</a></li>
+    </ul>
+
+ 
+  </div>
+</div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="introduce-one-login">Introducing GOV.UK One Login</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/pre-auth/identity-welcome" class="govuk-link page-title" target="_blank">Start proving your identity</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/pre-auth/identity-welcome" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="create-or-sign-in">Creating or signing in to a GOV.UK One Login</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/authentication/create-account" class="govuk-link page-title" target="_blank">Create or sign in</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/authentication/create-account" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/authentication/create-account/enter-email" class="govuk-link page-title" target="_blank">Enter email address</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/page-index/authentication/create-account/enter-email" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/authentication/create-account/check-email" class="govuk-link page-title" target="_blank">Check your email</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/page-index/authentication/create-account/check-email" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+  
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/authentication/create-account/create-password" class="govuk-link page-title" target="_blank">Create password</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/page-index/authentication/create-account/create-password" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/authentication/create-account/get-security-code" class="govuk-link page-title" target="_blank">Choose 2FA method</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/page-index/authentication/create-account/get-security-code" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/authentication/create-account/enter-phone-number" class="govuk-link page-title" target="_blank">Enter mobile number</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/page-index/authentication/create-account/enter-phone-number" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/authentication/create-account/check-phone" class="govuk-link page-title" target="_blank">Check your phone</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/page-index/authentication/create-account/check-phone" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/authentication/create-account/auth-app" class="govuk-link page-title" target="_blank">Set up an authenticator app</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/page-index/authentication/create-account/auth-app" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/authentication/create-account/account-created" class="govuk-link page-title" target="_blank">GOV.UK One Login created</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/page-index/authentication/create-account/account-created" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/authentication/sign-in/enter-email" class="govuk-link page-title" target="_blank">Enter email to sign in</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/authentication/sign-in/enter-email" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    
+    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/authentication/sign-in/create-password" class="govuk-link page-title" target="_blank">Enter password</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/authentication/sign-in/create-password" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/authentication/sign-in/check-phone" class="govuk-link page-title" target="_blank">Check your phone</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/authentication/sign-in/check-phone" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    </div>
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+        <section aria-label="enter-authenticator-app-code-page">
+          <a href="/page-index/authentication/sign-in/enter-app-code" class="govuk-link page-title" target="_blank">Enter security code</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/authentication/sign-in/enter-app-code" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="app-back-to-top" data-module="app-back-to-top">
+      <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+        <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+          <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+        </svg>Back to top
+      </a>
+      <div class="govuk-!-padding-bottom-6"></div>
+    </div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="sorting-questions">Answering sorting questions</h2>
+      </div>
+
+
+        <div class="govuk-summary-card__content custom-padding">
+          <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/page-index/ipv-core/id-screener" class="govuk-link page-title" target="_blank">Using which ID type</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/page-index/ipv-core/id-screener" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/app-cri/computer-or-tablet" class="govuk-link page-title" target="_blank">Using phone or desktop</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/app-cri/computer-or-tablet" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+      
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/have-a-smartphone" class="govuk-link page-title" target="_blank">Do you have a smartphone</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/have-a-smartphone" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+      
+      
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/on-a-smartphone" class="govuk-link page-title" target="_blank">Type of smartphone</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/on-a-smartphone" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    </div>
+      
+
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/valid-passport" class="govuk-link page-title" target="_blank">Do you have a valid passport</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/valid-passport" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+      
+      
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/biometric-passport" class="govuk-link page-title" target="_blank">Is there a biometric symbol</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/biometric-passport" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+
+
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/biometric-residence-permit" class="govuk-link page-title" target="_blank" >BRP, BRC or FWP</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/biometric-residence-permit" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/driving-licence" class="govuk-link page-title" target="_blank">Do you have a driving licence</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/driving-licence" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    </div>
+      
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/iphone-model" class="govuk-link page-title" target="_blank">Which iPhone model</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/iphone-model" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+      
+      
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/passport/use-app-passport" class="govuk-link page-title" target="_blank">App intro - passport</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/passport/use-app-passport" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+      
+      
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/driving-licence/use-app-driving-licence" class="govuk-link page-title" target="_blank">App intro - driving licence</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/driving-licence/use-app-driving-licence" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+      
+      
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/brp/use-app-brp" class="govuk-link page-title" target="_blank">App intro - BRP, BRC, FWP</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/brp/use-app-brp" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    </div>
+      
+      <div class="govuk-grid-row">    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/app-cri/passport/download-app-desktop" class="govuk-link page-title" target="_blank" >Download app - on desktop</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/passport/download-app-desktop" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      
+          <a href="/page-index/app-cri/passport/download-app-mobile" class="govuk-link page-title" target="_blank" >Download app - on mobile</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/page-index/app-cri/passport/download-app-mobile" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+        </div>
+        
+      </div>
+
+      </div>
+
+   
+    </div>
+  </div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="id-check-app">Using the GOV.UK ID Check app</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/document-checking-app/ios/passport/open-app" class="govuk-link page-title" target="_blank" >Open app</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/open-app" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+          
+        </div>
+      
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/document-checking-app/ios/passport/agree-to-share-analytics" class="govuk-link page-title" target="_blank">Agree to share analytics</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/share-analytics" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/document-checking-app/ios/passport/permission-to-share-data" class="govuk-link page-title" target="_blank" >Permission to share data</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/give-permission" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      
+      
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+        
+            <a href="/page-index/document-checking-app/ios/passport/link-session" class="govuk-link page-title" target="_blank" >Link session</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/link-session" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+          </div>
+          
+        </div>
+
+
+    
+<h3 class="govuk-heading-s govuk-!-margin-top-3">Using a driving licence</h3>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/driving-licence/front-of-licence-intro" class="govuk-link page-title" target="_blank" >Photograph licence - front</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/driving-licence/front-of-licence-intro" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/driving-licence/allow-camera-access" class="govuk-link page-title" target="_blank" >Allow camera access</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/driving-licence/allow-camera-access" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/driving-licence/position-camera-front" class="govuk-link page-title" target="_blank" >Position camera - front</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/driving-licence/position-camera" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+    
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/driving-licence/send-or-retake-photo-front" class="govuk-link page-title" target="_blank" >Send or retake photo - front</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/driving-licence/submit-photo" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/driving-licence/back-of-licence-intro" class="govuk-link page-title" target="_blank" >Photograph licence - back</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/driving-licence/back-of-licence-intro" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+    
+  </div>
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/driving-licence/position-camera-back" class="govuk-link page-title" target="_blank" >Position camera - back</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/driving-licence/position-camera-2" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+    
+  </div>
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/driving-licence/send-or-retake-photo-back" class="govuk-link page-title" target="_blank" >Send or retake photo - back</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/driving-licence/submit-photo-2" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+    </div>
+    
+  </div>
+
+
+  <h3 class="govuk-heading-s govuk-!-margin-top-3">Using a passport that has a biometric chip</h3>
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/passport/photograph-passport-start" class="govuk-link page-title" target="_blank">Photograph passport start</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/position-camera" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/passport/allow-camera-access" class="govuk-link page-title" target="_blank">Allow camera access</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/allow-camera-access" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/passport/how-to-photograph-photo-id" class="govuk-link page-title" target="_blank">How to photograh photo ID</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/how-to-take-photo" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/passport/take-photograph-of-passport" class="govuk-link page-title" target="_blank">Take photograph of passport</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/position-id" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/passport/photo-capture-successful" class="govuk-link page-title" target="_blank">Photo capture successful</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/passport-photo-checked" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/passport/scan-passport-start" class="govuk-link page-title" target="_blank">Scan passport start</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/nfc-instructions" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/passport/how-to-scan-passport" class="govuk-link page-title" target="_blank">How to scan passport</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/how-to-scan-chip" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+      <a href="/page-index/document-checking-app/ios/passport/passport-scan-successful" class="govuk-link page-title" target="_blank">Passport scan successful</a>
+      <span class="govuk-visually-hidden">(opens in new tab)</span>
+      <div class="govuk-iframe--container">
+        <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/passport/scan-successful" aria-hidden="true" tabindex="-1"></iframe>
+      </div>
+  </div>
+</div>
+
+
+
+
+<h3 class="govuk-heading-s govuk-!-margin-top-3">Using a biometric residence card (BRC), biometric residence permit (BRP), or Frontier Worker permit (FWP)</h3>
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/take-a-photo-start" class="govuk-link page-title" target="_blank" >BRP, BRC, FWP start</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/take-photo-of-back-of-brp" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    
+    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/prepare-photo-id" class="govuk-link page-title" target="_blank" >Prepare photo ID</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/put-photo-face-down" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    
+    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/hold-phone-above-photo-id" class="govuk-link page-title" target="_blank" >Position camera</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/hold-phone-above-photo-id" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    
+    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/start-photo-capture" class="govuk-link page-title" target="_blank" >Start photo capture</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/start-photo-capture" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    </div>
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/position-photo-id-in-frame" class="govuk-link page-title" target="_blank" >Position photo ID in frame</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/capture-photo" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    
+    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/capture-successful" class="govuk-link page-title" target="_blank" >Capture success</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/capture-successful" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    
+    
+    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/scan-photo-id-chip-start" class="govuk-link page-title" target="_blank" >Scan photo ID chip start</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/scan-chip" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    
+    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/get-phone-ready" class="govuk-link page-title" target="_blank" >Get phone and ID ready</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/get-phone-ready" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    </div>
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/put-phone-on-id" class="govuk-link page-title" target="_blank" >Position phone</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/put-phone-on-id" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    
+    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/start-scan" class="govuk-link page-title" target="_blank" >Start photo ID scan</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/start-scan" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    
+    
+      <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+          <a href="/page-index/document-checking-app/ios/brp/id-scan-successful" class="govuk-link page-title" target="_blank" >ID scan successful</a>
+          <span class="govuk-visually-hidden">(opens in new tab)</span>
+          <div class="govuk-iframe--container">
+            <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/brp/scan-successful" aria-hidden="true" tabindex="-1"></iframe>
+          </div>
+      </div>
+    </div>
+
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-3">Scanning face</h3>
+
+    <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/page-index/document-checking-app/ios/face-scan/face-scan-start" class="govuk-link page-title" target="_blank" >Face scan start</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/face-scan/face-scan-intro" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+        
+        
+          <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/page-index/document-checking-app/ios/face-scan/scan-face" class="govuk-link page-title" target="_blank" >Scan face</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/face-scan/scan-face" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+        
+        
+        
+          <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/page-index/document-checking-app/ios/face-scan/send-face-scan" class="govuk-link page-title" target="_blank" >Send face scan</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/face-scan/submit-scan" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+        </div>
+        
+          
+
+          <h3 class="govuk-heading-s govuk-!-margin-top-3">Sending ID information and returning to GOV.UK</h3>
+
+          <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+                  <a href="/page-index/document-checking-app/ios/send-and-exit/sending-information" class="govuk-link page-title" target="_blank" >Sending information</a>
+                  <span class="govuk-visually-hidden">(opens in new tab)</span>
+                  <div class="govuk-iframe--container">
+                    <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/sending-information/submit-information" aria-hidden="true" tabindex="-1"></iframe>
+                  </div>
+                
+              </div>
+            
+            
+              <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+                  <a href="/page-index/document-checking-app/ios/send-and-exit/exit-app-desktop" class="govuk-link page-title" target="_blank" >Exit app - return to desktop</a>
+                  <span class="govuk-visually-hidden">(opens in new tab)</span>
+                  <div class="govuk-iframe--container">
+                    <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/sending-information/exit-app-desktop" aria-hidden="true" tabindex="-1"></iframe>
+                  </div>
+                
+              </div>
+
+              <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+                  <a href="/page-index/document-checking-app/ios/send-and-exit/exit-app-mobile" class="govuk-link page-title" target="_blank" >Exit app - continue on mobile</a>
+                  <span class="govuk-visually-hidden">(opens in new tab)</span>
+                  <div class="govuk-iframe--container">
+                    <iframe class="govuk-iframe" src="/thumbnails/document-checking-app/sending-information/exit-app-mobile" aria-hidden="true" tabindex="-1"></iframe>
+                  </div>
+                </div>
+                
+              </div>
+</div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="document-details">Entering document details</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+
+ <div class="govuk-grid-row">
+<div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+  <section aria-label="continue-proving-identity-page">
+    <a href="/page-index/app-cri/ineligible" class="govuk-link page-title" target="_blank">ID and security questions</a>
+    <span class="govuk-visually-hidden">(opens in new tab)</span>
+    <div class="govuk-iframe--container">
+      <iframe class="govuk-iframe" src="/page-index/app-cri/ineligible" aria-hidden="true" tabindex="-1"></iframe>
+    </div>
+  
+</div>
+
+<div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+
+    <a href="/page-index/passport-cri/enter-passport-details" class="govuk-link page-title" target="_blank" >Enter passport details</a>
+    <span class="govuk-visually-hidden">(opens in new tab)</span>
+    <div class="govuk-iframe--container">
+      <iframe class="govuk-iframe" src="/page-index/passport-cri/enter-passport-details" aria-hidden="true" tabindex="-1"></iframe>
+    </div>
+  
+</div>
+
+<div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+
+    <a href="/page-index/driving-licence-cri/who-issued-licence" class="govuk-link page-title" target="_blank" >Licence issuer DVA or DVLA</a>
+    <span class="govuk-visually-hidden">(opens in new tab)</span>
+    <div class="govuk-iframe--container">
+      <iframe class="govuk-iframe" src="/page-index/driving-licence-cri/who-issued-licence" aria-hidden="true" tabindex="-1"></iframe>
+    </div>
+  
+</div>
+
+
+<div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+
+    <a href="/page-index/driving-licence-cri/enter-dvla-driving-licence-details" class="govuk-link page-title" target="_blank" >Enter licence details - DVLA</a>
+    <span class="govuk-visually-hidden">(opens in new tab)</span>
+    <div class="govuk-iframe--container">
+      <iframe class="govuk-iframe" src="/page-index/driving-licence-cri/enter-dvla-driving-licence-details" aria-hidden="true" tabindex="-1"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+    <a href="/page-index/driving-licence-cri/enter-dva-driving-licence-details" class="govuk-link page-title" target="_blank" >Enter licence details - DVA</a>
+    <span class="govuk-visually-hidden">(opens in new tab)</span>
+    <div class="govuk-iframe--container">
+      <iframe class="govuk-iframe" src="/page-index/driving-licence-cri/enter-dva-driving-licence-details" aria-hidden="true" tabindex="-1"></iframe>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="post-office">Face to face at a Post Office</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/ipv-core/id-screener-2" class="govuk-link page-title" target="_blank">Accepted ID types</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/ipv-core/id-screener-2" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/ipv-core/prove-identity-at-post-office" class="govuk-link page-title" target="_blank">Prove identity at Post Office</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/ipv-core/prove-identity-at-post-office" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/claimed-identity-cri/name" class="govuk-link page-title" target="_blank" >Enter name</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/claimed-identity-cri/name" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+    
+    
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/claimed-identity-cri/date-of-birth" class="govuk-link page-title" target="_blank" >Enter date of birth</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/claimed-identity-cri/date-of-birth" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      </div>
+    
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/claimed-identity-cri/check-details" class="govuk-link page-title" target="_blank" >Confirm details</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/claimed-identity-cri/check-details" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/f2f-cri/intro-page" class="govuk-link page-title" target="_blank" >How to prove ID in person</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/f2f-cri/intro-page" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/f2f-cri/choose-id" class="govuk-link page-title" target="_blank" >Choose photo ID</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/f2f-cri/choose-id" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/f2f-cri/find-post-office" class="govuk-link page-title" target="_blank" >Find a Post Office</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/f2f-cri/find-post-office" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/f2f-cri/choose-post-office" class="govuk-link page-title" target="_blank" >Choose a Post Office</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/f2f-cri/choose-post-office" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/f2f-cri/check-answers" class="govuk-link page-title" target="_blank" >Check your details</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/f2f-cri/check-answers" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/f2f-cri/confirmation" class="govuk-link page-title" target="_blank" >Confirmation</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/f2f-cri/confirmation" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="address-details">Entering address details</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/ipv-core/match-successful" class="govuk-link page-title" target="_blank">Photo ID matched</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/ipv-core/match-successful" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/address-cri/app/find-current-address" class="govuk-link page-title" target="_blank" >Find address with postcode</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/address-cri/app/find-current-address" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/address-cri/app/choose-current-address" class="govuk-link page-title" target="_blank" >Choose address</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/address-cri/app/choose-current-address" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/address-cri/app/check-current-address" class="govuk-link page-title" target="_blank" >Check address</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/address-cri/app/check-current-address" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/address-cri/app/confirm-addresses" class="govuk-link page-title" target="_blank" >Confirm address</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/address-cri/app/confirm-addresses" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      </div>
+
+   
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="fraud-check">Going through a fraud check</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+        <div class="govuk-grid-row">
+       <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/page-index/fraud-cri/app/fraud-check" class="govuk-link page-title" target="_blank" >Fraud check</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/page-index/fraud-cri/app/fraud-check" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+        </div>
+
+   
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div>
+
+
+         <!-- Commented out until HMRC KVBs go live
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="nino">Entering National Insurance number</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+        <div class="govuk-grid-row">
+       <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/page-index/nino-cri/enter-nino" class="govuk-link page-title" target="_blank" >Enter your National Insurance number</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/page-index/nino-cri/enter-nino" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+        </div>
+
+   
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="security-questions">Answering security questions</h2>
+      </div>
+
+   
+      <div class="govuk-summary-card__content custom-padding">
+           <!-- Commented out until HMRC KVBs go live
+        <h3 class="govuk-heading-s govuk-!-margin-top-3">HMRC</h3>
+
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/page-index/kbv-cri/hmrc/kbv-start" class="govuk-link page-title" target="_blank" >Security questions start</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/page-index/kbv-cri/hmrc/kbv-start" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+  
+  
+  
+          <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/page-index/kbv-cri/hmrc/payslip-questions/income-tax-amount" class="govuk-link page-title" target="_blank" >Enter tax amount</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/page-index/kbv-cri/hmrc/payslip-questions/income-tax-amount" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+  
+  
+  
+          <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/page-index/kbv-cri/hmrc/tax-credit-questions/tax-credit-amount" class="govuk-link page-title" target="_blank" >Enter tax credit amount</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/page-index/kbv-cri/hmrc/tax-credit-questions/tax-credit-amount" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+  
+  
+  
+          <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/page-index/kbv-cri/hmrc/payslip-questions/national-insurance-amount" class="govuk-link page-title" target="_blank" >Enter National Insurance amount</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/page-index/kbv-cri/hmrc/payslip-questions/national-insurance-amount" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+        </div>
+
+
+
+
+        
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+              <a href="/hmrc-kbv-another-way-answer?previousPage=/page-index/kbv-cri/hmrc/kbv-start" class="govuk-link page-title" target="_blank" >Prove your identity another way</a>
+              <span class="govuk-visually-hidden">(opens in new tab)</span>
+              <div class="govuk-iframe--container">
+                <iframe class="govuk-iframe" src="/hmrc-kbv-another-way-answer?previousPage=/page-index/kbv-cri/hmrc/kbv-start" aria-hidden="true" tabindex="-1"></iframe>
+              </div>
+          </div>
+        </div>
+  
+
+
+        <h3 class="govuk-heading-s govuk-!-margin-top-3">Experian</h3> -->
+
+
+
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/kbv-cri/experian/kbv-start" class="govuk-link page-title" target="_blank" >Security questions start</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/kbv-cri/experian/kbv-start" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/kbv-cri/experian/mortgage-balance" class="govuk-link page-title" target="_blank" >Full mortgage amount</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/kbv-cri/experian/mortgage-balance" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/kbv-cri/experian/mortgage-payments" class="govuk-link page-title" target="_blank" >Mortgage payments</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/kbv-cri/experian/mortgage-payments" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/kbv-cri/experian/date-account-opened" class="govuk-link page-title" target="_blank" >Date opened bank account</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/kbv-cri/experian/date-account-opened" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/kbv-cri/experian/started-phone-contract" class="govuk-link page-title" target="_blank" >Date started phone contract</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/kbv-cri/experian/started-phone-contract" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/ipv-core/kbv-abandon" class="govuk-link page-title" target="_blank" >Cannot answer question</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/ipv-core/kbv-abandon" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/ipv-core/kbv-another-way" class="govuk-link page-title" target="_blank" >Security question fail</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/ipv-core/kbv-another-way" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="return-to-service-success">Completing ID check then returning to your service</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/ipv-core/proved-identity" class="govuk-link page-title" target="_blank">Returning new user</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/ipv-core/proved-identity" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/ipv-core/already-proved-identity" class="govuk-link page-title" target="_blank">Returning existing user</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/ipv-core/already-proved-identity" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="return-to-service-faliure">Returning to your service for other ways to prove identity</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/ipv-core/f2f-another-way" class="govuk-link page-title" target="_blank">Failed Post Office</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/ipv-core/f2f-another-way" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/ipv-core/find-another-way" class="govuk-link page-title" target="_blank">Failed other routes</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/ipv-core/find-another-way" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+        </div>
+      </div>
+
+   
+    </div>
+    
+  </div>
+  
+</div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+  <div class="govuk-!-padding-bottom-6"></div>
+</div>
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" id="one-login-home">GOV.UK One Login home</h2>
+      </div>
+
+      <div class="govuk-summary-card__content custom-padding">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter govuk-!-padding-bottom-1">
+            <a href="/page-index/home/account-home" class="govuk-link page-title" target="_blank" >Service dashboard</a>
+            <span class="govuk-visually-hidden">(opens in new tab)</span>
+            <div class="govuk-iframe--container">
+              <iframe class="govuk-iframe" src="/page-index/home/account-home" aria-hidden="true" tabindex="-1"></iframe>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="app-back-to-top" data-module="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+</div>
+      </main>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

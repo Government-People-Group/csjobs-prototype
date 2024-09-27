@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter a recent tax credits payment amount - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+         
+      <form class="form" action="/page-index/kbv-cri/hmrc/payslip-questions/national-insurance-amount" method="post">
+
+      <h1 class="govuk-heading-l">
+        Enter a recent tax credits payment amount
+      </h1>
+
+      <p class="govuk-body">Tell us about a tax credits payment you’ve had after 12 April 2023. </p>
+      <p class="govuk-body">You’ll get tax credits payments every week or every 4 weeks. You only need to enter one payment amount.</p>
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="cost">
+            Amount
+          </label>
+        </h1>
+        <div id="event-name-hint" class="govuk-hint">
+          For example, 36.75
+        </div>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+        </div>
+      </div>
+
+   
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <p class="govuk-body">
+          <a href="/hmrc-kbv-another-way-answer?previousPage=/page-index/kbv-cri/hmrc/tax-credit-questions/tax-credit-amount"
+          class="govuk-link govuk-link--no-visited-state">
+          I need to prove my identity another way
+       </a>
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

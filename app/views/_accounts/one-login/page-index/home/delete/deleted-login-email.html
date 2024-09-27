@@ -1,0 +1,78 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% set htmlClasses = "app-email" %}
+{% set bodyClasses = "app-email__body" %}
+{% block footer %}{% endblock %}
+
+{% block pageTitle %}
+Deleted GOV.UK One Login email - GOV.UK One Login
+{% endblock %}
+
+{% block headIcons %}
+<link rel="icon" sizes="48x48" href="/plugin-assets/govuk-frontend/dist/govuk/assets/images/favicon.ico">
+<link rel="icon" sizes="any" href="/plugin-assets/govuk-frontend/dist/govuk/assets/images/favicon.svg" type="image/svg+xml">
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-l">
+  <span class="govuk-caption-l">GOV.UK One Login home</span>
+   Deleted GOV.UK One Login email
+</h1>
+
+<div class="email-message">
+  <table class="email-message-meta">
+    <tbody>
+          <tr>
+            <th scope="row">From</th>
+            <td>
+             GOV.UK One Login
+            </td>
+          </tr>
+      
+        <tr>
+          <th scope="row">To</th>
+          <td>
+            <span class="placeholder-no-brackets background: #fd0;">your.name@email.com</span>
+          </td>
+        </tr>
+      
+      <tr class="email-message-meta">
+        <th scope="row">Subject</th>
+        <td>
+          You’ve deleted your GOV.​UK One Login
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="email-message-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+    <p class="govuk-body">You’ve permanently deleted your GOV.UK One Login.</p>
+    <p class="govuk-body">If you had GOV.UK email subscriptions, these have also been deleted.</p>
+    <p class="govuk-body">This has not deleted the personal information held by services you’ve used with your GOV.UK One Login.</p>
+    <p class="govuk-body">If you need a GOV.UK One Login in the future, you’ll have to create a new one.</p>
+
+<p class="govuk-body">
+  If you have any feedback or you did not want to delete your GOV.UK One Login, contact us: <a href="#" class="govuk-link">https://signin.account.gov.uk/contact-us</a>
+</p>
+<hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-4  govuk-!-margin-top-4">
+
+<p class="govuk-bodygovuk-!-margin-bottom-6">Do not reply to this email - it’s an automatic message from an unmonitored account.</p>
+
+<hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-4  govuk-!-margin-top-4">
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+

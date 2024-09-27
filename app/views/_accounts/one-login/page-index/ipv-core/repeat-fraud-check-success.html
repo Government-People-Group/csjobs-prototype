@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Continue to the service you need to use - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+         
+      <form class="form" action="/return-to-service" method="post">
+
+      <h1 class="govuk-heading-l">
+        Continue to the service you need to use
+      </h1>
+
+      <p>We’ve checked your details. You can now continue to the service you need to use.</p>
+
+      <p>Some of the information you gave us when you proved your identity might be used to automatically fill in forms within the service.</p>
+
+   
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <div class="govuk-!-padding-bottom-3"></div>
+
+<div class="govuk-notification-banner govuk-notification-banner--journey-options" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Prototype options
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-body">View unhappy path:</p>
+    <p class="govuk-body">
+      <a href="/page-index/ipv-core/repeat-fraud-check-fail" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">User fails fraud check (opens in new tab)</a>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+</div>
+</div>
+
+{% endblock %}

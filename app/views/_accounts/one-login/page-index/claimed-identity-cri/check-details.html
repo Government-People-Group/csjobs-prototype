@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Confirm your details - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/page-index/address-cri/in-person/find-current-address" method="post">
+
+<h1 class="govuk-heading-l page-heading">Confirm your details</h1>
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-7">
+<div id="enter-id" class="govuk-summary-list__row">
+<dt class="govuk-summary-list__key">
+Name
+</dt>
+<dd class="govuk-summary-list__value">
+Jane Elizabeth Doe
+ </dd>
+<dd class="govuk-summary-list__actions">
+</dd>
+<dd class="govuk-summary-list__actions">
+<a class="govuk-link--no-visited-state" href="/page-index/claimed-identity-cri/name">
+Change<span class="govuk-visually-hidden">Name</span>
+</a>
+</dd>
+</div>
+
+<div id="enter-id" class="govuk-summary-list__row">
+<dt class="govuk-summary-list__key">
+Date of birth 
+</dt>
+<dd class="govuk-summary-list__value">
+01 01 1982
+</dd>
+<dd class="govuk-summary-list__actions">
+</dd>
+<dd class="govuk-summary-list__actions">
+<a class="govuk-link--no-visited-state" href="/page-index/claimed-identity-cri/date-of-birth">
+Change<span class="govuk-visually-hidden">Date of birth</span>
+</a>
+</dd>
+</div>
+</dl>
+
+<button name="continue" data-prevent-double-click="true" class="govuk-button button" data-module="govuk-button" id="continue">
+  I confirm my details are correct
+  </button>
+
+</form>
+</div>
+</div>
+{% endblock %}

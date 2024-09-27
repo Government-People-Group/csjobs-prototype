@@ -1,0 +1,111 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What would you like to do? - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/nino-escape-answer" method="post">
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select what you would like to do",
+                    href: "#escape"
+                }
+            ]
+        }) }}
+        {% endif %}
+
+      {% if showErrorSummary %}
+      {{ govukRadios({
+        name: "escape",
+        fieldset: {
+            legend: {
+                text: "What would you like to do?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+                value: "another way",
+                text: "Try another way to prove your identity ",
+                hint: {
+                    text: "You may be able to prove your identity another way with GOV.UK One Login."
+                }
+            },
+            {
+                value: "try again",
+                text: "Enter your National Insurance number and continue to prove your identity",
+                hint: {
+                    text: "You can find it on your your payslip, P60 or benefit letters."
+                }
+            }
+        ],
+        errorMessage: {
+            text: "Select what you would like to do"
+        }
+    }) }}
+    {% else %}
+    {{ govukRadios({
+        name: "escape",
+        fieldset: {
+            legend: {
+                text: "What would you like to do?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+                value: "another way",
+                text: "Try another way to prove your identity ",
+                hint: {
+                    text: "You may be able to prove your identity another way with GOV.UK One Login."
+                }
+            },
+            {
+                value: "try again",
+                text: "Enter your National Insurance number and continue to prove your identity",
+                hint: {
+                    text: "You can find it on your your payslip, P60 or benefit letters."
+                }
+            }
+        ]
+    }) }}
+    {% endif %}
+    
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          You cannot return to this screen if you look for another way to prove your identity.
+        </strong>
+      </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

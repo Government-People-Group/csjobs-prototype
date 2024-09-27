@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+{% set adminPage = true %}
+
+{% block pageTitle %}
+GOV.UK One Login prototype
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-design-hub-header--home.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text">
+      Last updated <b>10 September 2024</b>.
+    </span>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      <h1 class="govuk-heading-xl">GOV.UK One Login prototype</h1>
+
+    <h2 class="govuk-heading-m">Who it's for</h2>
+    <p class="govuk-body">The prototype is intended for all people in central government service teams who want to explore journeys within GOV.UK One Login, so you understand where and how it will form part of your service.</p>
+
+           <h2 class="govuk-heading-m">What's included</h2>
+           <p class="govuk-body">‘Happy path’ journeys for:</p>
+           <ul class="govuk-list govuk-list--bullet">
+             <li>creating a GOV.UK One Login</li>
+             <li>signing into GOV.UK One Login</li>
+             <li>sharing ID documents digitally or in person</li>
+             <li>answering security questions, if needed</li>
+             <li>completing a fraud check</li>
+       <li>routing users back to the service they need to use</li>
+           </ul>
+
+           <p class="govuk-body">This also includes an example of what a user's GOV.UK One Login could look like. This is an area where they can manage their GOV.UK One Login.
+           </p>
+
+           <div class="govuk-inset-text">
+            We'll update the prototype regularly to reflect live journeys, but they are not an exact copy. It's also not production code.
+          </div>
+       
+           <h2 class="govuk-heading-m">How to use it</h2>
+
+           <p class="govuk-body">
+            You can navigate through the prototype in 2 ways:
+          </p>
+
+          <ol class="govuk-list govuk-list--number govuk-list--spaced">
+            <li>As an end to end journey. Click through the prototype to see the journey your users see.</li>
+            <li>By using the page index to jump to specific sections of the end to end journey.</li>
+          </ol>
+
+          <p class="govuk-body">
+           We've included journey notes and options where appropriate. For example, to see emails or texts sent to users, and to explain when users move through different stages.
+          </p>
+
+           <p class="govuk-body">There's routing on branching questions, so you can explore different scenarios. For example, a user who's sharing an ID document using the GOV.UK ID Check app, or in person at a Post Office.</p>
+
+           <p class="govuk-body">There's validation on branching questions only. You do not need to answer other questions, but if you do, the data will be cleared at the end of the session.</p>
+
+         
+           <button value="create" class="govuk-button govuk-button--transition" data-module="govuk-button" formaction="choose-journey">
+            End to end prototype
+          </button>
+
+        <div>
+        
+          <button class="govuk-button govuk-button--transition-secondary" data-module="govuk-button" formaction="/page-index">
+            Page index
+          </button>
+          
+          </div>
+          
+        </div>
+    
+
+{% endblock %}
