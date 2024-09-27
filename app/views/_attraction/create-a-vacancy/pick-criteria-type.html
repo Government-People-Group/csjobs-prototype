@@ -1,0 +1,651 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+{% endblock %}
+
+{% block pageTitle %}
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+{% set choices = [
+  ['Behaviours','Behaviours are the actions and activities that people do which result in effective performance in a job. Behaviours are best for assessing the core transferable skills and behavioural styles. Candidates can provide examples from work or home contexts. You can assess behaviours at the sift stage with a personal statement, written examples and online tests. At the interview, you can assess behaviours by presentation and assessment exercises.'],
+  ['Experience','The knowledge or mastery of an activity or subject gained through involvement in or exposure to it. Experience element is best used for assessing contextual knowledge or applied skills required for performing well in a job role. You can assess experience at sift with a personal statement, CV and Basic Knowledge online test and at interview you can assess by interview questions and a presentation.'],
+  ['Strengths','Strengths are what people enjoy doing and do well and often. Strengths help us to understand whether someone is a good fit for the role and organisation and let candidates show their potential. Strengths are a great way for candidates to show their potential when they do not have a lot of work experience. Strengths can only be assessed at sift by the Civil Service Work Strengths online test. At the interview, you can assess strengths by interview questions.'],
+  ['Skills','You can assess specific professional and technical skills, knowledge or qualifications. Relevant qualifications can be used as objective essential criteria for fast shortlisting. You can assess skills at sift by personal statement and specific skill-based online tests, and at interview, you can assess by presentation, work samples and assessment exercises.']
+  ] %}
+
+
+
+<form class="form" action="select-behaviours" method="post">
+
+
+  <div class="govuk-grid-row govuk-!-margin-top-3">
+
+
+    <div class="govuk-grid-column-full">
+          <h1 class="govuk-heading-xl">Choose the elements you want to assess</h1>
+      <div class="govuk-grid-row govuk-!-margin-top-9" >
+        <div class="govuk-grid-column-three-quarters">
+
+
+
+      {% for choice, description in choices %}
+
+      {{ govukCheckboxes({
+        name: "selected",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+        {
+          checked: checked('selected',choice | lower),
+          value: choice | lower,
+          classes: "govuk-label-l",
+          text: choice,
+          hint: {
+            text: description
+          }
+        }
+        ]
+      }) }}
+
+      {%endfor%}
+
+
+
+
+
+
+
+
+
+                </div>
+                <!-- <div class="govuk-grid-column-one-quarter">
+                  <div class="govuk-!-margin-top-3" style="margin-left:50px;width:200px;height:160px;background:#1d70b8;border-radius:7px;float:right">
+
+                    <span style="padding:20px;color:white;font-size:28px;font-weight:bold" class="govuk-caption-l">Thinking about online testing?</span>
+
+                  </div>
+
+
+
+            </div> -->
+          </div>
+
+      {{ govukButton({
+        classes: "govuk-!-margin-top-3 govuk-!-margin-bottom-6",
+        text: "Continue"
+      }) }}
+
+
+
+
+
+
+
+  </form>
+
+  <script>
+
+
+
+    function setupBehaviourStrengths(){
+
+
+      const behaveStrengths = {
+        "1": {
+          "title": "Seeing the big picture",
+          "description": "Understand how your role fits with and supports organisational objectives. Recognise the wider Civil Service priorities and ensure work is in the national interest.",
+          "strengths": [
+          "Challenger",
+          "Mission",
+          "Strategic",
+          "Visionary"
+          ]
+        },
+
+        "2": {
+          "title": "Changing and improving",
+          "description": "Seek out opportunities to create effective change and suggest innovative ideas for improvement. Review ways of working, including seeking and providing feedback.",
+          "strengths": [
+          "Adaptable",
+          "Courageous",
+          "Change Agent",
+          "Improver"
+          ]
+        },
+
+        "3":  {
+          "title": "Making Effective Decisions",
+          "description": "Use evidence and knowledge to support accurate, expert decisions and advice. Carefully consider alternative options, implications and risks of decisions.",
+          "strengths": [
+          "Analytical",
+          "Decisive",
+          "Preventer",
+          "Problem Solver"
+          ]
+        },
+        "4": {
+          "title": "Leadership",
+          "description": "Show pride and passion for public service. Create and engage others in delivering a shared vision. Value difference, diversity and inclusion, ensuring fairness and opportunity for all.",
+          "strengths": [
+          "Confident",
+          "Change Agent",
+          "Inclusive",
+          "Motivator"
+          ]
+        },
+        "5":  {
+          "title": "Communicating and Influencing",
+          "description": "Communicate purpose and direction with clarity, integrity and enthusiasm. Respect the needs, responses and opinions of others.",
+          "strengths": [
+          "Authentic",
+          "Emotionally Intelligent",
+          "Explainer",
+          "Inclusive"
+          ]
+        },
+        "6":   {
+          "title": "Working Together",
+          "description": "Form effective partnerships and relationships with people both internally and externally, from a range of diverse backgrounds, sharing information, resources and support.",
+          "strengths": [
+          "Challenger",
+          "Emotionally Intelligent",
+          "Inclusive",
+          "Negotiator"
+          ]
+        },
+        "7":{
+          "title": "Developing Self and Others",
+          "description": "Focus on continuous learning and development for self, others and the organisation as a whole.",
+          "strengths": [
+          "Enabler",
+          "Explainer",
+          "Inclusive",
+          "Learner"
+          ]
+        },
+        "8":{
+          "title": "Managing a Quality Service",
+          "description": "Deliver service objectives with professional excellence, expertise and efficiency, taking account of diverse customer needs.",
+          "strengths": [
+          "Disciplined",
+          "Efficient",
+          "Focussed",
+          "Organiser"
+          ]
+        },
+        "9": {
+          "title": "Delivering at Pace",
+          "description": "Take responsibility for delivering timely and quality results with focus and drive.",
+          "strengths": [
+          "Adaptable",
+          "Disciplined",
+          "Catalyst",
+          "Focussed"
+          ]
+        }
+
+      }
+      window.sessionStorage.setItem("behaviourStrengths", JSON.stringify(behaveStrengths));
+
+
+    }
+
+
+
+
+
+
+    function setupBehaviours(){
+
+      const behavioursGraded = {
+        "level0": {
+          "1": {
+            "title": "Seeing the big picture",
+            "description": "Understand how your role fits with and supports organisational objectives. Recognise the wider Civil Service priorities and ensure work is in the national interest.",
+          },
+          "2": {
+            "title": "Changing and improving",
+            "description": "Seek out opportunities to create effective change and suggest innovative ideas for improvement. Review ways of working, including seeking and providing feedback."
+          },
+          "3": {
+            "title": "Making Effective Decisions",
+            "description": "Use evidence and knowledge to support accurate, expert decisions and advice. Carefully consider alternative options, implications and risks of decisions."
+          },
+          "4": {
+            "title": "Leadership",
+            "description": "Show pride and passion for public service. Create and engage others in delivering a shared vision. Value difference, diversity and inclusion, ensuring fairness and opportunity for all."
+          },
+          "5": {
+            "title": "Communicating and Influencing",
+            "description": "Communicate purpose and direction with clarity, integrity and enthusiasm. Respect the needs, responses and opinions of others."
+          },
+          "6": {
+            "title": "Working Together",
+            "description": "Form effective partnerships and relationships with people both internally and externally, from a range of diverse backgrounds, sharing information, resources and support."
+          },
+          "7": {
+            "title": "Developing Self and Others",
+            "description": "Focus on continuous learning and development for self, others and the organisation as a whole."
+          },
+          "8": {
+            "title": "Managing a Quality Service",
+            "description": "Deliver service objectives with professional excellence, expertise and efficiency, taking account of diverse customer needs."
+          },
+          "9": {
+            "title": "Delivering at Pace",
+            "description": "Take responsibility for delivering timely and quality results with focus and drive."
+          }
+        },
+        "level1": {
+          "1": {
+            "title": "Seeing the big picture",
+            "description": "Understand what your responsibilities are and how these contribute to the priorities of your team. Consider the varied impact your work could have on individuals with different needs and from other backgrounds. Gather information from both inside and outside of the organisation to inform your area of work."
+          },
+          "2": {
+            "title": "Changing and improving",
+            "description": "Review ways of working and suggest improvements, including how to make full use of new digital technologies. Learn new procedures and help colleagues to do the same. Query any issues that arise from changes in a suitable way. Respond in an effective and appropriate manner when emergencies arise."
+          },
+          "3": {
+            "title": "Making Effective Decisions",
+            "description": "Use guidance, analyse relevant information and ask colleagues for input to support decision making. Identify and deal with any errors or gaps in information before making a decision. Consider the diverse needs of those affected by decisions and how it will impact them. Provide advice and feedback to support others in making accurate decisions. Ask others to clarify decisions when confused and query any issues that arise constructively."
+          },
+          "4": {
+            "title": "Leadership",
+            "description": "Show enthusiasm for your work and take personal accountability for your role. Demonstrate responsibility for your own objectives. Act in a fair, inclusive and respectful way when dealing with others. Be considerate and understanding of other people’s points of view. Understand and support the objectives of the wider team. Demonstrate consideration of the wider consequences of own actions."
+          },
+          "5": {
+            "title": "Communicating and Influencing",
+            "description": "Put forward your views in a clear, constructive and considerate manner. Use an appropriate method of communication for each person such as an email, telephone call or face-to-face, taking into consideration their individual needs. Use plain and simple language, being careful to check written work for errors. Consider the impact of language used on different groups of stakeholders. Remain honest and truthful when explaining opinions. Listen and ask questions to ensure your understanding."
+          },
+          "6": {
+            "title": "Working Together",
+            "description": "Proactively contribute to the work of the whole team and remain open to taking on new and different roles. Get to know your colleagues and build supportive relationships. Listen to alternative perspectives and needs, responding sensitively and checking understanding where necessary. Ask for help when needed and support others when the opportunity arises. Be aware of the need to consider your own wellbeing and that of your colleagues. Understand that bullying, harassment and discrimination are unacceptable."
+          },
+          "7": {
+            "title": "Developing Self and Others",
+            "description": "Identify gaps in your skills and knowledge and make plans of how to develop these. Take time to achieve development objectives. Listen to and act on feedback from colleagues to find areas you can develop. Share knowledge and skills learnt with colleagues to contribute to the learning and development of the whole team."
+          },
+          "8": {
+            "title": "Managing a Quality Service",
+            "description": "Gain a clear understanding of customers’ needs and expectations. Plan, organise and manage your own time to deliver a high quality service which gives taxpayers a good return for their money. Act to prevent problems by identifying issues, reporting them and providing solutions. Keep customers and all colleagues up to date with progress. Show customers where to access relevant information and support that will help them to use services more effectively."
+          },
+          "9": {
+            "title": "Delivering at Pace",
+            "description": "Always work with focus and pace to get the job done on time and to a high standard. Follow the relevant policies, procedures and rules that apply to the job. Use own knowledge and expertise to organise work. Keep focused on delivery and take responsibility for the quality of work produced. Keep a consistent level of personal performance. Keep managers and stakeholders updated on how work is progressing."
+          }
+        },
+        "level2": {
+          "1": {
+            "title": "Seeing the big picture",
+            "description": "Understand how your work and the work of your team supports wider objectives and meets the diverse needs of stakeholders. Keep up to date with the issues that affect your work area. Take a keen interest in expanding knowledge in areas related to your work. Focus on overall goals and not just specific tasks to meet priorities."
+          },
+          "2": {
+            "title": "Changing and improving",
+            "description": "Regularly review own and team’s work and take the initiative to suggest ideas to make improvements. Give feedback on changes in a constructive manner. Take a positive, open approach to the possibility of change and encourage others to do the same. Help others to understand changes and the reasons they are being put in place. Identify and act on the effects changes are having on your role and that of the team. Look for ways to use technology to achieve efficient and effective results. Consider accessibility needs of the diverse range of end users."
+          },
+          "3": {
+            "title": "Making Effective Decisions",
+            "description": "Take responsibility for making effective and fair decisions, in a timely manner. Analyse and research further information to support decisions. Talk to relevant people to get advice and information when unsure how to proceed. Explain how decisions have been reached in a clear and concise way, both verbally and in writing. Demonstrate the consideration of all options, costs, risks and wider implications, including the diverse needs of end users and any accessibility requirements."
+          },
+          "4": {
+            "title": "Leadership",
+            "description": "Show pride and passion for your work and positive, inclusive engagement with your team. Understand your areas of responsibility and display awareness of the wider impact of your actions. Proactively role model and promote an inclusive workplace, promptly dealing with inappropriate language and behaviours when they arise, including any instances of discrimination or misconduct. Give praise and credit to colleagues and stakeholders where appropriate."
+          },
+          "5": {
+            "title": "Communicating and Influencing",
+            "description": "Communicate clearly and concisely both orally and in writing. Take time to consider the best communication channel to use for the audience, including making the best of digital resources and considering value for money. Interact with others in an enthusiastic way. Express ideas clearly and with respect for others. Listen to and value different ideas, views and ways of working. Respond constructively and objectively to comments and questions. Handle challenging conversations with confidence and sensitivity."
+          },
+          "6": {
+            "title": "Working Together",
+            "description": "Develop a range of contacts outside own team and identify opportunities to share knowledge, information and learning. Show genuine interest when listening to others. Contribute to an inclusive working environment where all opinions and challenges are listened to and all individual needs are taken into account. Ensure it is clear that bullying, harassment and discrimination are unacceptable. Offer support and help to colleagues when in need, including consideration of your own and their wellbeing. Change ways of working to aid cooperation within and between teams in order to achieve results."
+          },
+          "7": {
+            "title": "Developing Self and Others",
+            "description": "Identify gaps in own and team’s skills and knowledge. Set and consistently meet development objectives. Seek learning opportunities. Support the development plans of all colleagues, recognising how diversity of experience/background can help to build an inclusive team culture. Consider the contributions of all team members and delegate work to aid the learning and development of all. Encourage and listen to developmental feedback from colleagues."
+          },
+          "8": {
+            "title": "Managing a Quality Service",
+            "description": "Work with customers to understand their needs and expectations. Create clear plans and set priorities which meet the needs of both the customer and the business. Clearly explain to customers what can be done. Keep colleagues and stakeholders fully informed of plans, possibilities and progress. Identify common problems that affect service, report them and find possible solutions. Deliver good customer service which balances quality and cost effectiveness."
+          },
+          "9": {
+            "title": "Delivering at Pace",
+            "description": "Regularly review the success of activities in the team to identify barriers to progress or challenging objectives. Identify who and what is required to ensure success, set clear goals and areas of responsibility and continually assess workloads considering individual needs. Follow relevant policies, procedures and legislation to complete your work. Ensure colleagues have the correct tools and resources available to them to do their jobs. Have a positive and focused attitude to achieving outcomes, despite any setbacks. Regularly check performance against objectives, making suggestions for improvement or taking corrective action where necessary. Ensure that colleagues are supported where tasks are challenging."
+          }
+        },
+        "level3": {
+          "1": {
+            "title": "Seeing the big picture",
+            "description": "Understand the strategic drivers for your area of work. Align activities to contribute to wider organisational priorities. Remain alert to emerging issues and trends which might impact your work area. Seek out and share experiences to develop knowledge of the team’s business area. Understand how the strategies and activities of the team create value and meet the diverse needs of all stakeholders."
+          },
+          "2": {
+            "title": "Changing and improving",
+            "description": "Work with others to identify areas for improvement and simplify processes to use fewer resources. Use technology where possible to increase efficiency. Encourage ideas for change from a wide range of sources. Clearly explain the reasons for change to colleagues and how to implement them, supporting individuals with different needs to adapt to change. Encourage an environment where colleagues know that they can challenge decisions and issues safely. Take managed risks by fully considering the varied impacts changes could have on the diverse range of end users."
+          },
+          "3": {
+            "title": "Making Effective Decisions",
+            "description": "Understand own level of responsibility and empower others to make decisions where appropriate. Analyse and use a range of relevant, credible information from internal and external sources to support decisions. Invite challenge and where appropriate involve others in decision making. Display confidence when making difficult decisions, even if they prove to be unpopular. Consult with others to ensure the potential impacts on end users have been considered. Present strong recommendations in a timely manner outlining the consideration of other options, costs, benefits and risks."
+          },
+          "4": {
+            "title": "Leadership",
+            "description": "Ensure colleagues and stakeholders have a clear understanding of objectives, activities and time-frames. Take into account different individual needs, views, and ideas, championing inclusion and equality of opportunity for all. Consider the impacts of own and team’s activities on stakeholders and end users. Role-model commitment and satisfaction with role. Recognise and praise the achievements of others to drive positivity within the team. Effectively manage conflict, misconduct and non-inclusive behaviour, raising with senior managers where appropriate."
+          },
+          "5": {
+            "title": "Communicating and Influencing",
+            "description": "Communicate in a straightforward, honest and engaging manner, choosing appropriate styles to maximise understanding and impact. Encourage the use of different communication methods, including digital resources and highlight the benefits, including ensuring cost effectiveness. Ensure communication has a clear purpose and takes into account people’s individual needs. Share information as appropriate and check understanding. Show positivity and enthusiasm towards work, encouraging others to do the same. Ensure that important messages are communicated with colleagues and stakeholders respectfully, taking into consideration the diversity of interests."
+          },
+          "6": {
+            "title": "Working Together",
+            "description": "Encourage joined up team work within own team and across other groups. Establish professional relationships with a range of stakeholders. Collaborate with these to share information, resources and support. Invest time to develop a common focus and genuine positive team spirit where colleagues feel valued and respect one another. Put in place support for the wellbeing of individuals within the team, including consideration of your own needs. Make it clear to all team members that bullying, harassment and discrimination are unacceptable. Actively seek and consider input of people from diverse backgrounds and perspectives."
+          },
+          "7": {
+            "title": "Developing Self and Others",
+            "description": "Identify capability gaps for self and team. Ensure development objectives are set and achieved to address any gaps and enable delivery of current and future work. Take time to coach, mentor and develop other colleagues to support succession planning. Promote inclusiveness by respecting different personal needs in the team and use these to develop others. Reflect on own work, continuously seek and act on feedback to improve own and team’s performance."
+          },
+          "8": {
+            "title": "Managing a Quality Service",
+            "description": "Develop, implement, maintain and review systems and services to ensure delivery of professional excellence. Work with stakeholders to set priorities, objectives and timescales. Successfully deliver high quality outcomes that meet the customers’ needs and gives value for money. Identify risks and resolve issues efficiently. Involve a diverse range of colleagues, stakeholders and delivery partners in developing suggestions for improvements. Establish ways to find and respond to feedback from customers about the services provided."
+          },
+          "9": {
+            "title": "Delivering at Pace",
+            "description": "Show a positive approach to keeping the whole team’s efforts focused on the top priorities. Promote a culture of following the appropriate procedures to ensure results are achieved on time whilst still enabling innovation. Ensure the most appropriate resources are available for colleagues to use to do their job effectively. Regularly monitor your own and team’s work against milestones ensuring individual needs are considered when setting tasks. Act promptly to reassess workloads and priorities when there are conflicting demands to maintain performance. Allow individuals the space and authority to meet objectives, providing additional support where necessary, whilst keeping overall responsibility."
+          }
+        },
+        "level4": {
+          "1": {
+            "title": "Seeing the big picture",
+            "description": "Develop and maintain an understanding of economic, social, political, environmental and technological developments to ensure activity is relevant. Ensure plans and activities in your area of work reflect wider strategic priorities and communicate effectively with senior leaders to influence future strategies. Adopt a governmentwide perspective to ensure alignment of activity and policy. Bring together views, perspectives and diverse needs of stakeholders to gain a broader understanding of the issues surrounding policies and activities."
+          },
+          "2": {
+            "title": "Changing and improving",
+            "description": "Encourage, recognise and share innovative ideas from a diverse range of colleagues and stakeholders. Give people space to take initiative and praise them for their creativity. Create an environment where people feel safe to challenge and know their voice will be heard. Make changes which add value and clearly articulate how changes will benefit the business. Understand and identify the role of technology in public service delivery and policy implementation. Consider the full impact of implementing changes on culture, structure, morale and the impacts on the diverse range of end users, including accessibility needs. Identify early signs that things are going wrong and respond promptly. Provide constructive challenge to senior management on change proposals."
+          },
+          "3": {
+            "title": "Making Effective Decisions",
+            "description": "Clarify your own understanding and stakeholder needs and expectations, before making decisions. Ensure decision making happens at the right level, not allowing unnecessary bureaucracy to hinder delivery. Encourage both innovative suggestions and challenge from others, to inform decision making. Analyse and accurately interpret data from various sources to support decisions. Find the best option by identifying positives, negatives, risks and implications. Present reasonable conclusions from a wide range of complex and sometimes incomplete evidence. Make decisions confidently even when details are unclear or if they prove to be unpopular."
+          },
+          "4": {
+            "title": "Leadership",
+            "description": "Promote diversity, inclusion and equality of opportunity, respecting difference and external experience. Welcome and respond to views and challenges from others, despite any conflicting pressures to ignore or give in to them. Stand by, promote or defend own and team’s actions and decisions where needed. Seek out shared interests beyond own area of responsibility, understanding the extent of the impact actions have on the organisation. Inspire and motivate teams to be fully engaged in their work and dedicated to their role."
+          },
+          "5": {
+            "title": "Communicating and Influencing",
+            "description": "Communicate with others in a clear, honest and enthusiastic way in order to build trust. Explain complex issues in a way that is easy to understand. Take into account people’s individual needs. Deliver difficult messages with clarity and sensitivity, being persuasive when required. Consider the impact of the language used. Remain open-minded and impartial in discussions, whilst respecting the diverse interests and opinions of others. Introduce different methods for communication, including making the most of digital resources whilst getting value for money. Monitor the effectiveness of own and team communications and take action to improve where necessary."
+          },
+          "6": {
+            "title": "Working Together",
+            "description": "Actively build and maintain a network of colleagues and contacts to achieve progress on shared objectives. Challenge assumptions while being willing to compromise if beneficial to progress. Build strong interpersonal relationships and show genuine care for colleagues. Ensure consideration and support for the wellbeing of yourself and individuals throughout the team. Understand the varying needs of the team to ensure they are supported and their experiences are utilised. Create an inclusive working environment where all opinions and challenges are taken into account and bullying, harassment and discrimination are unacceptable. Remain available and approachable to all colleagues and be receptive to new ideas."
+          },
+          "7": {
+            "title": "Developing Self and Others",
+            "description": "Prioritise and role-model continuous self-learning and development. Identify areas individuals and teams need to develop in order to achieve future objectives. Support colleagues to take responsibility for their own learning and development. Ensure that development opportunities are available for all individuals regardless of their background or desire to achieve promotion. Ensure individuals take full advantage of learning and development opportunities available to them, including workplace based learning. Encourage discussions within and between teams to learn from each other’s experiences and change organisational plans and processes accordingly."
+          },
+          "8": {
+            "title": "Managing a Quality Service",
+            "description": "Demonstrate positive customer service by understanding the complexity and diversity of customer needs and expectations. Deliver a high quality, efficient and cost effective service by considering a broad range of methods for delivery. Ensure full consideration of new technologies, accessibility and costings. Make clear, practical and manageable plans for service delivery. Ensure adherence to legal, regulatory and security requirements in service delivery. Proactively manage risks and identify solutions. Establish how the business area compares to industry best practice. Create regular opportunities for colleagues, stakeholders, delivery partners and customers to help improve the quality of service."
+          },
+          "9": {
+            "title": "Delivering at Pace",
+            "description": "Ensure everyone clearly understands and owns their roles, responsibilities and business priorities. Give honest, motivating and enthusiastic messages about priorities, objectives and expectations to get the best out of people. Comply with legal, regulatory and security requirements in service delivery. Set out clear processes and standards for managing performance at all levels. Ensure delivery of timely quality outcomes, through providing the right resources to do the job, reviewing and adjusting performance expectations and rewarding success. Maintain own levels of performance in challenging circumstances and encourage others to do the same."
+          }
+        }
+      }
+
+      window.sessionStorage.setItem("behaviours", JSON.stringify(behavioursGraded));
+
+    }
+
+
+    function setupStrengths(){
+
+      const strengths = {
+        "1":
+        {
+          "title": "Adaptable",
+          "description": "You can adapt to variations in work or environment and your effectiveness isn’t impacted by change. You are flexible and versatile and act as an advocate for change.",
+          "selected": "No"
+        },
+        "2":
+        {
+          "title": "Analytical",
+          "description": "You seek and analyse information to inform decisions based on the best available evidence.",
+          "selected": "No"
+        },
+        "3":
+        {
+          "title": "Authentic",
+          "description": "You are self-aware and true to yourself in all situations, even when under pressure.",
+          "selected": "No"
+        },
+        "4":
+        {
+          "title": "Catalyst",
+          "description": "You are self-motivated to act to achieve a goal. You are confident using your own initiative to take forward actions.",
+          "selected": "No"
+        },
+        "5":
+        {
+          "title": "Challenger",
+          "description": "You can bring a fresh perspective whatever the situation or context. You see other people’s views and can appreciate there are many different angles to consider.",
+          "selected": "No"
+        },
+        "6":
+        {
+          "title": "Change Agent",
+          "description": "You are positive and inspirational in leading and supporting others through change.",
+          "selected": "No"
+        },
+        "7":
+        {
+          "title": "Confident",
+          "description": "You take charge of situations, people and decisions. You communicate confidently and give direction.",
+          "selected": "No"
+        },
+        "8":
+        {
+          "title": "Courageous",
+          "description": "You are an innovator who tries new approaches and pushes yourself to work outside your comfort zone.",
+          "selected": "No"
+        },
+        "9":
+        {
+          "title": "Decisive",
+          "description": "You use your judgement and take a considered approach to situations and tasks when making decisions.",
+          "selected": "No"
+        },
+        "10":
+        {
+          "title": "Disciplined",
+          "description": "You follow processes, operating firmly within set standards, rules and guidelines.",
+          "selected": "No"
+        },
+        "11":
+        {
+          "title": "Efficient",
+          "description": "You convert resources into results in the most efficient and economical way.",
+          "selected": "No"
+        },
+        "12":
+        {
+          "title": "Emotionally Intelligent",
+          "description": "You draw insight from your own emotions and those of others to demonstrate empathy.",
+          "selected": "No"
+        },
+        "13":
+        {
+          "title": "Enabler",
+          "description": "You see the potential in everybody and encourage them to learn, progress and develop.",
+          "selected": "No"
+        },
+        "14":
+        {
+          "title": "Explainer",
+          "description": "You communicate thoughts and ideas, verbally or in writing. You simplify complexities and adapt communication so others can understand.",
+          "selected": "No"
+        },
+        "15":
+        {
+          "title": "Focussed",
+          "description": "You strive for quality outcomes and excellence in everything you do.",
+          "selected": "No"
+        },
+        "16":
+        {
+          "title": "Inclusive",
+          "description": "You recognise everyone as an individual, accepting people for who they are and treating everyone fairly. You actively encourage and provide opportunities for others to share ideas and contributions.",
+          "selected": "No"
+        },
+        "17":
+        {
+          "title": "Influencer",
+          "description": "You influence others, you articulate the rationale to gain their agreement.",
+          "selected": "No"
+        },
+        "18":
+        {
+          "title": "Improver",
+          "description": "You look for better ways of doing things and enjoy coming up with new and original ideas.",
+          "selected": "No"
+        },
+        "19":
+        {
+          "title": "Learner",
+          "description": "You are inquisitive, you seek out new information and look for new ways to develop yourself.",
+          "selected": "No"
+        },
+        "20":
+        {
+          "title": "Mediator",
+          "description": "You provide stability and cohesion within teams, finding common ground and purpose. You enjoy collaborating with others to drive forward a shared goal.",
+          "selected": "No"
+        },
+        "21":
+        {
+          "title": "Mission",
+          "description": "You pursue things which give you a sense of meaning and purpose, working towards a longer term goal.",
+          "selected": "No"
+        },
+        "22":
+        {
+          "title": "Motivator",
+          "description": "You are highly driven and inspire others to move things along and make things happen.",
+          "selected": "No"
+        },
+        "23":
+        {
+          "title": "Negotiator",
+          "description": "You facilitate constructive discussions and enjoy getting all parties to reach an agreement.",
+          "selected": "No"
+        },
+        "24":
+        {
+          "title": "Networker",
+          "description": "You proactively create and maintain positive, professional and trusting working relationships with a wide range of people within and outside the organisation. You identify connections and reach out to bring people together.",
+          "selected": "No"
+        },
+        "25":
+        {
+          "title": "Organiser",
+          "description": "You make plans and are well prepared. You seek to maximise time and productivity.",
+          "selected": "No"
+        },
+        "26":
+        {
+          "title": "Precise",
+          "description": "You are detail-focussed, you ensure everything is accurate and error free.",
+          "selected": "No"
+        },
+        "27":
+        {
+          "title": "Preventer",
+          "description": "You think ahead to anticipate, identify and address any risks or problems before they occur.",
+          "selected": "No"
+        },
+        "28":
+        {
+          "title": "Problem Solver",
+          "description": "You take a positive approach to tackling problems and find ways to identify suitable solutions.",
+          "selected": "No"
+        },
+        "29":
+        {
+          "title": "Relationship Builder",
+          "description": "You quickly establish mutual respect and trust, building long lasting relationships with others.",
+          "selected": "No"
+        },
+        "30":
+        {
+          "title": "Resilient",
+          "description": "You have inner composure, recover quickly from setbacks and learn from them.",
+          "selected": "No"
+        },
+        "31":
+        {
+          "title": "Responsible",
+          "description": "You take ownership for your decisions and hold yourself accountable for what you have promised to deliver.",
+          "selected": "No"
+        },
+        "32":
+        {
+          "title": "Service Focussed",
+          "description": "You look for ways to serve customers putting their needs at the heart of everything you do.",
+          "selected": "No"
+        },
+        "33":
+        {
+          "title": "Strategic",
+          "description": "You look at the big picture and consider the wider factors and long term implications of decisions.",
+          "selected": "No"
+        },
+        "34":
+        {
+          "title": "Team Leader",
+          "description": "You are confident to lead a team and can effectively manage team dynamics to drive forward a shared goal.You take into consideration everyone’s individual needs and create a genuine team spirit.",
+          "selected": "No"
+        },
+        "35":
+        {
+          "title": "Team Player",
+          "description": "You work well as part of a team and strive to ensure the team pulls together and is effective.",
+          "selected": "No"
+        },
+        "36":
+        {
+          "title": "Visionary",
+          "description": "You create and share a clear vision of the future.",
+          "selected": "No"
+        }
+      }
+
+      window.sessionStorage.setItem("strengths", JSON.stringify(strengths));
+
+
+    }
+    setupBehaviourStrengths();
+    setupBehaviours();
+    setupStrengths();
+  </script>
+
+  {% endblock %}

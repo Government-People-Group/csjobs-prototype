@@ -1,0 +1,439 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+<style>
+  /* Example page specific styling. */
+
+
+
+  .experiment {
+    background:#F4FAFF;
+    border-bottom:1px solid #1d70b8;
+    margin-top:5px;
+    margin-bottom:-20px;
+    padding-top:20px;
+    padding-left:20px;
+    padding-bottom:15px;
+    font-weight:bold;
+
+  }
+
+
+  p, div {
+    font-family: "GDS Transport", arial, sans-serif;
+    line-height: 1.2;
+    margin: 0.8
+  }
+  p, li {
+    font-size: 22px; line-height: 1.2;
+    vertical-align: text-top;
+
+  }
+
+
+  h2 {
+    font-size: 30px; line-height: 0.5;
+    vertical-align: text-top;
+
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 1.5;
+
+  }
+
+  label {
+    font-size: 22px;
+    font-weight:normal;
+    line-height: 1;
+    vertical-align: text-top;
+    padding-top:40px;
+  }
+
+  hint {
+    font-size: 18px;
+    font-weight:normal;
+    line-height: 1.2;
+    vertical-align: text-top;
+  }
+
+
+  input[type="checkbox"]:checked  {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: white;
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    color: black;
+  }
+
+  input[type="checkbox"]:after {
+    content:"";
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    width: 15%;
+    height: 40%;
+    border: 5px solid #000000;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    display: none;
+  }
+
+  input[type="checkbox"]:checked:after {
+    display: block;
+  }
+
+</style>
+
+{{ data['selected']}}
+
+  <form class="form" action="select-experience" method="post">
+
+    <H1 style="padding-top:20px;padding-bottom:5px;border-bottom:1px solid #1d70b8; " class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-6">Behaviours</H1>
+
+
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-!-margin-left-0 govuk-grid-column-full">
+          <div class="govuk-!-margin-bottom-6" style="display:block">
+            <div style="position:relative;width:45%;" class="govuk-!-margin-bottom-0 ">
+
+
+
+              {{ govukSelect({
+                id: "levelgrade",
+                name: "levelgrade",
+                label: {
+                  text: "Grade",
+                  classes: "govuk-label--s"
+                },
+                items: [
+
+                {
+                  value: "level0",
+                  text: "None",
+                  selected: checked("levelgrade","None")
+                },
+                {
+                  value: "level1",
+                  text: "Administrative Assistant",
+                  selected: checked("grade","Administrative Assistant")
+                },
+                {
+                  value: "level1",
+                  text: "Administrative Officer",
+                  selected: checked("grade","Administrative Officer")
+                },
+                {
+                  value: "level2",
+                  text: "Executive Officer",
+                  selected: checked("grade","Executive Officer")
+                },
+                {
+                  value: "level3",
+                  text: "Higher Executive Officer",
+                  selected: checked("grade","Higher Executive Officer")
+                },
+                {
+                  value: "level3",
+                  text: "Senior Executive Officer",
+                  selected: checked("grade","Senior Executive Officer")
+                },
+                {
+                  value: "level4",
+                  text: "Grade 7",
+                  selected: checked("grade","Grade 7")
+                },
+                {
+                  value: "level4",
+                  text: "Grade 6",
+                  selected: checked("grade","Grade 6")
+                }
+                ]
+              }) }}
+
+              <a class="govuk-button govuk-button--secondary govuk-!-margin-top-0" onclick="graSelecta('levelgrade')" type="button" style="float:right;position:absolute;right:10px;top:70px">Show</a>
+
+
+
+
+
+            </div>
+
+
+            <input id="templateName" type="hidden" name="templateName" value="{{ data['org']}}">
+
+
+
+
+
+            <!-- <a class="govuk-button govuk-button--secondary govuk-!-margin-bottom-1 govuk-!-margin-top-1" onclick="graSelecta('grade-select')" type="button" style=";">Show</a> -->
+          </div>
+
+          <!-- <a style="float:right;position:absolute;left:550px;margin-top:-70px" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-9" href="#" onclick="graSelecta('grade-select')" type="button">Show</a> -->
+
+
+
+          <div id="header1"></div>
+
+
+
+          <button onclick="checkCheckBoxes()" class="govuk-button govuk-!-margin-top-9" data-module="govuk-button">Continue</button>
+
+
+
+
+        </div>
+
+
+      </div>
+
+<span id='local-variable' style="display:none">{{ data['templateName'] }}</span>
+
+      <input type="hidden" name="source" value="behaviours">
+    </FORM>
+
+
+    <script>
+
+
+
+
+
+
+          const myObjectName = document.querySelector('#templateName');
+console.log(myObjectName.value)
+
+
+
+
+      // var myObjectName = {{ data.templateName | dump | safe }};
+
+
+      // const storedValue = document.getElementById("templateName");
+      // function showingOffTag(thing) {
+      //
+      //   storedValue.textContent = thing;
+      //
+      //   console.log(storedValue)
+      // }
+
+      // var ddattag = document.getElementById("ddattag");
+      // var cotag = document.getElementById("cotag");
+      // var hotag = document.getElementById("hotag");
+
+
+
+
+      var hea1 = document.getElementById("header1");
+
+
+      const object = JSON.parse(window.sessionStorage.getItem("behaviours"));
+      var obj0 = Object.values(object.level0);
+      var level = obj0;
+
+      for (var t=0;t<level.length;t++) {
+
+        var hintText = level[t].description;
+
+
+        var label = document.createElement("label");
+        var checkBox = document.createElement("input");
+        var hint = document.createElement("hint");
+        checkBox.type = "checkbox";
+        checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+        label.style.cssText = "display: block;padding-left: 15px;padding-top:30px;text-indent: 40px;";
+        hint.style.cssText = "display: block;padding-left: 55px;";
+        checkBox.value = level[t].title;
+        hint.value = level[t].description;
+        checkBox.setAttribute("id","behaviours-"+t);
+        checkBox.setAttribute("name","behaviours");
+
+        label.appendChild(document.createTextNode(level[t].title));
+
+        hea1.appendChild(label);
+
+
+        hea1.appendChild(checkBox);
+        hint.appendChild(document.createTextNode(level[t].description));
+        hea1.appendChild(hint);
+      }
+
+      graSelecta("levelgrade");
+
+
+      function graSelecta(grade){
+        var grade = document.getElementById(grade).value;
+
+        var hea1 = document.getElementById("header1");
+        hea1.innerText = "";
+        const object = JSON.parse(window.sessionStorage.getItem("behaviours"));
+
+
+        var level;
+        var obj0 = Object.values(object.level0);
+        var obj1 = Object.values(object.level1);
+        var obj2 = Object.values(object.level2);
+        var obj3 = Object.values(object.level3);
+        var obj4 = Object.values(object.level4);
+
+
+        if (grade == "level0") {
+          level = obj0;
+        }
+
+
+        if (grade == "level1") {
+          level = obj1;
+
+        } else if (grade == "level2") {
+          level = obj2;
+
+        } else if (grade == "level3") {
+          level = obj3;
+        }   else if (grade == "level4") {
+          level = obj4;
+        }
+
+
+
+
+        for (var t=0;t<level.length;t++) {
+          var hintText = level[t].description;
+
+          var label = document.createElement("label");
+          var checkBox = document.createElement("input");
+          var hint = document.createElement("hint");
+          checkBox.type = "checkbox";
+          checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+          label.style.cssText = "display: block;padding-left: 15px;padding-top:30px;text-indent: 40px;";
+          hint.style.cssText = "display: block;padding-left: 55px;";
+          checkBox.value = level[t].title;
+
+
+          hint.value = level[t].description;
+          checkBox.setAttribute("id","behaviours-"+t);
+          checkBox.setAttribute("name","behaviours");
+          hint.setAttribute("id",level[t].title);
+          hint.setAttribute("name",grade);
+          label.appendChild(document.createTextNode(level[t].title));
+
+          hea1.appendChild(label);
+
+
+          hea1.appendChild(checkBox);
+          hint.appendChild(document.createTextNode(level[t].description));
+          hea1.appendChild(hint);
+
+          if (myObjectName.value == "ddat"){
+            if (level[t].title == "Seeing the big picture" || level[t].title == "Changing and improving" || level[t].title == "Delivering at Pace" || level[t].title == "Communicating and Influencing"){
+              label.setAttribute("class","experiment");
+
+              checkBox.checked = "true";
+            }
+          }
+
+
+        }
+      }
+
+
+      function checkCheckBoxes() {
+        var behaviourCheck = [];
+
+        var checkboxB = document.getElementsByTagName('input');
+
+        for (i = 0; i < checkboxB.length; i++) {
+          var checkCt = checkboxB[i].checked.length;
+          if (checkboxB[i].type == 'checkbox' && checkboxB[i].checked ) {
+            behaviourCheck.push(checkboxB[i].value);
+            window.sessionStorage.setItem("BehavioursSelected", JSON.stringify(behaviourCheck));
+          }
+        }
+
+
+      }
+
+      const dwqq = JSON.parse(window.sessionStorage.getItem("BehavioursSelected"));
+
+
+      const keyDetails = {};
+      var keyD = JSON.parse(window.sessionStorage.getItem("keyDetails"));
+
+      // const title = document.getElementById("title").value;
+      // const grade = document.getElementById("newgrade").value
+      // const profession = document.getElementById("grabProf").value;
+      // const department = document.getElementById("dept").value;
+
+      // console.log(keyD)
+
+      keyDetails.title = keyD.jobTitle;
+      keyDetails.grade = keyD.grade;
+      keyDetails.profession = keyD.profession;
+      keyDetails.department = keyD.department;
+
+
+
+  //     var tempSelected = document.getElementById("templateName").value;
+  // keyDetails.template = tempSelected;
+  //     console.log(tempSelected)
+
+
+        // switch (keyDetails.profession) {
+        //   case 'title':
+        //   res.redirect('job-library')
+        //   break
+        //   case 'profession':
+        //   res.redirect('job-library-profession')
+        //   break
+        // case 'skill':
+        //   res.redirect('skills')
+        //   break
+        // }
+        // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+    {% endblock %}

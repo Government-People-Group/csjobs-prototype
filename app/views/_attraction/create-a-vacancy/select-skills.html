@@ -1,0 +1,872 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block header %}
+{% include '../../includes/header.html' %}
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+
+{% block content %}
+<style>
+
+  .experiment {
+    background:#F4FAFF;
+    border-bottom:2px solid #1d70b8;
+    margin-top:25px;
+    margin-bottom:-40px;
+    padding-top:20px;
+    padding-left:20px;
+    padding-bottom:35px;
+    font-weight:bold;
+
+  }
+
+
+
+  p, div {
+    font-size: 18px;
+    font-family: "GDS Transport", arial, sans-serif;
+    line-height: 1;
+    margin: 0.8
+  }
+  p, li {
+    vertical-align: text-top;
+
+  }
+
+
+  h2 {
+    font-size: 30px;
+    vertical-align: text-top;
+
+  }
+
+  h3 {
+    font-size: 28px;
+
+  }
+
+  label {
+    font-size: 22px;
+    line-height: 1.6;;
+    vertical-align: text-top;
+    font-weight:bold;
+  }
+
+  hint {
+    font-size: 18px;
+    margin-top:-40px;
+    line-height: 1.3;
+  }
+
+
+  input[type="checkbox"]:checked  {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: white;
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    color: black;
+  }
+
+  input[type="checkbox"]:after {
+    content:"";
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    width: 15%;
+    height: 40%;
+    border: 5px solid #000000;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    display: none;
+  }
+
+  input[type="checkbox"]:checked:after {
+    display: block;
+  }
+
+</style>
+{{ data['selected']}}
+<form class="form" action="select-criteria-stage" method="post">
+
+<input id="templateName" type="hidden" name="templateName" value="{{ data['org']}}">
+
+  <!-- <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-3">What will you assess within each element at sift and interview?</h2> -->
+  <!-- <p class="govuk-body-l govuk-!-margin-bottom-6 govuk-!-margin-top-3">You have selected which elements are important to assess for this job role. You should now select what you will assess within each element at sift and interview.</p> -->
+
+  <H1 style="padding-top:20px;padding-bottom:5px;border-bottom:1px solid #1d70b8; " class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-6">Technical skills</H1>
+
+
+  <div class="govuk-grid-row">
+    
+    <div class="govuk-grid-column-three-quarters" style="width:80%;">
+
+      <div id="ddatSkills"></div>
+
+
+      <div id="skillsFrame" style="padding:10px;">
+        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6">You can choose how many skills you want to assess at sift and interview. You can assess a wide range of relevant specialist skills like coaching, negotiation and computer coding. <br><br>Include as many skills as you want to assess at sift and interview.</p>
+        <div id="skills" style="border-bottom:1px solid #1d70b8">
+          {% if data['Technical skills 4'].length > 0 %}
+          {% set see = "block" %}
+          {% set nosee = "none" %}
+          {% else %}
+          {% set see = "none" %}
+          {% endif %}
+
+          {% set skillsArray = ['Technical skills 1','Technical skills 2','Technical skills 3'] %}
+          {% set skillsArray4 = ['Technical skills 4'] %}
+          {% set skillsArray5 = ['Technical skills 5'] %}
+          {% set skillsArray6 = ['Technical skills 6'] %}
+          {% for items in skillsArray | slice(1) %}
+          {% for item in items  %}
+
+          <div style="float:right;padding-top:21px">
+            {{ govukSelect({
+              id: item+"level",
+              name: item+"level",
+              label: {
+                text: "Competence level",
+                classes: "govuk-label--s"
+              },
+              items: [
+              {
+                value: "none",
+                text: "Select level"
+              },
+
+              {
+                value: "Awareness",
+                selected: checked(item+"level","Awareness"),
+                text: "Awareness"
+              },
+              {
+                value: "Working",
+                selected: checked(item+"level","Working"),
+                text: "Working"
+              },
+              {
+                value: "Practitioner",
+                selected: checked(item+"level","Practitioner"),
+                text: "Practitioner"
+              },
+              {
+                value: "Expert",
+                selected: checked(item+"level","Expert"),
+                text: "Expert"
+              }
+              ]
+            }) }}
+
+          </div>
+
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--s" for="{{item}}">
+                {{item}}
+              </label>
+            </h1>
+
+            <textarea style="width:69%" class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+          </div>
+
+          {% endfor %}{% endfor %}
+
+
+          <div id="sklcta1" style="display:{{ nosee }}" class="govuk-body-m ">
+
+            <a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="font-weight:bold;color:#1d70b8" onclick="showHideDiv('skills4','sklcta1')">Add another skill</a>
+          </div>
+
+
+          <div id="skills4" style="display:{{ see }}">
+            {% for items in skillsArray4 | slice(1) %}
+            {% for item in items %}
+
+
+            <div style="float:right;padding-top:21px">
+              {{ govukSelect({
+                id: item+"level",
+                name: item+"level",
+                label: {
+                  text: "Competence level",
+                  classes: "govuk-label--s"
+                },
+                items: [
+                {
+                  value: "none",
+                  text: "Select level"
+                },
+
+                {
+                  value: "Awareness",
+                  selected: checked(item+"level","Awareness"),
+                  text: "Awareness"
+                },
+                {
+                  value: "Working",
+                  selected: checked(item+"level","Working"),
+                  text: "Working"
+                },
+                {
+                  value: "Practitioner",
+                  selected: checked(item+"level","Practitioner"),
+                  text: "Practitioner"
+                },
+                {
+                  value: "Expert",
+                  selected: checked(item+"level","Expert"),
+                  text: "Expert"
+                }
+                ]
+              }) }}
+
+            </div>
+
+            <div class="govuk-form-group">
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--s" for="{{item}}">
+                  {{item}}
+                </label>
+              </h1>
+
+              <textarea style="width:69%" class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+            </div>
+
+            {% endfor %}{% endfor %}
+            <div id="sklcta4" style="display:{{ nosee }}" class="govuk-body-m ">
+            <a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="font-weight:bold;color:#1d70b8;float:right" onclick="deleteDiv('skills4','sklcta1')">Delete this skill</a>
+
+              <a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="font-weight:bold;color:#1d70b8" onclick="showHideDiv('skills5','sklcta4')">Add another skill</a>
+            </div>
+          </div>
+
+          <div id="skills5" style="display:{{ see }}">
+            {% for items in skillsArray5 | slice(1) %}
+            {% for item in items %}
+
+
+            <div style="float:right;padding-top:21px">
+              {{ govukSelect({
+                id: item+"level",
+                name: item+"level",
+                label: {
+                  text: "Competence level",
+                  classes: "govuk-label--s"
+                },
+                items: [
+                {
+                  value: "none",
+                  text: "Select level"
+                },
+
+                {
+                  value: "Awareness",
+                  selected: checked(item+"level","Awareness"),
+                  text: "Awareness"
+                },
+                {
+                  value: "Working",
+                  selected: checked(item+"level","Working"),
+                  text: "Working"
+                },
+                {
+                  value: "Practitioner",
+                  selected: checked(item+"level","Practitioner"),
+                  text: "Practitioner"
+                },
+                {
+                  value: "Expert",
+                  selected: checked(item+"level","Expert"),
+                  text: "Expert"
+                }
+                ]
+              }) }}
+
+            </div>
+
+            <div class="govuk-form-group">
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--s" for="{{item}}">
+                  {{item}}
+                </label>
+              </h1>
+
+              <textarea style="width:69%" class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+            </div>
+
+            {% endfor %}{% endfor %}
+            <div id="sklcta5" style="display:{{ nosee }}" class="govuk-body-m ">
+              <a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="font-weight:bold;color:#1d70b8;float:right" onclick="deleteDiv('skills5','sklcta4')">Delete this skill</a>
+
+              <a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="font-weight:bold;color:#1d70b8" onclick="showHideDiv('skills6','sklcta5')">Add another skill</a>
+
+            </div>
+
+          </div>
+
+          <div id="skills6" style="display:{{ see }}">
+            {% for items in skillsArray6 | slice(1) %}
+            {% for item in items %}
+
+
+            <div style="float:right">
+              {{ govukSelect({
+                id: item+"level",
+                name: item+"level",
+                label: {
+                  text: "Competence level",
+                  classes: "govuk-label--s"
+                },
+                items: [
+                {
+                  value: "none",
+                  text: "Select level"
+                },
+
+                {
+                  value: "Awareness",
+                  selected: checked(item+"level","Awareness"),
+                  text: "Awareness"
+                },
+                {
+                  value: "Working",
+                  selected: checked(item+"level","Working"),
+                  text: "Working"
+                },
+                {
+                  value: "Practitioner",
+                  selected: checked(item+"level","Practitioner"),
+                  text: "Practitioner"
+                },
+                {
+                  value: "Expert",
+                  selected: checked(item+"level","Expert"),
+                  text: "Expert"
+                }
+                ]
+              }) }}
+
+            </div>
+
+            <div class="govuk-form-group">
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--s" for="{{item}}">
+                  {{item}}
+                </label>
+              </h1>
+
+              <textarea style="width:69%" class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+            </div>
+            {% endfor %}{% endfor %}
+
+            <div id="sklcta6" style="display:{{ nosee }}" class="govuk-body-m ">
+              <a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="font-weight:bold;color:#1d70b8" onclick="deleteDiv('skills6','sklcta5')">Delete this skill</a>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+        <button class="govuk-button govuk-!-margin-top-9" onclick="getSkillsValues()" data-module="govuk-button">Continue</button>
+
+
+      </div>
+
+
+    </div>
+
+
+    </div>
+
+
+    <input type="hidden" name="source" value="skills">
+  </FORM>
+  <script>
+
+
+
+
+
+
+    const myObjectName = document.querySelector('#templateName');
+
+  if (myObjectName.value == "ddat"){
+  // console.log(template.value)
+    // console.log(object)
+  document.getElementById("skillsFrame").style.display = 'none';
+  renderDDaTSkills();
+  }
+
+// console.log(businessAnalystDDaT)
+
+
+  function renderDDaTSkills(){
+    console.log("render")
+        var hea1 = document.getElementById("ddatSkills");
+
+
+        const object = JSON.parse(window.sessionStorage.getItem("ddatskills"));
+        var obj0 = Object.values(object);
+        var level = obj0;
+
+        for (var t=0;t<level.length;t++) {
+
+          var label = document.createElement("label");
+          var checkBox = document.createElement("input");
+          var hint = document.createElement("hint");
+          var lev = document.createElement("p");
+          checkBox.type = "checkbox";
+          checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -85px;";
+          label.style.cssText = "display: block;padding-left: 15px;padding-top:25px;text-indent: 40px;";
+          lev.style.cssText = "display: block;padding-left: 15px;padding-top:10px;text-indent: 40px;";
+          hint.style.cssText = ";padding-top:10px;display: block;padding-left: 55px;";
+          label.value = level[t].title;
+          checkBox.value = level[t].title;
+          lev.value = level[t].level;
+          hint.value = level[t].description;
+
+          checkBox.setAttribute("id","behaviours-"+t);
+          checkBox.setAttribute("name","behaviours");
+
+          label.appendChild(document.createTextNode(level[t].title));
+
+          hea1.appendChild(label);
+
+          lev.appendChild(document.createTextNode("Skill level: "+level[t].level));
+          hea1.appendChild(lev);
+
+          hea1.appendChild(checkBox);
+          hint.appendChild(document.createTextNode(level[t].description));
+          hea1.appendChild(hint);
+
+
+
+            if (level[t].title == "Agile working" || level[t].title == "Business analysis" || level[t].title == "Stakeholder relationship management (business analysis)" || level[t].title == "Business process improvement" || level[t].title == "Systems analysis"){
+              label.setAttribute("class","experiment");
+
+              checkBox.checked = "true";
+            }
+
+        }
+
+        //   var lvl = level[t].level;
+        //
+        //   var label = document.createElement("label");
+        //   var checkBox = document.createElement("input");
+        //   var hint = document.createElement("p");
+        //   var lvl = document.createElement("p");
+        //
+        //   checkBox.type = "checkbox";
+        //   checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;position: relative;top: -80px;";
+        //   label.style.cssText = "font-size:26x;font-weight:bold;display: block;padding-left: 15px;padding-top:20px;text-indent: 40px;";
+        //   lvl.style.cssText = ";font-size:18x;font-weight:bold;display: block;padding-left: 15px;padding-top:0px;text-indent: 40px;";
+        //   hint.style.cssText = "display: block;padding-left: 55px;";
+        //   checkBox.value = level[t].title;
+        //   label.value = level[t].title+" "+level[t].level;
+        //   lvl.value = level[t].level;
+        //   hint.value = level[t].description;
+        //   checkBox.setAttribute("id","ddatskills-"+t);
+        //   checkBox.setAttribute("name","ddatskills");
+        //
+        //
+        //
+        //   label.appendChild(document.createTextNode(level[t].title));
+        //   hea1.appendChild(label);
+        //
+        //   lvl.appendChild(document.createTextNode("Skill level: "+level[t].level));
+        //   hea1.appendChild(lvl);
+        //
+        //   hea1.appendChild(checkBox);
+        //
+        //
+        //   hint.appendChild(document.createTextNode(level[t].description));
+        //   hea1.appendChild(hint);
+        //
+        // }
+
+
+
+
+
+
+
+
+
+    // var thigg = document.getElementById("ddatSkills")
+    // const object = JSON.parse(window.sessionStorage.getItem("ddatskills"));
+    // var obj = Object.values(object);
+    //
+    // for (var t=0;t<obj.length;t++) {
+    //
+    //   var hintText = obj[t].description;
+    //
+    //
+    //   var label = document.createElement("label");
+    //   var checkBox = document.createElement("input");
+    //   var hint = document.createElement("hint");
+    //   var level = document.createElement("hint");
+    //   checkBox.type = "checkbox";
+    //   checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+    //   label.style.cssText = "display: block;padding-left: 15px;padding-top:30px;text-indent: 40px;";
+    //   hint.style.cssText = "font-size:30px";
+    //   level.style.cssText = "float:right;font-size:22px";
+    //   checkBox.value = obj[t].title;
+    //   hint.value = obj[t].description;
+    //   level.value = obj[t].level;
+    //   checkBox.setAttribute("id","skills-"+t);
+    //   checkBox.setAttribute("name","skills");
+    //
+    //   label.appendChild(document.createTextNode(obj[t].title));
+    //   level.appendChild(document.createTextNode(obj[t].level));
+    //   ddatSkills.appendChild(label);
+    //   ddatSkills.appendChild(level);
+    //
+    //   ddatSkills.appendChild(checkBox);
+    //   ddatSkills.appendChild(document.createTextNode(obj[t].description));
+    //
+    //   ddatSkills.appendChild(hint);
+    // }
+
+
+
+
+
+
+
+
+
+  }
+
+
+
+    function showHideDiv(div1,div2) {
+      document.getElementById(div1).style.display = 'block';
+      document.getElementById(div2).style.display = 'none';
+
+    }
+
+
+    function deleteDiv(data1, data2){
+      document.getElementById(data1).style.display = "none";
+      document.getElementById(data2).style.display = "block";
+    }
+
+    function getSkillsValues() {
+
+      var textA1 = document.getElementById('Technical skills 1');
+      var levelA1 = document.getElementById('Technical skills 1level');
+
+      var textA2 = document.getElementById('Technical skills 2');
+      var levelA2 = document.getElementById('Technical skills 2level');
+
+      var textA3 = document.getElementById('Technical skills 3');
+      var levelA3 = document.getElementById('Technical skills 3level');
+
+
+      var textA4 = document.getElementById('Technical skills 4');
+      var levelA4 = document.getElementById('Technical skills 4level');
+
+      var textA5 = document.getElementById('Technical skills 5');
+      var levelA5 = document.getElementById('Technical skills 5level');
+
+      var textA6 = document.getElementById('Technical skills 6');
+      var levelA6 = document.getElementById('Technical skills 6level');
+
+
+      // const object = JSON.parse(window.sessionStorage.getItem("behaviours"));
+      // var obj0 = Object.values(object.level0);
+      // var level = obj0;
+
+
+
+
+      // const skills = {}
+
+
+
+      // "skill6": {
+      //   "title": "",
+      //   "level": ""
+
+
+      function skill(title, level) {
+        this.title = title;
+        this.level = level;
+      }
+
+
+      const skill1 = new skill(textA1.value, levelA1.value);
+
+
+
+      const skill2 = new skill(textA2.value, levelA2.value);
+
+
+
+      const skill3 = new skill(textA3.value, levelA3.value);
+
+
+      const skill4 = new skill(textA4.value, levelA4.value);
+      const skill5 = new skill(textA5.value, levelA5.value);
+      const skill6 = new skill(textA6.value, levelA6.value);
+
+
+
+      // if (textA4 !="" && levelA4 !=""){
+      //   const skill4 = new skill(textA4.value, levelA4.value);
+      // }
+      //
+      // if (textA5 !="" && levelA5 !=""){
+      //   const skill5 = new skill(textA5.value, levelA5.value);
+      // }
+      //
+      // if (textA6 !="" && levelA6 !=""){
+      //   const skill6 = new skill(textA6.value, levelA6.value);
+      // }
+
+
+      // const skill2 = new skill(textA2.value, levelA2.value);
+      // const skill3 = new skill(textA3.value, levelA3.value);
+      // const skill4 = new skill(textA4.value, levelA4.value);
+      // const skill5 = new skill(textA5.value, levelA5.value);
+      // const skill6 = new skill(textA6.value, levelA6.value);
+
+
+      const skills = {
+
+        skill1, skill2, skill3, skill4, skill5, skill6
+      }
+
+      // window.sessionStorage.setItem("skill1", JSON.stringify(skill1));
+      // window.sessionStorage.setItem("skill2", JSON.stringify(skill2));
+      // window.sessionStorage.setItem("skill3", JSON.stringify(skill3));
+
+      window.sessionStorage.setItem("skills", JSON.stringify(skills));
+
+      // skill1.level = levelA1.value;
+      //
+      // window.sessionStorage.setItem("skill1", JSON.stringify(skill1));
+
+      // for (i = 1; i < 4; i++) {
+      // if (checks[i].type == 'textarea' && checks[i].innerText !="" ) {
+
+      // if (checks[i].value == "Sift") {
+      //   arr1.push(checks[i].name);
+      //   arr2.push(checks[i].id);
+
+      // } else if (checks[i].value == "Interview") {
+      //   stageChecksInt.push(checks[i].value, checks[i].name, checks[i].id);
+      //
+      // }
+
+      // window.sessionStorage.setItem("stageChecksInt", JSON.stringify(stageChecksInt));
+      // }
+
+      // if (checks[i].value == "Interview") {
+      //   arr3.push(checks[i].name);
+      //   arr4.push(checks[i].id);
+
+      // } else if (checks[i].value == "Interview") {
+      //   stageChecksInt.push(checks[i].value, checks[i].name, checks[i].id);
+      //
+      // }
+
+      // window.sessionStorage.setItem("stageChecksInt", JSON.stringify(stageChecksInt));
+      // }
+
+      // }
+    }
+
+
+    // for (var i = 0; i < arr1.length; i++) {
+    //   siftStage[arr1[i]] = arr2[i];
+    // }
+    //  window.sessionStorage.setItem("siftStage", JSON.stringify(siftStage));
+    //
+    //
+    //  for (var j = 0; j < arr3.length; j++) {
+    //    intStage[arr3[j]] = arr4[j];
+    //  }
+    //   window.sessionStorage.setItem("intStage", JSON.stringify(intStage));
+
+
+
+
+    //   var checks = document.getElementsByTagName('input');
+    //
+    //   for (i = 0; i < checks.length; i++) {
+    //     if (checks[i].type == 'checkbox' && checks[i].checked ) {
+    //
+    //       if (checks[i].value == "Sift") {
+    //         stageChecksSift.push(checks[i].value, checks[i].name, checks[i].id);
+    //
+    //       } else if (checks[i].value == "Interview") {
+    //         stageChecksInt.push(checks[i].value, checks[i].name, checks[i].id);
+    //
+    //       }
+    //
+    //       window.sessionStorage.setItem("stageChecksSift", JSON.stringify(stageChecksSift));
+    //       window.sessionStorage.setItem("stageChecksInt", JSON.stringify(stageChecksInt));
+    //     }
+    //   }
+    // }
+
+
+
+
+
+
+    //       var label2 = document.createElement("label");
+    //       var checkBox2 = document.createElement("input");
+    //
+    //       checkBox2.type = "checkbox";
+    //
+    //       checkBox2.value = "Interview";
+    //       label2.innerText = "Interview";
+    //       label2.appendChild(document.createTextNode("Interview"));
+    //       outputBS.appendChild(label2);
+    //       outputBS.appendChild(checkBox2);
+    // }
+
+
+
+
+    // for (var i = 0; i < behavioursSelected.length; i++) {
+    //   bsList.innerText = behavioursSelected[i];
+    //   console.log(bsList.innerText)
+    //   outputBS.appendChild(bsList);
+    //   var label = document.createElement("label");
+    //   var checkBox = document.createElement("input");
+    //   var label2 = document.createElement("label");
+    //   var checkBox2 = document.createElement("input");
+    //   checkBox.type = "checkbox";
+    //   checkBox2.type = "checkbox";
+    //   checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+    //   label.style.cssText = "display: block;font-size:18px;padding-left: 15px;text-indent: 40px;";
+    //   checkBox.innerText = "Sift";
+    //   checkBox.value = "Sift";
+    //   checkBox.setAttribute("id","behaviours-stage"+bsList+i);
+    //   checkBox.setAttribute("name","behaviours");
+    //   checkBox2.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+    //   label.style.cssText = "display: block;font-size:18px;padding-left: 15px;text-indent: 40px;";
+    //   checkBox2.innerText = "Interview";
+    //   checkBox2.value = "Interview";
+    //   checkBox2.setAttribute("id","behaviours-stage"+bsList+i);
+    //   checkBox2.setAttribute("name","behaviours");
+    //
+    //   label.appendChild(document.createTextNode(bsList[i]));
+    //   outputBS.appendChild(label);
+    //   outputBS.appendChild(checkBox);
+    //     outputBS.appendChild(checkBox2);
+    // hint.appendChild(document.createTextNode(hinter[i]));
+    // outputB.appendChild(hint);
+
+
+
+    const businessAnalystDDaT = {
+        "1": {
+          "title": "Agile working",
+          "description": "You can identify and compare the best processes or delivery methods to use, including measuring and evaluating outcomes. You can help the team to decide the best approach. You can help teams to manage and visualise outcomes, prioritise work and adhere to agreed minimum viable product (MVP), priorities and scope.",
+          "level": "practitioner"
+        },
+        "2": {
+          "title": "Business analysis",
+          "description": "You can advise on the approach to identify, investigate, analyse and communicate complex business problems and opportunities within a project or programme of work. You can inform tactical decision making and help to define longer-term strategic plans. You can recommend the approach to options analysis, feasibility assessment and operations, and can quantify potential business benefits. You can ensure the proposed solution aligns with business goals and objectives, and business and user needs, and achieves the required outcomes and expected benefits.",
+          "level": "practitioner"
+        },
+        "3": {
+          "title": "Business modelling",
+          "description": "You can lead on the modelling of processes, systems and data at varying levels of detail or complexity across a project or programme. You can manage the effects of proposed changes.",
+          "level": "practitioner"
+        },
+        "4": {
+          "title": "Business process improvement",
+          "description": "You can identify opportunities to improve business performance, within a project or programme. You can lead the analysis, identification, design, prioritisation and implementation of process and business changes to improve business operations and services. You can assess the feasibility of changes and recommend new approaches. You can support the implementation of proposed business improvements.",
+          "level": "practitioner"
+        },
+        "5": {
+          "title": "Business process testing",
+          "description": "You can lead on the application of business analysis and evaluation skills to support the design, execution and assessment of business process tests and usability evaluations within a project or programme of work.",
+          "level": "practitioner"
+        },
+        "6": {
+          "title": "Methods and tools",
+          "description": "You can build capability in methods and tools, ensuring they are adopted consistently and used effectively.",
+          "level": "practitioner"
+        },
+        "7": {
+          "title": "Requirements definition and management",
+          "description": "You can advise on the approach to requirements management within a project or programme. You can define the most appropriate requirements management life cycle methods and ensure the requirement can be traced in the design, build, test, tender and evaluation phases. You can co-ordinate and review the prioritisation of requirements and engage in the negotiation of solutions to help meet programme objectives.",
+          "level": "practitioner"
+        },
+        "8": {
+          "title": "Stakeholder relationship management (business analysis)",
+          "description": "You can lead on communicating with stakeholders, clarifying needs and commitments through consultation and consideration of consequences while focusing on user and business needs. You can develop or apply communication strategies to build relationships, using informal and formal channels to engage with stakeholders at all levels and resolving conflict where required.",
+          "level": "practitioner"
+        },
+        "9": {
+          "title": "Systems analysis",
+          "description": "You can lead the identification and analysis of IT system capabilities, developing models and system requirements. You can use systems analysis to support a deeper understanding of how processes and systems work, and to identify gaps. You can work with other digital professionals to design and develop system and user interfaces, identify gaps in functionality and assess the effect of proposed software changes on users or the organisation.",
+          "level": "practitioner"
+        },
+        "10": {
+          "title": "Testing (business analysis)",
+          "description": "You can advise on the approach to identify, investigate, analyse and communicate complex business problems and opportunities within a project or programme of work. You can inform tactical decision making and help to define longer-term strategic plans. You can recommend the approach to options analysis, feasibility assessment and operations, and can quantify potential business benefits. You can ensure the proposed solution aligns with business goals and objectives, and business and user needs, and achieves the required outcomes and expected benefits.",
+          "level": "practitioner"
+        },
+        "11": {
+          "title": "User experience analysis",
+          "description": "You can recommend the value of testing and apply the relevant tools and techniques to ensure test validity. You can advise on business scenarios and develop acceptance criteria to ensure requirements can be traced to develop functionality. You can review prototypes, test plans and test outcome reporting.",
+          "level": "practitioner"
+        },
+    }
+
+
+window.sessionStorage.setItem("ddatskills", JSON.stringify(businessAnalystDDaT));
+
+
+
+  </script>
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+  A senior business analyst has a good understanding of strategic arenas and leads large or complex projects.
+
+  At this role level, you will:
+
+  have functional or people management responsibilities, or a combination of both
+  mentor others
+  develop best practice
+  own stakeholder relationships
+  manage community of practice activities within a business area
+
+  Skills needed for this role level
