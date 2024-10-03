@@ -10,13 +10,13 @@
 
   {% block beforeContent %}
   
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
   }) }}
-
-
   {% endblock %}
+
   {% block content %}
 
 
@@ -93,15 +93,32 @@
     }
   </style>
 
+
   <form class="form" action="select-skills" method="post">
 
-
+    <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-3">What will you assess within each element at sift and interview?</h2>
+      <p class="govuk-body-l govuk-!-margin-bottom-6 govuk-!-margin-top-3">You have selected which elements are important to assess for this job role. You should now select what you will assess within each element at sift and interview.</p>
 
       <H1 style="padding-top:20px;padding-bottom:5px;border-bottom:1px solid #1d70b8; " class="govuk-heading-xl govuk-!-margin-top-3 govuk-!-margin-bottom-6">Strengths</H1>
 
       <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter" style="width:20%">
 
-        <div class="govuk-grid-column-full">
+          {% for items in data['selected'] %}
+          <ul class="govuk-!-margin-top-6 govuk-list govuk-list--bullet- ">
+
+            {% if items == "strengths" %}
+            <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items | capitalize }}</a></p></strong></li>
+            {% else %}
+            <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items | capitalize }}</a></p></strong></li>
+          </ul>
+
+
+          {% endif %}
+          {% endfor %}
+<a style="float:left;font-size:18px" class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/717274/CS_Strengths_2018.pdf">Strengths<BR> Dictionary</a>
+        </div>
+        <div class="govuk-grid-column-three-quarters">
 
 
           <div style="position:relative;width:45%;" class="govuk-form-group govuk-input--width-30 govuk-!-margin-top-6 govuk-!-margin-left-3">
@@ -159,7 +176,7 @@
 
 
           <div id="recom2" style="display:none;background:#F4FAFF;;border-left:5px solid #1d70b8;padding:10px">
-            <p class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>We recommend selecting 4-6 strengths in total.</strong><BR>They can be assessed at sift with the Work Strengths online test,<BR>and at interview with quick-response interview questions.</p>
+            <p class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>We recommend selecting 6-8 strengths in total.</strong><BR>They can be assessed at sift with the Work Strengths online test,<BR>and at interview with quick-response interview questions.</p>
 
 
           </div>
