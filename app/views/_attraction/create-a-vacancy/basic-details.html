@@ -610,10 +610,79 @@ name: "subtitle"
                       </div>
                     </details><br><br>
 
+                     {{ govukSelect({
+                  id: "uk-nat",
+                  name: "uk-nat",
+                  label: {
+                    text: "Reserved for UK nationals only",
+                    classes: "govuk-label--s"
+                  },
+                  items: [
+                  {
+                    value: "none",
+                    selected: "true",
+                    disabled: "true",
+                    text: "Select whether reserved or not"
+                  },
+                    {
+                    value: "no",
+                    text: "No"
+                    },
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    }
+                    ]
+                    }) }}
 
+                    <details class="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          About reserved posts
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+                      </div>
+                    </details><br><br>
 
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="sort" style="font-weight: bold;">
+                        Financial approval
+                      </label>
+                      <select id="approval" name="form_select" onchange="showDiv(this)" class="govuk-select">
+                        <option value="select" selected>Select whether this vacancy has been approved</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                     </select>
 
+                     <div id="hidden_div" style="display:none;">
+                      <div id="upload" class=" govuk-!-margin-top-9">
 
+                        <h2 class="govuk-heading-s">Upload the approval document</h2>
+                
+                        <p class="govuk-body-m">Please upload your proof of financial approval to recruit this role. You can do this anytime before you finish setting up your vacancy.</p>
+                
+                        {{ govukFileUpload({
+                          id: "file-upload-1",
+                          name: "file-upload-1",
+                          value: data['file-upload-1'],
+                          label: {
+                            text: "Upload a file"
+                          }
+                        }) }}
+                     </div>
+                    </div><br><br>
+
+                    <script type="text/javascript">
+                      function showDiv(select){
+                         if(select.value=='yes'){
+                          document.getElementById('hidden_div').style.display = "block";
+                         } else{
+                          document.getElementById('hidden_div').style.display = "none";
+                         }
+                      } 
+                      </script><br><br><br>
 
 
                     <label class="govuk-label govuk-label--s" for="event-name" >
