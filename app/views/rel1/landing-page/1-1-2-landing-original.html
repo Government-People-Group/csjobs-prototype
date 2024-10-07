@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+}) }}<br><br>
+
+<style>
+  .govuk-width-container {
+    max-width:1200px;
+  }
+
+  .column-width-40 {
+    width:40% !important;
+  }
+
+  :target{
+    background-color:#e5f5f0;
+  }
+
+</style>
+
+<div class="govuk-grid-row">
+  <h2 class="govuk-heading-l">1.1.2: Account management
+  </h2>
+  <br><br>
+
+  <div class="container">
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header column-width-40">Page</th>
+        <th scope="col" class="govuk-table__header" style="width:15%">Status</th>
+        <th scope="col" class="govuk-table__header" style="width:35%">Notes</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="/../_accounts/1-1-2/job-search" target="_blank" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Sign in / register</a><br>
+          <div class="govuk-form-group">
+           <div id="event-name-hint" class="govuk-hint">
+             FR-008: enter email<br>
+             FR-010: enter valid password<br>
+             FR-027: same email can be used for new account
+           </div>
+         </div>
+         </td>
+
+         <td class="govuk-table__cell filterDiv candidates show">
+          <strong class="govuk-tag govuk-tag--yellow">
+            More design / testing needed
+          </strong>
+         </td>
+         <td class="govuk-table__cell filterDiv candidates show">Journey: <strong>Search</strong>, then click <strong>Save this job</strong> on the first job in the list.<br><br>This design demonstrates an unregistered user saving a job, being taken to One Login to register, then returning to CS Jobs.<br><br>Note: One Login is a standalone service that we do not control.
+        </td>
+       </tr>
+       <tr class="govuk-table__row">
+         <td class="govuk-table__cell filterDiv vh show filterDiv vh show"><a href="/../_accounts/candidate-dashboard" target="_blank" class="govuk-link govuk-link--no-visited-state" style="font-size:1.2em">Candidate dashboard</a><br>
+           <div class="govuk-form-group">
+            <div id="event-name-hint" class="govuk-hint">
+              FR-014: amend personal details<br>
+              FR-016: notification of change of details<br>
+              FR-017: password change / reset<br>
+              FR-023: close account<br>
+              FR-024: account closing warning<br>
+            </div>
+          </div>
+          </td>
+          
+          <td class="govuk-table__cell filterDiv candidates show">
+            <strong class="govuk-tag govuk-tag--yellow">
+              More design / testing needed
+            </strong>
+          </td>
+          <td class="govuk-table__cell filterDiv candidates show">
+            None of the elements needed for these ACs have been designed / tested, except for displaying the 'personal details' mentioned in FR-014<br><br>Assumption that using One Login will affect FR-017 as this would be handled by One Login journey</td>
+        </tr>
+
+       </table>
+      </div>
+    </div>
+
+{% endblock %}

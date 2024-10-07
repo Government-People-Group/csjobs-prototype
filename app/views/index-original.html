@@ -180,27 +180,40 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       <div class="govuk-tabs__panel" id="rel1" style="background-color:#ffffff;">
         <h2 class="govuk-heading-xl" style="margin-bottom:10px">Release 1</h2>
 
-        <a class="govuk-link govuk-link--no-visited-state" href="https://docs.google.com/spreadsheets/d/1NaiHlHp8ivFVdBwopAZDcxa8MqOXOOqI97iLw5kPeOo/edit?gid=0#gid=0" target="_blank">See Acceptance Criteria spreadsheet</a><br><br><br>
+        <a class="govuk-link govuk-link--no-visited-state" href="https://docs.google.com/spreadsheets/d/1NaiHlHp8ivFVdBwopAZDcxa8MqOXOOqI97iLw5kPeOo/edit?gid=0#gid=0" target="_blank">See Acceptance Criteria spreadsheet</a><br><br><br><br><br>
 
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-quarter">
 
             <ul class="govuk-list">
               <li>
-                <a class="govuk-link govuk-link--no-visited-state" href="#vacancy-holder">Vacancy Holder</a>
+                <a class="govuk-link govuk-link--no-visited-state" href="# accounts"> Accounts</a>
               </li>
               <li>
-                <a class="govuk-link govuk-link--no-visited-state" href="#candidate">Candidate</a>
+                <a class="govuk-link govuk-link--no-visited-state" href="#administration">Administration</a>
               </li>
               <li>
-                <a class="govuk-link govuk-link--no-visited-state" href="#admins">System / dept admins</a>
+                <a class="govuk-link govuk-link--no-visited-state" href="#application">Application</a>
               </li>
               <li>
-                <a class="govuk-link govuk-link--no-visited-state" href="#analyst">Analyst</a>
+                <a class="govuk-link govuk-link--no-visited-state" href="#attraction">Attraction</a>
               </li>
             </ul>
           </div>
-          
+          <div class="govuk-grid-column-one-quarter">
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link govuk-link--no-visited-state" href="#audit">Audit</a>
+              </li>
+              <li>
+                <a class="govuk-link govuk-link--no-visited-state" href="#comms">Communications</a>
+              </li>
+              <li>
+                <a class="govuk-link govuk-link--no-visited-state" href="#support">Support</a>
+              </li>
+            </ul>
+          </div>
+
         </div><br>
 
         <form action="javascript:void();" onsubmit="if(this.t1.value!='')parent.findString(this.t1.value);return(false);">
@@ -215,8 +228,69 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
           </div>
         </form>
 
+        <br>
+
+
+
+        <div id="myBtnContainer">
+          <h2 class="govuk-heading-s">Filter the 'Who' column:</h2>
+          <button class="btn active" onclick="filterSelection('all')">Show all</button>
+          <button class="btn" onclick="filterSelection('vh')">Vacancy Holders</button>
+          <button class="btn" onclick="filterSelection('candidates')"> Candidates</button>
+          <button class="btn" onclick="filterSelection('recruiters')">Recruiters</button>
+          <button class="btn" onclick="filterSelection('admins')">System / Dept Admins</button>
+          <button class="btn" onclick="filterSelection('analysts')">Analyst</button>
+
+
+        </div><br><br>
+
+
         <script>
-                  var TRange=null;
+        filterSelection("all")
+        c = "all";
+        function filterSelection(c) {
+          var x, i;
+          x = document.getElementsByClassName("filterDiv");
+          if (c == "all") c = "";
+          for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+          }
+        }
+
+        function w3AddClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+          }
+        }
+
+        function w3RemoveClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+              arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+          }
+          element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+          });
+        }
+
+        var TRange=null;
 
 function findString (str) {
  if (parseInt(navigator.appVersion)<4) return;
@@ -253,24 +327,20 @@ function findString (str) {
  if (!strFound) alert ("String '"+str+"' not found!")
  return;
 }
+
         </script>
 
-        <br>
 
 
-
-     
-
-
-
-<!-- Vacancy Holder -->
+<!-- Step 1 - Vacancy is set up -->
 <div class="container">
   <table class="govuk-table">
-    <caption class="govuk-table__caption govuk-table__caption--m" id="vacancy-holder">Vacancy Holder</caption>
+    <caption class="govuk-table__caption govuk-table__caption--m" id=" accounts"> Accounts</caption>
    <thead class="govuk-table__head">
      <tr class="govuk-table__row">
      <th scope="col" class="govuk-table__header" style="width:5%">ID</th>
-       <th scope="col" class="govuk-table__header" style="width:30%">Activity</th>
+       <th scope="col" class="govuk-table__header" style="width:30%">Event</th>
+       <th scope="col" class="govuk-table__header" style="width:17%">Who</th>
        <th scope="col" class="govuk-table__header">ACs</th>
      </tr>
    </thead>
@@ -278,11 +348,18 @@ function findString (str) {
      <tr class="govuk-table__row">
        <td class="govuk-table__cell filterDiv vh show filterDiv recruiters show">1.1.1<br>
       </td>
-       <td class="govuk-table__cell filterDiv vh show filterDiv recruiters show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-1-1-landing">Account access (register / sign in)</a><br>
+       <td class="govuk-table__cell filterDiv vh show filterDiv recruiters show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-1-1-landing">Switching between roles</a><br>
       </td>
-      
+      <td class="govuk-table__cell filterDiv vh show filterDiv recruiters show">
+       <strong class="govuk-tag govuk-tag--green" style="margin-bottom:10px">
+         vacancy holder
+       </strong><br>
+       <strong class="govuk-tag govuk-tag--blue">
+         Recruiter
+       </strong>
+      </td>
        <td class="govuk-table__cell filterDiv vh show filterDiv recruiters show">
-           FR-364
+           FR-001
        </td>
      </tr>
      <tr class="govuk-table__row">
@@ -290,38 +367,259 @@ function findString (str) {
       </td>
       <td class="govuk-table__cell filterDiv candidates show filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-1-2-landing">Account management</a><br>
      </td>
+      <td class="govuk-table__cell filterDiv candidates show">
+       <strong class="govuk-tag govuk-tag--purple">
+         Candidate
+       </strong>
+      </td>
        <td class="govuk-table__cell filterDiv candidates show">
-           FR-001
+           FR-008, FR-010, FR-014, FR-016, FR-017, FR-023, FR-024,<br> FR-027
        </td>
      </tr>
      <tr class="govuk-table__row">
        <td class="govuk-table__cell filterDiv candidates show">1.1.3<br>
       </td>
-      <td class="govuk-table__cell filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="" >Account support</a><br>
+      <td class="govuk-table__cell filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-1-3-landing" >Internal candidate account management</a><br>
      </td>
-      
+      <td class="govuk-table__cell filterDiv candidates show">
+       <strong class="govuk-tag govuk-tag--purple">
+         Candidate
+       </strong>
+      </td>
        <td class="govuk-table__cell filterDiv candidates show">
-            
+           FR-009, FR-011, FR-012, FR-013, FR-028
        </td>
      </tr>
      <tr class="govuk-table__row">
        <td class="govuk-table__cell filterDiv vh show">1.1.4<br>
       </td>
-      <td class="govuk-table__cell filterDiv vh show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-1-4-landing">Create a vacancy</a><br>
+      <td class="govuk-table__cell filterDiv vh show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-1-4-landing">Advert management</a><br>
      </td>
-      
+      <td class="govuk-table__cell filterDiv vh show">
+       <strong class="govuk-tag govuk-tag--green">
+         Vacancy Holder
+       </strong>
+      </td>
        <td class="govuk-table__cell filterDiv vh show">
-           FR-007, FR-115, FR-120, FR-121, FR-137, FR-143, FR-145, FR-146, FR-149, FR-150, FR-151, FR-153, FR-156, FR-157, FR-160, FR-161
+           FR-038, FR-039, FR-042, FR-043
        </td>
      </tr>
      <tr class="govuk-table__row">
        <td class="govuk-table__cell filterDiv admins show">1.1.5<br>
       </td>
-      <td class="govuk-table__cell filterDiv admins show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-1-5-landing">Manage vacancies</a><br>
+      <td class="govuk-table__cell filterDiv admins show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-1-5-landing">Account management</a><br>
      </td>
-      
+      <td class="govuk-table__cell filterDiv admins show">
+       <strong class="govuk-tag govuk-tag--yellow">
+         Admin
+       </strong>
+      </td>
        <td class="govuk-table__cell filterDiv admins show">
-           FR-038, FR-039, FR-042, FR-043, FR-109, FR-165
+           FR-002, FR-005, FR-006
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+      <td class="govuk-table__cell filterDiv vh show">1.1.6<br>
+     </td>
+     <td class="govuk-table__cell filterDiv vh show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-1-6-landing">Account management</a><br>
+    </td>
+     <td class="govuk-table__cell filterDiv vh show">
+      <strong class="govuk-tag govuk-tag--green">
+        Vacancy Holder
+      </strong>
+     </td>
+      <td class="govuk-table__cell filterDiv vh show">
+          FR-364
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+<div class="container">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m" id="administration">Administration</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="width:5%">ID</th>
+        <th scope="col" class="govuk-table__header" style="width:30%">Event</th>
+        <th scope="col" class="govuk-table__header" style="width:17%">Who</th>
+        <th scope="col" class="govuk-table__header">ACs</th>
+      </tr>
+    </thead>
+   <tbody class="govuk-table__body">
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv admins show">1.2.1<br>
+      </td>
+      <td class="govuk-table__cell filterDiv admins show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-2-1-landing">Admin options</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv admins show">
+       <strong class="govuk-tag govuk-tag--yellow">
+         Admin
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv admins show">
+           FR-046, FR-047, FR-048, FR-049, FR-050, FR-051, FR-052, FR-054, FR-056, FR-057
+       </td>
+     </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+<div class="container">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m" id="application">Application</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="width:5%">ID</th>
+        <th scope="col" class="govuk-table__header" style="width:30%">Event</th>
+        <th scope="col" class="govuk-table__header" style="width:17%">Who</th>
+        <th scope="col" class="govuk-table__header">ACs</th>
+      </tr>
+    </thead>
+   <tbody class="govuk-table__body">
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv candidates show">1.3.1<br>
+      </td>
+      <td class="govuk-table__cell filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-3-1-landing">Welsh job ads and application content</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv candidates show">
+       <strong class="govuk-tag govuk-tag--purple">
+         Candidate
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv candidates show">
+           FR-064
+       </td>
+     </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+<div class="container">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m" id="attraction">Attraction</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="width:5%">ID</th>
+        <th scope="col" class="govuk-table__header" style="width:30%">Event</th>
+        <th scope="col" class="govuk-table__header" style="width:17%">Who</th>
+        <th scope="col" class="govuk-table__header">ACs</th>
+      </tr>
+    </thead>
+   <tbody class="govuk-table__body">
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv candidates show">1.4.1<br>
+      </td>
+      <td class="govuk-table__cell filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-4-1-landing">Search for a job</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv candidates show">
+       <strong class="govuk-tag govuk-tag--purple">
+         Candidate
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv candidates show">
+           FR-090, FR-091, FR-092, FR-093, FR-094, FR-095, FR-096, FR-097, FR-098, FR-099, FR-100, FR-101
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv vh show">1.4.2<br>
+      </td>
+      <td class="govuk-table__cell filterDiv Admvhin show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-4-2-landing">Marketing the advert</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv vh show">
+       <strong class="govuk-tag govuk-tag--green">
+         Vacancy Holder
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv vh show">
+           FR-109, FR-115, FR-120, FR-121
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv candidates show">1.4.3<br>
+      </td>
+      <td class="govuk-table__cell filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-4-3-landing">Marketing the advert</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv candidates show">
+       <strong class="govuk-tag govuk-tag--purple">
+         Candidate
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv candidates show">
+           FR-110, FR-111, FR-112, FR-114, FR-116, FR-117, FR-118, FR-119
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv vh show">1.4.4<br>
+      </td>
+      <td class="govuk-table__cell filterDiv vh show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-4-4-landing">Create a vacancy</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv vh show">
+       <strong class="govuk-tag govuk-tag--green">
+         Vacancy Holder
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv vh show">
+           FR-007, FR-137, FR-143, FR-145, FR-146, FR-149, FR-150, FR-151, FR-153, FR-154, FR-156, FR-157, FR-160, FR-161
+       </td>
+     </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<div class="container">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m" id="audit">Audit</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="width:5%">ID</th>
+        <th scope="col" class="govuk-table__header" style="width:30%">Event</th>
+        <th scope="col" class="govuk-table__header" style="width:17%">Who</th>
+        <th scope="col" class="govuk-table__header">ACs</th>
+      </tr>
+    </thead>
+   <tbody class="govuk-table__body">
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv vh show">1.5.1<br>
+      </td>
+      <td class="govuk-table__cell filterDiv vh show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-5-1-landing">View a closed job ad</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv vh show">
+       <strong class="govuk-tag govuk-tag--green">
+         Vacancy Holder
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv vh show">
+           FR-165
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv admins show">1.5.2<br>
+      </td>
+      <td class="govuk-table__cell filterDiv admins show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-5-2-landing">View a history of dept changes</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv admins show">
+       <strong class="govuk-tag govuk-tag--yellow">
+         Admin
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv admins show">
+           FR-166
        </td>
      </tr>
     </tbody>
@@ -333,16 +631,57 @@ function findString (str) {
 
 <div class="container">
   <table class="govuk-table">
-    <caption class="govuk-table__caption govuk-table__caption--m" id="candidate">Candidate</caption>
-   <thead class="govuk-table__head">
-     <tr class="govuk-table__row">
-     <th scope="col" class="govuk-table__header" style="width:5%">ID</th>
-       <th scope="col" class="govuk-table__header" style="width:30%">Activity</th>
-       <th scope="col" class="govuk-table__header">ACs</th>
-     </tr>
-   </thead>
+    <caption class="govuk-table__caption govuk-table__caption--m" id="comms">Communications</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="width:5%">ID</th>
+        <th scope="col" class="govuk-table__header" style="width:30%">Event</th>
+        <th scope="col" class="govuk-table__header" style="width:17%">Who</th>
+        <th scope="col" class="govuk-table__header">ACs</th>
+      </tr>
+    </thead>
    <tbody class="govuk-table__body">
-     <tr class="govuk-table__row">     
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv vh show">1.6.1<br>
+      </td>
+      <td class="govuk-table__cell filterDiv vh show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-6-1-landing">Vacancy is live notification</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv vh show">
+       <strong class="govuk-tag govuk-tag--green">
+         Vacancy Holder
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv vh show">
+           FR-173
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv candidates show">1.6.2<br>
+      </td>
+      <td class="govuk-table__cell filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-6-2-landing">Unsubscribe from job alerts</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv candidates show">
+       <strong class="govuk-tag govuk-tag--purple">
+         Candidate
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv candidates show">
+           FR-174, FR-175
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv candidates show">1.6.3<br>
+      </td>
+      <td class="govuk-table__cell filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-6-3-landing">Email alert if job changes (int/ext/x-gov)</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv candidates show">
+       <strong class="govuk-tag govuk-tag--purple">
+         Candidate
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv candidates show">
+           FR-176
+       </td>
      </tr>
     </tbody>
   </table>
@@ -351,46 +690,107 @@ function findString (str) {
 
 
 
-<!-- Vacancy Holder -->
+
+
 <div class="container">
   <table class="govuk-table">
-    <caption class="govuk-table__caption govuk-table__caption--m" id="admins">System / Dept admins</caption>
-   <thead class="govuk-table__head">
-     <tr class="govuk-table__row">
-     <th scope="col" class="govuk-table__header" style="width:5%">ID</th>
-       <th scope="col" class="govuk-table__header" style="width:30%">Activity</th>
-       <th scope="col" class="govuk-table__header">ACs</th>
-     </tr>
-   </thead>
+    <caption class="govuk-table__caption govuk-table__caption--m" id="support">Support</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="width:5%">ID</th>
+        <th scope="col" class="govuk-table__header" style="width:30%">Event</th>
+        <th scope="col" class="govuk-table__header" style="width:17%">Who</th>
+        <th scope="col" class="govuk-table__header">ACs</th>
+      </tr>
+    </thead>
    <tbody class="govuk-table__body">
      <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv candidates show">1.7.1<br>
+      </td>
+      <td class="govuk-table__cell filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-7-1-landing">Raise request for technical support</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv candidates show">
+       <strong class="govuk-tag govuk-tag--purple">
+         Candidate
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv candidates show">
+           FR-290, FR-291
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv analysts show">1.7.2<br>
+      </td>
+      <td class="govuk-table__cell filterDiv analysts show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-7-2-landing">Analytics</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv analysts show">
+       <strong class="govuk-tag govuk-tag--light-blue">
+         Analyst
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv analysts show">
+           FR-295, FR-298, FR-300, FR-301
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv analysts show">1.7.3<br>
+      </td>
+      <td class="govuk-table__cell filterDiv analysts show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-7-3-landing">Data management and auditing</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv analysts show">
+       <strong class="govuk-tag govuk-tag--light-blue">
+         Analyst
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv analysts show">
+           FR-302, FR-303, FR-304, FR-305, FR-307, FR-310, FR-311, FR-312, FR-313, FR-314, FR-315, FR-317, FR-318, FR-319, FR-320, FR-321, FR-322, FR-323, FR-324, FR-325, FR-326, FR-327
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv admins show">1.7.4<br>
+      </td>
+      <td class="govuk-table__cell filterDiv admins show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-7-4-landing">Data access</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv admins show">
+       <strong class="govuk-tag govuk-tag--yellow">
+         Admin
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv admins show">
+           FR-306, FR-309
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv candidates show">1.7.5<br>
+      </td>
+      <td class="govuk-table__cell filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-7-5-landing">Opt out of cookies</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv candidates show">
+       <strong class="govuk-tag govuk-tag--purple">
+         Candidate
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv candidates show">
+           FR-329
+       </td>
+     </tr>
+     <tr class="govuk-table__row">
+       <td class="govuk-table__cell filterDiv candidates show">1.7.6<br>
+      </td>
+      <td class="govuk-table__cell filterDiv candidates show"><a class="govuk-link govuk-link--no-visited-state" href="rel1/landing-page/1-7-6-landing">Request support throughout application</a><br>
+     </td>
+      <td class="govuk-table__cell filterDiv candidates show">
+       <strong class="govuk-tag govuk-tag--purple">
+         Candidate
+       </strong>
+      </td>
+       <td class="govuk-table__cell filterDiv candidates show">
+           FR-289
+       </td>
      </tr>
     </tbody>
   </table>
 </div>
-
-
-
-<!-- Vacancy Holder -->
-<div class="container">
-  <table class="govuk-table">
-    <caption class="govuk-table__caption govuk-table__caption--m" id="analyst">Analyst</caption>
-   <thead class="govuk-table__head">
-     <tr class="govuk-table__row">
-     <th scope="col" class="govuk-table__header" style="width:5%">ID</th>
-       <th scope="col" class="govuk-table__header" style="width:30%">Activity</th>
-       <th scope="col" class="govuk-table__header">ACs</th>
-     </tr>
-   </thead>
-   <tbody class="govuk-table__body">
-     <tr class="govuk-table__row">
-       
-     </tr>
-    </tbody>
-  </table>
-</div>
-
-
 </div>
 
 
