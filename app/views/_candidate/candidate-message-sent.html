@@ -1,0 +1,93 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include '../includes/header.html' %}
+  {% endblock %}
+
+{% block pageTitle %}
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+            Your message has been sent
+          </h3>
+          <p class="govuk-body">Someone from the Emergency Education Strategy team will contact you as soon as they can.</p>
+        </div>
+      </div>
+   
+      <h1 class="govuk-heading-l">Your message</h1>
+
+      
+      <dl class="govuk-summary-list" style="max-width:60%">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key" style="width:25%">Job title</dt>
+          <dd class="govuk-summary-list__value">Strategy Administrator</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Department</dt>
+          <dd class="govuk-summary-list__value">Department for Work and Pensions (DWP) </dd>     
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Job reference</dt>
+          <dd class="govuk-summary-list__value">377231</dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Your name</dt>
+          <dd class="govuk-summary-list__value">Lisa Smith</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> your name</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Your email</dt>
+          <dd class="govuk-summary-list__value">lisasmith@yahoo.com</dd>
+          <dd class="govuk-summary-list__actions"><a href="basic-details?edit1=true">Change<span class="govuk-visually-hidden"> your name</span></a></dd>
+        </div>
+      </dl>
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--s" for="more-detail">
+            Your message
+          </label>
+        </h1>
+        <p class="govuk-body" style="max-width:60%">Hi. I'm very interested in joining the Emergency Education Strategy team, but I'm not sure how I choose which office I want to be based in?</p>
+        <p class="govuk-body" style="max-width:60%">I would be grateful if someone could email me more details.</p>
+      </div>
+
+
+
+
+
+      <form action="../_vacancy-holder/job-ad" method="post" novalidate>
+      <input type="hidden" name="about-vacancy-complete" value="true">
+      <input type="hidden" name="show-banner" value="true">
+
+      
+       <button type="submit" class="govuk-button" 
+     data-module="govuk-button">Go back to the job ad</button>
+     
+    </form>
+    {% endblock %}
